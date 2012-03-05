@@ -10,6 +10,9 @@ var express = require('express')
 
 var app = module.exports = express.createServer();
 
+var helpers = require('express-helpers');
+helpers.all(app);
+
 // Configuration
 
 app.configure(function(){
