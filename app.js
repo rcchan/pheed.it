@@ -4,6 +4,7 @@
  */
 
 var ejs = require('ejs');
+var stylus = require('stylus');
  
 var express = require('express')
   , routes = require('./routes');
@@ -22,6 +23,10 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
+  app.use(stylus.middleware({
+    src: __dirname + '/stylesheets',
+    dest: __dirname + '/public'
+  }));  
   app.use(express.static(__dirname + '/public'));
 });
 
