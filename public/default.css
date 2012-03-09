@@ -1,22 +1,89 @@
+body {
+  background: #0096ff;
+}
+#topbar {
+  width: 100%;
+  height: 40px;
+/*
+  background rgb(50, 54, 255)
+  background -moz-linear-gradient(top, rgb(0, 150, 255) 0%, rgb(50, 54, 255) 100%)
+  background -webkit-gradient(linear, top, bottom, from(rgb(0, 150, 255)), to(rgb(50, 54, 255)))
+  */
+  background: #0096ff;
+  background: -moz-linear-gradient(top, #0096ff 0%, #3236ff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0096ff), color-stop(100%, #3236ff));
+  background: -webkit-linear-gradient(top, #0096ff 0%, #3236ff 100%);
+  background: -o-linear-gradient(top, #0096ff 0%, #3236ff 100%);
+  background: -ms-linear-gradient(top, #0096ff 0%, #3236ff 100%);
+  background: linear-gradient(top, #0096ff 0%, #3236ff 100%);
+  margin-bottom: 10px;
+}
 .container {
   width: 310px;
+  margin: 15px;
 }
 .container .topbar {
+  width: 310px;
+  height: 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 10px;
+  color: #fff;
+  font-size: 24px;
   background: #9bff7d;
 }
-.controls {
+.container .post {
+  width: 320px;
+  padding: 5px 10px 5px 0;
+  background: #fff;
+}
+.container .post .title {
+  width: 320px;
+  white-space: nowrap;
+}
+.container .post .title * {
+  white-space: normal;
+}
+.container .post .title .image {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  padding: 5px;
+}
+.container .post .title .image img {
+  max-width: 50px;
+  max-height: 50px;
+}
+.container .post .title .text {
+  display: inline-block;
+  width: 260px;
+  vertical-align: middle;
+  text-align: justify;
+  font-size: 20px;
+}
+.container .post .controls {
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px;
   font-size: 0;
 }
-.controls div {
+.container .post .controls div {
   padding: 3px 0;
 }
-.controls div div {
+.container .post .controls div div {
   display: inline-block;
   width: 25px;
   text-align: center;
 }
-.controls div div img {
+.container .post .controls div div img {
   max-width: 25px;
   max-height: 25px;
   margin: auto;
+}
+.container .post .text {
+  display: inline-block;
+  width: 260px;
+  vertical-align: top;
+  text-align: justify;
 }
