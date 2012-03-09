@@ -1,7 +1,7 @@
 body {
   background: #0096ff;
 }
-#topbar {
+.topbar {
   width: 100%;
   height: 40px;
 /*
@@ -18,70 +18,82 @@ body {
   background: linear-gradient(top, #0096ff 0%, #3236ff 100%);
   margin-bottom: 10px;
 }
-.container {
-  width: 310px;
-  margin: 15px;
+.topbar #topbar {
+  width: 1010px;
+  margin: auto;
+  color: #fff;
+  font-size: 30px;
 }
-.container .topbar {
+#content {
+  text-align: center;
+}
+#content .container {
+  display: inline-block;
+  width: 310px;
+  margin: 10px 20px;
+}
+#content .container .heading {
   width: 310px;
   height: 20px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   padding: 10px;
   color: #fff;
+  text-align: left;
   font-size: 24px;
   background: #9bff7d;
 }
-.container .post {
+#content .container .post {
   width: 320px;
-  padding: 5px 10px 5px 0;
+  padding: 5px 10px 10px 0;
   background: #fff;
+  border-bottom: 2px solid #ccc;
 }
-.container .post .title {
+#content .container .post .title {
   width: 320px;
   white-space: nowrap;
 }
-.container .post .title * {
+#content .container .post .title * {
   white-space: normal;
 }
-.container .post .title .image {
+#content .container .post .title .image {
   display: inline-block;
   width: 50px;
   height: 50px;
   vertical-align: middle;
   padding: 5px;
 }
-.container .post .title .image img {
+#content .container .post .title .image img {
   max-width: 50px;
   max-height: 50px;
 }
-.container .post .title .text {
+#content .container .post .title .text {
   display: inline-block;
   width: 260px;
   vertical-align: middle;
   text-align: justify;
   font-size: 20px;
 }
-.container .post .controls {
+#content .container .post .controls {
   display: inline-block;
   vertical-align: top;
   padding: 5px;
   font-size: 0;
 }
-.container .post .controls div {
+#content .container .post .controls div {
   padding: 3px 0;
 }
-.container .post .controls div div {
+#content .container .post .controls div div {
   display: inline-block;
   width: 25px;
   text-align: center;
 }
-.container .post .controls div div img {
+#content .container .post .controls div div img {
   max-width: 25px;
   max-height: 25px;
   margin: auto;
 }
-.container .post .text {
+#content .container .post .text {
   display: inline-block;
   width: 260px;
   vertical-align: top;
