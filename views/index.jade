@@ -1,6 +1,6 @@
 div(id='content')
   div(class='column')
-    !=partial('container', {title: 'phollowing', content: partial('posts', {num: 3})})
+    !=partial('container', {title: 'phollowing', content: partial('publisher') + partial('posts', {num: 3})})
     !=partial('container', {title: 'pheatured pheeds', content: partial('posts')})
     !=partial('container', {title: 'most liked', content: partial('posts')})
   div(class='column')
