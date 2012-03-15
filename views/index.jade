@@ -1,4 +1,4 @@
 div(id='content')
-  !=partial('container', {title: 'phollowing', content: 'TODO: update content to pull from here'})
-  !=partial('container', {title: '', content: 'TODO: update content to pull from here'})
-  !=partial('container', {title: '&#x25c4; top phood', content: 'TODO: update content to pull from here'})
+  !=partial('container', {title: 'phollowing', content: partial('posts')})
+  !=partial('container', {title: '', content: partial('posts')})
+  !=partial('container', {title: '&#x25c4; top phood', content: partial('posts')})
