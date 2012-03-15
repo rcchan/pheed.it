@@ -19,13 +19,13 @@ body
     margin auto
     color white
     font-size 30px
-  
+
 #content
   text-align center
   
   .column
     display inline-block
-    width 310px
+    width 330px
     margin 10px 20px
     vertical-align top
     
@@ -42,60 +42,67 @@ body
       text-align left
       font-size 24px
       background rgb(155, 255, 125)
+
+.post
+  width 320px
+  padding 5px 10px 10px 0
+  background white
+  border-bottom 2px solid #CCC
+  
+  .title
+    width 320px
+    white-space nowrap
     
-    .post
-      width 320px
-      padding 5px 10px 10px 0
-      background white
-      border-bottom 2px solid #CCC
+    *
+      white-space normal
       
-      .title
-        width 320px
-        white-space nowrap
+    .image
+      display inline-block
+      width 50px
+      height 50px
+      vertical-align middle
+      padding 5px
+      
+      img
+        max-width 50px
+        max-height 50px
         
-        *
-          white-space normal
-          
-        .image
-          display inline-block
-          width 50px
-          height 50px
-          vertical-align middle
-          padding 5px
-          
-          img
-            max-width 50px
-            max-height 50px
-            
-        .text
-          display inline-block
-          width 260px
-          vertical-align middle
-          text-align justify
-          font-size 18px
-          
-      .controls
+    .text
+      vertical-align middle
+      font-size 18px
+      
+  .controls
+    display inline-block
+    vertical-align top
+    padding 5px
+    font-size 0
+    
+    div
+      padding 3px 0
+      
+      div
         display inline-block
-        vertical-align top
-        padding 5px
-        font-size 0
+        width 25px
+        text-align center
         
-        div
-          padding 3px 0
+        img
+          max-width 25px
+          max-height 25px
+          margin auto
           
-          div
-            display inline-block
-            width 25px
-            text-align center
-            
-            img
-              max-width 25px
-              max-height 25px
-              margin: auto
-              
-      .text
-        display inline-block
-        width 260px
-        vertical-align top
-        text-align justify
-        font-size 14px
+  .text
+    display inline-block
+    width 260px
+    vertical-align top
+    text-align justify
+    font-size 14px
+
+.publisher
+  background white
+  padding 5px 15px
+  
+  > *
+    margin 5px 0
+  
+  div > input
+    width 296px
