@@ -16,6 +16,15 @@
   font-style italic
 @font-face
   font-family "Gotham Rounded"
+  src url(/GothamRnd-Book.otf)
+  font-weight 400
+@font-face
+  font-family "Gotham Rounded"
+  src url(/GothamRnd-BookItal.otf)
+  font-weight 400
+  font-style italic
+@font-face
+  font-family "Gotham Rounded"
   src url(/GothamRnd-Bold.otf)
   font-weight bold
 @font-face
@@ -24,6 +33,15 @@
   font-weight bold
   font-style italic
 
+bg-gradient(c1, c2)
+  background c1
+  background -moz-linear-gradient(top, c1 0%, c2 100%)
+  background -webkit-gradient(linear, left top, left bottom, color-stop(0%,c1), color-stop(100%,c2))
+  background -webkit-linear-gradient(top, c1 0%,c2 100%)
+  background -o-linear-gradient(top, c1 0%, c2 100%)
+  background -ms-linear-gradient(top, c1 0%, c2 100%)
+  background linear-gradient(top, c1 0%, c2 100%)
+  
 .bold
   font-weight bold
 
@@ -44,18 +62,13 @@ body
 
 .topbar
   height 40px
-  background rgb(0,150,255)
-  background -moz-linear-gradient(top, rgb(0,150,255) 0%, rgb(50,54,255) 100%)
-  background -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(0,150,255)), color-stop(100%,rgb(50,54,255)))
-  background -webkit-linear-gradient(top, rgb(0,150,255) 0%,rgb(50,54,255) 100%)
-  background -o-linear-gradient(top, rgb(0,150,255) 0%,rgb(50,54,255) 100%)
-  background -ms-linear-gradient(top, rgb(0,150,255) 0%,rgb(50,54,255) 100%)
-  background linear-gradient(top, rgb(0,150,255) 0%,rgb(50,54,255) 100%)
+  bg-gradient(rgb(0,150,255), rgb(50,54,255))
   margin-bottom 10px
   padding 0 40px
   
   #topbar
     max-width 1050px
+    height 100%
     margin auto
     color white
     font-family "Gotham Rounded"
@@ -75,6 +88,21 @@ body
       img
         vertical-align middle
         margin 0 4px
+        
+    .tabs
+      height 100%
+      font-size 16px
+      font-weight 400
+      display inline
+        
+      li
+        display inline-block
+        padding 10px 10px 0 10px
+        height 30px
+        vertical-align top
+        
+        &:hover
+          bg-gradient(rgb(30,180,255), rgb(80,84,255))
 
 #content
   text-align center
