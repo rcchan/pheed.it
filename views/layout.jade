@@ -7,5 +7,9 @@ html
   body
     div(class='topbar')
       div(id='topbar')
-        !=img_tag('images/logo_p.svg', '', {class:'logo_p'}) + 'hee' + img_tag('images/logo_d.svg') + '.it'
+        span(class='logo')
+          !=img_tag('images/logo_p.svg', '', {class:'logo_p'}) + 'hee' + img_tag('images/logo_d.svg', '', {class:'logo_d'}) + '.it'
+        span(class='buttons')
+          !=img_tag('images/add.svg', 'add', {class:'button'})
+          !=img_tag('images/i.svg', 'add', {class:'button'})
     !=body
