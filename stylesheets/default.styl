@@ -1,9 +1,48 @@
+@font-face
+  font-family "Gotham Rounded"
+  src url(/GothamRnd-Medium.otf)
+@font-face
+  font-family "Gotham Rounded"
+  src url(/GothamRnd-MedItal.otf)
+  font-style italic
+@font-face
+  font-family "Gotham Rounded"
+  src url(/GothamRnd-Light.otf)
+  font-weight 100
+@font-face
+  font-family "Gotham Rounded"
+  src url(/GothamRnd-LightItal.otf)
+  font-weight 100
+  font-style italic
+@font-face
+  font-family "Gotham Rounded"
+  src url(/GothamRnd-Bold.otf)
+  font-weight bold
+@font-face
+  font-family "Gotham Rounded"
+  src url(/GothamRnd-BoldItal.otf)
+  font-weight bold
+  font-style italic
+
+.bold
+  font-weight bold
+
+.lr
+  position relative
+  overflow hidden
+  > *:first-child
+    float left
+  > *:last-child
+    float right
+  
+.aleft
+  text-align left
+  
 body
   background rgb(0, 150, 255)
   font-family Helvetica
 
 .topbar
-  width 100%
   height 40px
   background rgb(0,150,255)
   background -moz-linear-gradient(top, rgb(0,150,255) 0%, rgb(50,54,255) 100%)
@@ -13,24 +52,29 @@ body
   background -ms-linear-gradient(top, rgb(0,150,255) 0%,rgb(50,54,255) 100%)
   background linear-gradient(top, rgb(0,150,255) 0%,rgb(50,54,255) 100%)
   margin-bottom 10px
+  padding 0 40px
   
   #topbar
-    width 1010px
+    max-width 1050px
     margin auto
     color white
-    font-size 30px
+    font-family "Gotham Rounded"
+    font-size 28px
+    font-weight bold
+    
+    .logo_p
+      position relative
+      top 10px
 
 #content
   text-align center
-  
-  .column
-    display inline-block
-    width 330px
-    margin 10px 20px
-    vertical-align top
+  margin 0 auto
+  max-width 1110px
     
   .container
-    margin-bottom 20px
+    display inline-block
+    vertical-align top
+    margin 10px 20px 20px 20px
     
     .heading
       width 310px
@@ -42,12 +86,23 @@ body
       text-align left
       font-size 24px
       background rgb(155, 255, 125)
+      
+    .footing
+      width 310px
+      height 0
+      border-bottom-left-radius 15px
+      border-bottom-right-radius 15px
+      padding 10px
+      background white
 
 .post
   width 320px
   padding 5px 10px 10px 0
   background white
   border-bottom 2px solid #CCC
+  
+  &:last-child
+    border-bottom none
   
   .title
     width 320px
@@ -100,9 +155,63 @@ body
 .publisher
   background white
   padding 5px 15px
+  color rgb(51, 204, 255)
+  border-bottom 2px solid #CCC
   
-  > *
+  div
     margin 5px 0
   
-  div > input
-    width 296px
+  .title
+    input
+      width 286px
+      font-size 20px
+      padding 3px 5px
+  
+  .button
+    display inline-block
+    width 54px
+    color white
+    font-family "Gotham Rounded"
+    font-size 18px
+    padding 5px 10px
+    background rgb(51, 204, 255)
+    border 1px solid #CCC
+    border-right none
+    margin-bottom 0
+    
+    &:last-child
+      width 53px
+      border-right 1px solid #CCC
+    
+    &:hover
+      background rgb(41, 171, 226)
+      cursor pointer
+  div > textarea
+    display block
+    width 288px
+    height 196px
+    border 1px solid #CCC
+    border-top none
+    padding 3px 5px
+    
+  label
+    margin 0 10px 0 5px
+    
+  .pheedit
+    width 100px
+    height 36px
+    position relative
+    
+    img
+      position absolute
+      top 0
+      left 0
+      width 100px
+      
+    span
+      position relative
+      color white
+      font-family "Gotham Rounded"
+      font-size 20px
+      font-weight bold
+      line-height 36px

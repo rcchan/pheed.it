@@ -6,5 +6,6 @@ html
     link(rel='stylesheet', href='/default.css')
   body
     div(class='topbar')
-      div(id='topbar') Pheed.it
+      div(id='topbar')
+        !=img_tag('images/logo_p.svg', '', {class:'logo_p'}) + 'hee' + img_tag('images/logo_d.svg') + '.it'
     !=body
