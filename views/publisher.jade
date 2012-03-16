@@ -1,21 +1,30 @@
 div(class='publisher')
-  div
+  div(class='title')
     input(name='title')
-  div Link Text
+  div(class='lr')
+    span(class='bold') Link Text
+    span 40
   div
     div(class='button') text
     div(class='button') photo
     div(class='button') audio
     div(class='button') video
-  div
     textarea(name='message')
-  div
-    span pheed.to
+  div(class='lr')
+    span(class='bold') pheed.to
     span 400
-  div
+  div(class='lr')
     div
-      input(name='pheedto',value='pheed.it user or email(s)')
-    div
-      input(type='checkbox')
-      private message
-  div pheed.it
+      div
+        input(name='pheedto',value='pheed.it user or email(s)')
+      div(class='lr')
+        span
+          input(type='checkbox', id='private')
+          label(for='private') private message
+        span
+          input(type='checkbox', id='location')
+          label(for='location')
+            !=img_tag('images/location.svg', 'location')
+    div(class='pheedit')
+      !=img_tag('images/pheedit.svg', 'pheed it!')
+      span pheed.it
