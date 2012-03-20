@@ -91,5 +91,11 @@ var PostSchema = new Schema({
 PostSchema.index({location: '2d'});
 Post = mongoose.model('Post', PostSchema);
 
+// Helpers
+
+htmlentities = function(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
