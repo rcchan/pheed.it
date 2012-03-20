@@ -41,8 +41,8 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index);
-app.post('/post', routes.post);
-app.get('/test', routes.test);
+app.get('/post', routes.post.get);
+app.post('/post', routes.post.post);
 
 //Database
 
