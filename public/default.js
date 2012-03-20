@@ -1,7 +1,7 @@
 function defaultText(e, text){
   $(e).focus(
       function(){
-        $(this).val('').removeClass('greyed');
+        if ($(this).val() == text) $(this).val('').removeClass('greyed');
       }
     ).blur(
       function(){
