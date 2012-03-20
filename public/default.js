@@ -28,11 +28,11 @@ $(window).load(
         var b = $(this).parents('.publisher');
         $.post('/post',
           {
-            title: $(b).children('.title').val(),
-            datatype: $(b).children('.buttons.selected').text(),
-            content: $(b).children('.message').val(),
-            recipient: $(b).children('.pheedto').val(),
-            private: $(b).children('#private').is(':checked'),
+            title: $(b).find('.title').val(),
+            datatype: $(b).find('.buttons.selected').text(),
+            content: $(b).find('.message').val(),
+            recipient: $(b).find('.pheedto').val(),
+            private: $(b).find('#private').is(':checked'),
             location: null
           },
           function(r){
