@@ -36,9 +36,13 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
+//app.use(express.bodyParser());
+
 // Routes
 
 app.get('/', routes.index);
+app.post('/post', routes.post);
+app.get('/test', routes.test);
 
 //Database
 
@@ -51,9 +55,9 @@ var LikeSchema = new Schema({
   liketype: {type: String, enum: ['like', 'dislike', 'favorite'], required: true, index: true},
   user: {type: Number, min: 1, required: true, index: true}
 });
-LikeSchema.index({liketype: 1, user: 1}, {unique: true});
+LikeSchema.index({liketype: 1, user: 1}, {unique: true, sparse: true});
 
-var PostFeedSchema = new Schema({
+var PostSchema = new Schema({
   item_id: ObjectId,
   author: {type: Number, min: 1, required: true, index: true},
   recipient: {
@@ -69,7 +73,7 @@ var PostFeedSchema = new Schema({
   title: {type: String, required: true, index: true},
   data: {
     type: {
-      datatype: {type: String, required: true, index: true},
+      datatype: {type: String, enum: ['text', 'photo', 'audio', 'video'], required: true, index: true},
       content: {required: true, index: true}
     },
     required: true,
@@ -84,8 +88,8 @@ var PostFeedSchema = new Schema({
   },
   likes: {type: [LikeSchema], index: true}
 });
-PostFeedSchema.index({location: '2d'});
-PostFeed = mongoose.model('PostFeed', PostFeedSchema);
+PostSchema.index({location: '2d'});
+Post = mongoose.model('Post', PostSchema);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
