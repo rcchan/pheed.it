@@ -40,5 +40,52 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 
+//Database
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/pheedit');
+
+var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
+var LikeSchema = new Schema({
+  item_id: ObjectId,
+  liketype: {type: String, enum: ['like', 'dislike', 'favorite'], required: true, index: true},
+  user: {type: Number, min: 1, required: true, index: true}
+});
+LikeSchema.index({liketype: 1, user: 1}, {unique: true});
+
+var PostFeedSchema = new Schema({
+  item_id: ObjectId,
+  author: {type: Number, min: 1, required: true, index: true},
+  recipient: {
+    type: [Number],
+    validate: function(v){
+      if (!v || !(v instanceof Array)) return false;
+      for (var i = 0; i < v.length; i++) if (!(v[i] instanceof Number) || v[i] < 1) return false;
+      return true;
+    },
+    index: true
+  },
+  time: {type: Date, default: Date.now, required: true, index: true},
+  title: {type: String, required: true, index: true},
+  data: {
+    type: {
+      datatype: {type: String, required: true, index: true},
+      content: {required: true, index: true}
+    },
+    required: true,
+    index: true
+  },
+  private: {type: Boolean, default: false, required: true, index: true},
+  location: {
+    type: {
+      longitude: {type: Number, required: true},
+      latitude: {type: Number, required: true}
+    }
+  },
+  likes: {type: [LikeSchema], index: true}
+});
+PostFeedSchema.index({location: '2d'});
+PostFeed = mongoose.model('PostFeed', PostFeedSchema);
+
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
