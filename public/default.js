@@ -12,6 +12,12 @@ function defaultText(e, text){
 
 $(window).load(
   function(){
+    $.get('/post',
+      function(r){
+        $('.posts').html(r);
+      }
+    );
+  
     defaultText('.publisher .title', 'Title your post here');
     defaultText('.publisher .message', 'Enter your text here');
     defaultText('.publisher .pheedto', 'pheed.it user or email(s)');
