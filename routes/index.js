@@ -12,7 +12,6 @@ exports.post = {
   get: function(req, res){
     Post.find({}).desc('time').exec(
       function(err, docs){
-        console.log(docs);
         res.partial('post', docs);
       }
     );
