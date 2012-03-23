@@ -12,9 +12,13 @@ function defaultText(e, text){
 
 $(window).load(
   function(){
-    $.get('/post',
-      function(r){
-        $('.posts').html(r);
+    $('.posts').each(
+      function(i ,e){
+        $.get('/post/' + $(e).data('max') || 1,
+          function(r){
+            $(e).html(r);
+          }
+        );
       }
     );
   

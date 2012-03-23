@@ -10,7 +10,7 @@ exports.index = function(req, res){
 exports.post = {
   // GET posts
   get: function(req, res){
-    Post.find({}).desc('time').exec(
+    Post.find({}).limit(req.param('max') || 1).desc('time').exec(
       function(err, docs){
         res.partial('post', docs);
       }
