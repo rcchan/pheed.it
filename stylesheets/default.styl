@@ -164,14 +164,17 @@ body
         max-width 50px
         max-height 50px
         
-    .text
+    .titletext
+      display inline-block
       vertical-align middle
       font-size 18px
+      text-align left
+      width 260px
       
   .controls
     display inline-block
     vertical-align top
-    padding 5px
+    padding 0 5px
     font-size 0
     
     div
@@ -190,9 +193,11 @@ body
   .text
     display inline-block
     width 260px
+    height 141px
     vertical-align top
     text-align left
     font-size 14px
+    overflow-y hidden
 
 .publisher
   background white
@@ -200,7 +205,7 @@ body
   color rgb(51, 204, 255)
   border-bottom 2px solid #CCC
   
-  div
+  div, span
     margin 5px 0
   
   .title
