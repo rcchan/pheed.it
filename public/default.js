@@ -30,6 +30,10 @@ $(window).load(
       function(){
         $(this).siblings('.publisher .button').removeClass('selected');
         $(this).addClass('selected');
+        
+        if ($(this).text() == 'text') $(this).siblings('.upload').slideUp();
+        else $(this).siblings('.upload').slideDown();
+          
       }
     );
     
