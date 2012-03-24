@@ -18,15 +18,16 @@ div(class='publisher')
   div(class='lr')
     div
       div
-        input(name='pheedto',class='pheedto greyed',value='pheed.it user or email(s)')
-      div(class='lr')
-        span
-          input(type='checkbox', id='private')
-          label(for='private') private message
-        span
-          input(type='checkbox', id='location')
-          label(for='location')
-            !=img_tag('images/location.svg', 'location')
-    div(class='pheedit')
-      !=img_tag('images/pheedit.svg', 'pheed it!')
-      span pheed.it
+        div
+          input(name='pheedto',class='pheedto greyed',value='pheed.it user or email(s)')
+        div(class='lr')
+          label
+            input(type='checkbox', id='private')
+            span private message
+          label
+            input(type='checkbox', id='location')
+            span
+              !=img_tag('images/location.svg', 'location')
+      div(class='pheedit')
+        !=img_tag('images/pheedit.svg', 'pheed it!')
+        span pheed.it
