@@ -4,7 +4,7 @@
  */
 
 var stylus = require('stylus');
- 
+
 var express = require('express')
   , routes = require('./routes');
 
@@ -24,7 +24,7 @@ app.configure(function(){
   app.use(stylus.middleware({
     src: __dirname + '/stylesheets',
     dest: __dirname + '/public'
-  }));  
+  }));
   app.use(express.static(__dirname + '/public'));
 });
 
