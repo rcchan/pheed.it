@@ -13,6 +13,11 @@ var app = module.exports = express.createServer();
 var helpers = require('express-helpers');
 helpers.all(app);
 
+fs = require('fs');
+dnode = require('dnode');
+nQuery = require('nodeQuery');
+jQuery = require('jquery');
+
 // Configuration
 
 app.configure(function(){
@@ -25,6 +30,7 @@ app.configure(function(){
     src: __dirname + '/stylesheets',
     dest: __dirname + '/public'
   }));
+  app.use(nQuery.middleware);
   app.use(express.static(__dirname + '/public'));
 });
 
@@ -37,6 +43,8 @@ app.configure('production', function(){
 });
 
 //app.use(express.bodyParser());
+
+dnode(nQuery.middleware).listen(app);
 
 // Routes
 
