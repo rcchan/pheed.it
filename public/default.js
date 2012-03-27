@@ -55,5 +55,34 @@ $(window).load(
         );
       }
     );
+
+    $('#poster').submit(
+      function() {
+        $(this).ajaxSubmit(
+          {
+            error: function(xhr) {
+              status('Error: ' + xhr.status);
+            },
+            success: function(response) {
+              //TODO: We will fill this in later
+            }
+          }
+        )
+        return false;
+      }
+    );
+    /*
+
+    // If we ever want to pre-upload the image
+
+    fileChecker = setInterval(
+      function(){
+        if($('#file').val() !== '') {
+          clearInterval(fileChecker);
+          $('#poster').submit();
+        }
+      },
+      500
+    );*/
   }
 );
