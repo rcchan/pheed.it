@@ -39,7 +39,8 @@ $(window).load(
 
     $('.publisher .pheedit').click(
       function(){
-        var b = $(this).parents('.publisher');
+        $('#poster').submit();
+        /*var b = $(this).parents('.publisher');
         $.post('/post',
           {
             title: $(b).find('.title').val(),
@@ -52,16 +53,17 @@ $(window).load(
           function(r){
             console.log(r);
           }
-        );
+        );*/
       }
     );
 
     $('#poster').submit(
       function() {
+        $(this).find('#datatype').val($(this).find('.publisher .button.selected').text())
         $(this).ajaxSubmit(
           {
             error: function(xhr) {
-              status('Error: ' + xhr.status);
+              alert('Error: ' + xhr.status);
             },
             success: function(response) {
               //TODO: We will fill this in later

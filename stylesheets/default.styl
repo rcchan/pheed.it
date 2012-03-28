@@ -170,7 +170,7 @@ body
       font-size 18px
       text-align left
       width 260px
-
+    
   .text
     display inline-block
     width 260px
@@ -179,6 +179,13 @@ body
     text-align left
     font-size 14px
     overflow-y hidden
+    
+    &.attachment
+      height 366px
+    
+    img
+      max-width 260px
+      max-height 183px
 
 .controls
   display inline-block
@@ -266,11 +273,12 @@ body
     height 36px
     position relative
 
-    img
+    input
       position absolute
       top 0
       left 0
       width 100px
+      border none
 
     span
       position relative

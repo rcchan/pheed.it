@@ -10,6 +10,7 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
       div(class='button') photo
       div(class='button') audio
       div(class='button') video
+      input(type='hidden',id='datatype',name='datatype')
       div(class='upload')
         input(type='file',id='file',name='file')
       textarea(name='message', class='message greyed') Enter your text here
@@ -29,5 +30,5 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
             span
               !=img_tag('images/location.svg', 'location')
       div(class='pheedit')
-        !=img_tag('images/pheedit.svg', 'pheed it!')
+        input(type='image',src='images/pheedit.svg')
         span pheed.it

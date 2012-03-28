@@ -5,5 +5,10 @@ div(class='post')
     div(class='titletext')
       !=post.title
   !=partial('controls')
-  div(class='text')
-    !=htmlentities(post.data.content)
+  - if (post.data.contenttype && post.data.datatype)
+    div(class='text attachment')
+      !=img_tag('/upload/' + post._id)
+      !=htmlentities(post.message)
+  - else
+    div(class='text')
+    !=htmlentities(post.message)

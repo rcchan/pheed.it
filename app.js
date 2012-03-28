@@ -51,6 +51,7 @@ dnode(nQuery.middleware).listen(app);
 app.get('/', routes.index);
 app.get('/post/:max', routes.post.get);
 app.post('/post', routes.post.post);
+//app.post('/post/image', routes.post.image.post);
 
 //Database
 
@@ -79,10 +80,11 @@ var PostSchema = new Schema({
   },
   time: {type: Date, default: Date.now, required: true, index: true},
   title: {type: String, required: true, index: true},
+  message: {type: String, required: true, index: true},
   data: {
     type: {
       datatype: {type: String, enum: ['text', 'photo', 'audio', 'video'], required: true, index: true},
-      content: {required: true, index: true}
+      contenttype: {type:String, required: true, index: true}
     },
     required: true,
     index: true
