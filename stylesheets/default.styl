@@ -60,11 +60,11 @@ bg-gradient(c1, c2)
   color #CCC
 
 body
+  min-width 330px
   background rgb(0, 150, 255)
   font-family Helvetica
 
 .topbar
-  height 40px
   bg-gradient(rgb(0,150,255), rgb(50,54,255))
   margin-bottom 10px
   padding 0 40px
@@ -78,6 +78,11 @@ body
     font-size 28px
     font-weight bold
 
+    > *
+      display inline-block
+      height 100%
+      vertical-align top
+    
     .logo
       margin-right 15px
 
@@ -93,10 +98,12 @@ body
         margin 0 4px
 
     .tabs
-      height 100%
       font-size 16px
       font-weight 400
-      display inline
+      white-space nowrap
+      
+      > *
+        white-space normal
 
       li
         display inline-block
