@@ -36,6 +36,7 @@ exports.post = {
     p.private = req.body.private || false;
     if (jQuery.isEmptyObject(req.files.file)) save();
     else {
+      if (!req.files.file.name.match(/\.(jpg|png|tif|gif|svg)$/i)) return res.end('Invalid type');
       fs.rename(req.files.file.path, __dirname + '/../public/upload/' + p._id,
         function(){
           p.data = {
