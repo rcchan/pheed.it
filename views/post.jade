@@ -7,8 +7,9 @@ div(class='post')
   !=partial('controls')
   - if (post.data.contenttype && post.data.datatype)
     div(class='text attachment')
-      div(class='image')
-        !=img_tag('/upload/' + post._id)
+      -if (post.data.datatype == 'photo')
+        div(class='image')
+          !=img_tag('/upload/' + post._id)
       div
         !=htmlentities(post.message)
   - else
