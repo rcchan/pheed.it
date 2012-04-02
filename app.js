@@ -17,6 +17,7 @@ fs = require('fs');
 dnode = require('dnode');
 nQuery = require('nodeQuery');
 jQuery = require('jquery');
+path = require('path');
 
 // Configuration
 
@@ -51,7 +52,7 @@ dnode(nQuery.middleware).listen(app);
 app.get('/', routes.index);
 app.get('/post/:max', routes.post.get);
 app.post('/post', routes.post.post);
-//app.post('/post/image', routes.post.image.post);
+app.get('/post/attachment/:id', routes.post.attachment);
 
 //Database
 

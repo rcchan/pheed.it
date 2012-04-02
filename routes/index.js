@@ -57,5 +57,31 @@ exports.post = {
         }
       );
     }
+  },
+  
+  attachment: function(req, res){
+    if (!req.param('id').match(/^[A-Za-z0-9]+$/)){
+      res.writeHead(404);
+      res.end("Invalid!");
+      return;
+    }
+    //res.contentType(req.param('mime'));
+    //console.log(req.param('mime'));
+    //res.sendfile(path.normalize(__dirname + '/../public/upload/' + req.param('id')));
+    var filename = path.normalize(__dirname + '/../public/upload/' + req.param('id'));
+    path.exists(filename, function(exists) {
+        if(!exists) {
+            console.log("not exists: " + filename);
+            res.writeHead(404, {'Content-Type': 'text/plain'});
+            res.write('404 Not Found');
+            res.end();
+            return;
+        }
+        res.writeHead(200, req.param('mime'));
+        //res.send();
+        var fileStream = fs.createReadStream(filename);
+        fileStream.pipe(res);
+
+    })
   }
 };
