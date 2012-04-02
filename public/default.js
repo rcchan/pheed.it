@@ -16,7 +16,48 @@ $(window).load(
       function(i ,e){
         $.get('/post/' + $(e).data('max') || 1,
           function(r){
-            $(e).html(r);
+            var dom = $(r);
+            $(e).append(r);
+            $(dom).find(".jp-jplayer").each(
+              function(){
+              
+                var type = $(this).data('type');
+                var ext = '';
+                switch(type){
+                  case 'audio/ogg':
+                    ext = 'oga';
+                    break;
+                  case 'audio/mp3':
+                  case 'audio/mpeg3':
+                  case 'audio/x-mpeg-3':
+                    ext = 'mp3';
+                    break;
+                  case 'audio/m4a':
+                  case 'audio/mp4':
+                  case 'audio/mp4a-latm':
+                    ext = 'm4a';
+                    break;
+                  default:
+                    alert(type);
+                }
+                
+                $(this).jPlayer(
+                  {
+                    cssSelectorAncestor: '#jp_container_' + $(this).data('player_id'),
+                    ready: function () {
+                      var media = {};
+                      media[ext] = '/post/attachment/' + $(this).data('post_id') + '?mime=' + type;
+                      $(this).jPlayer("setMedia", media/*{
+                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+                      }*/);
+                    },
+                    swfPath: "/jplayer",
+                    supplied: ext/*"m4a, oga"*/
+                  }
+                );
+              }
+            );
           }
         );
       }
