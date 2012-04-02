@@ -12,7 +12,8 @@ exports.post = {
   get: function(req, res){
     Post.find({}).limit(req.param('max') || 1).desc('time').exec(
       function(err, docs){
-        res.partial('post', docs);
+        var embed_index = 0;
+        res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
       }
     );
   },
@@ -27,7 +28,7 @@ exports.post = {
           }
         );
       }
-    }
+    };
     
     p = new Post();
     p.author = 1;

@@ -5,13 +5,18 @@ div(class='post')
     div(class='titletext')
       !=post.title
   !=partial('controls')
-  - if (post.data.contenttype && post.data.datatype)
+  - if (post.data.contenttype && post.data.datatype != 'audio')
     div(class='text attachment')
       -if (post.data.datatype == 'photo')
         div(class='image')
-          !=img_tag('/upload/' + post._id)
+          !=img_tag('/post/attachment/' + post._id + '?mime=' + post.data.contenttype)
       div
         !=htmlentities(post.message)
   - else
     div(class='text')
-    !=htmlentities(post.message)
+      -if (post.data.datatype == 'audio')
+        div(class='audio')
+          !=partial('player.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype})
+          !=htmlentities(post.message)
+      -else
+        !=htmlentities(post.message)
