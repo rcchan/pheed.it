@@ -1,3 +1,6 @@
+// Constants
+CDN_HOST = '192.168.12.5';
+
 
 /**
  * Module dependencies.

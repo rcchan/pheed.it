@@ -1,3 +1,6 @@
+// Constants
+CDN_HOST = '192.168.12.5';
+
 function defaultText(e, text){
   $(e).focus(
       function(){
@@ -46,14 +49,12 @@ $(window).load(
                     cssSelectorAncestor: '#jp_container_' + $(this).data('player_id'),
                     ready: function () {
                       var media = {};
-                      media[ext] = '/post/attachment/' + $(this).data('post_id') + '?mime=' + type;
-                      $(this).jPlayer("setMedia", media/*{
-                        m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-                        oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-                      }*/);
+                      //media[ext] = '/post/attachment/' + $(this).data('post_id') + '?mime=' + type;
+                      media[ext] = '//' + CDN_HOST + '/' + $(this).data('post_id');
+                      $(this).jPlayer("setMedia", media);
                     },
                     swfPath: "/jplayer",
-                    supplied: ext/*"m4a, oga"*/
+                    supplied: ext
                   }
                 );
               }
