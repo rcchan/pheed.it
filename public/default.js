@@ -15,15 +15,17 @@ function defaultText(e, text){
 
 $(window).load(
   function(){
+    var EMBED_INDEX = 0
     $('.posts').each(
       function(i ,e){
         $.get('/post/' + $(e).data('max') || 1,
           function(r){
             var dom = $(r);
             $(e).append(r);
-            $(dom).find(".jp-jplayer").each(
+            $(e).find(".jp-jplayer").each(
               function(){
-              
+                $(this).attr('id', 'jquery_jplayer_' + EMBED_INDEX);
+                $(this).next('.jp-audio').add($(this).parents('.jp-video')).attr('id', 'jp_container_' + EMBED_INDEX);
                 var type = $(this).data('type');
                 var ext = '';
                 switch(type){
@@ -44,9 +46,9 @@ $(window).load(
                     alert(type);
                 }
                 
-                $(this).jPlayer(
+                var player = $(this).jPlayer(
                   {
-                    cssSelectorAncestor: '#jp_container_' + $(this).data('player_id'),
+                    cssSelectorAncestor: '#jp_container_' + EMBED_INDEX,
                     ready: function () {
                       var media = {};
                       //media[ext] = '/post/attachment/' + $(this).data('post_id') + '?mime=' + type;
@@ -57,6 +59,7 @@ $(window).load(
                     supplied: ext
                   }
                 );
+                EMBED_INDEX++;
               }
             );
           }

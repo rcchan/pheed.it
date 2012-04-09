@@ -10,9 +10,9 @@ exports.index = function(req, res){
 exports.post = {
   // GET posts
   get: function(req, res){
+    var embed_index = 0;
     Post.find({}).limit(req.param('max') || 1).desc('time').exec(
       function(err, docs){
-        var embed_index = 0;
         res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
       }
     );
