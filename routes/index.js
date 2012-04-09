@@ -38,14 +38,12 @@ exports.post = {
     if (jQuery.isEmptyObject(req.files.file)) save();
     else {
     
-      /*var types = {
+      var types = {
         photo: /\.(jpg|png|tif|gif|svg)$/i,
         audio: /\.(wav|mp3|ogg)$/i,
-        video: /\.(mp4,avi,flv)$/i
+        video: /\.(m4v,flv)$/i
       };
-      console.log(types[req.body.datatype]);
-      console.log(req.files.file.name);
-      if (!req.files.file.name.match(types[req.body.datatype])) return res.end('Invalid type');*/
+      if (!req.files.file.name.match(types[req.body.datatype])) return res.end('Invalid type');
       
       fs.rename(req.files.file.path, __dirname + '/../public/upload/' + p._id,
         function(){

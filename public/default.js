@@ -42,6 +42,10 @@ $(window).load(
                   case 'audio/mp4a-latm':
                     ext = 'm4a';
                     break;
+                  case 'video/mp4':
+                  case 'video/m4v':
+                    ext = 'm4v';
+                    break;
                   default:
                     alert(type);
                 }
