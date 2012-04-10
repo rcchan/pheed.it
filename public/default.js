@@ -13,6 +13,10 @@ function defaultText(e, text){
     );
 }
 
+$(':empty').not('.selectable').disableSelection();
+//$('*').disableSelection();
+//$('.selectable').enableSelection().parents().enableSelection();
+
 $(window).load(
   function(){
     var EMBED_INDEX = 0
@@ -20,8 +24,11 @@ $(window).load(
       function(i ,e){
         $.get('/post/' + $(e).data('max') || 1,
           function(r){
-            var dom = $(r);
+            $(':empty').not('.selectable').enableSelection();
             $(e).append(r);
+            //$(e).find('*').disableSelection();
+            //$(e).find('.selectable').enableSelection().parents().enableSelection();
+            $(':empty').not('.selectable').disableSelection();
             $(e).find(".jp-jplayer").each(
               function(){
                 $(this).attr('id', 'jquery_jplayer_' + EMBED_INDEX);
