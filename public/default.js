@@ -130,8 +130,9 @@ $(window).load(
             error: function(xhr) {
               alert('Error: ' + xhr.status);
             },
-            success: function(response) {
+            success: function(r) {
               //TODO: We will fill this in later
+              if (r.response == null) document.location.reload();
             }
           }
         )
