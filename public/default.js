@@ -70,6 +70,14 @@ $(window).load(
                     supplied: ext
                   }
                 );
+                
+              $(this).dblclick(
+                function(){
+                  if($(player).data('jPlayer').options.fullScreen) $(player).data('jPlayer').restoreScreen();
+                  else $(player).data('jPlayer').fullScreen();
+                }
+              );
+                
                 EMBED_INDEX++;
               }
             );
