@@ -117,6 +117,9 @@ body
 
         &:hover
           bg-gradient(rgb(30,180,255), rgb(80,84,255))
+          
+        &.selected
+          bg-gradient(rgb(0,121,207), rgb(18,21,255))
 
 #content
   text-align center
@@ -133,11 +136,14 @@ body
       height 20px
       border-top-left-radius 15px
       border-top-right-radius 15px
-      padding 10px
+      padding 7px 10px 13px 10px
       color white
       text-align left
+      font-family "Gotham Rounded"
       font-size 24px
-      bg-gradient(rgb(177, 255, 153), rgb(138, 255, 102))
+      font-weight bold
+      //bg-gradient(rgb(177, 255, 153), rgb(138, 255, 102))
+      background url(images/container-heading-bg.png) repeat
 
     .footing
       width 310px
@@ -145,12 +151,12 @@ body
       border-bottom-left-radius 15px
       border-bottom-right-radius 15px
       padding 10px
-      background white
+      background url(images/post-bg.png) repeat
 
 .post
   width 320px
   padding 5px 10px 10px 0
-  background white
+  background url(images/post-bg.png) repeat
   border-bottom 2px solid #CCC
 
   &:last-child
@@ -229,12 +235,15 @@ body
         font-weight 400
 
 .publisher
-  height 508px
-  background white
+  /*height 508px*/
+  background url(images/publisher-bg.png) repeat
   padding 5px 15px
   color rgb(51, 204, 255)
-  border-bottom 2px solid #CCC
+  /*border-bottom 2px solid #CCC*/
 
+  input, textarea
+    opacity .6
+  
   div, span
     margin 5px 0
 
@@ -245,22 +254,25 @@ body
 
   .button
     display inline-block
-    width 54px
+    width 50px
     color white
     font-family "Gotham Rounded"
-    font-size 18px
-    padding 5px 10px
-    background rgb(51, 204, 255)
-    border 1px solid #CCC
-    border-right none
+    font-size 14px
+    padding 5px 0px
+    //background rgb(51, 204, 255)
+    bg-gradient(rgb(30,180,255), rgb(80,84,255))
+    //border 1px solid #CCC
+    //border-right none
     margin-bottom 0
+    text-align center
 
     &:last-child
       width 53px
-      border-right 1px solid #CCC
+      //border-right 1px solid #CCC
 
     &.selected,&:hover
-      background rgb(41, 171, 226)
+      //background rgb(41, 171, 226)
+      bg-gradient(rgb(0,150,255), rgb(50,54,255))
       cursor pointer
 
   .upload
