@@ -66,6 +66,7 @@ $(window).load(
                       media[ext] = '//' + CDN_HOST + '/' + $(this).data('post_id');
                       $(this).jPlayer("setMedia", media);
                     },
+                    size: $(this).next('.jp-audio').size()?{}:{width: '260px', height: '146px'},
                     swfPath: "/jplayer",
                     supplied: ext
                   }
