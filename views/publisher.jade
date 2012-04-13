@@ -14,6 +14,8 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
       div(class='button') event
       input(type='hidden',id='datatype',name='datatype')
       div(class='upload')
+        div
+          input(class='embed greyed', value='Enter embed URL')
         input(type='file',id='file',name='file')
       textarea(name='message', class='message greyed') Enter your text here
     div(class='lr')
