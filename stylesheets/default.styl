@@ -58,6 +58,7 @@ bg-gradient(c1, c2)
 
 .greyed
   color #CCC
+  font-size smaller
 
 body
   min-width 330px
@@ -190,23 +191,25 @@ body
   .text
     display inline-block
     width 260px
-    height 183px
+    /*height 183px*/
     vertical-align top
     text-align left
     font-size 14px
-    overflow-y hidden
+    /*overflow-y hidden*/
     
-    &.attachment
-      height 366px
+    /*&.attachment
+      height 366px*/
     
     .image
       text-align center
+      max-height 168px
+      overflow-y hidden
+      /*border 2px solid rgb(41, 171, 226)*/
+      margin 5px 0 10px 0
     
       img
-        max-width 260px
-        max-height 168px
-        border 2px solid rgb(41, 171, 226)
-        margin 5px 0 10px 0
+        max-width 100%
+        /*max-height 168px*/
 
 .controls
   display inline-block
