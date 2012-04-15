@@ -16,7 +16,7 @@ div(class='post')
     div(class='text')
       -if (post.data.datatype == 'audio')
         div(class='audio')
-          !=partial('player.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype})
+          !=partial('player_audio.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype})
           !=htmlentities(post.message)
       -else
         !=htmlentities(post.message)
