@@ -23,16 +23,15 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
       span 400
     div(class='lr')
       div
-        div
-          input(name='pheedto',class='pheedto greyed',value='user, pheeder, email, cell')
-        div(class='lr')
-          label
-            input(type='checkbox', id='private')
-            span private message
-          label
-            input(type='checkbox', id='location')
-            span
-              !=img_tag('images/location.svg', 'location')
+        input(name='pheedto',class='pheedto greyed',value='user, pheeder, email, cell')
       div(class='pheedit')
         input(type='image',src='images/pheedit.svg')
         span pheed.it
+    div(class='lr')
+      label
+        input(type='checkbox', id='private')
+        span private message
+      label
+        input(type='checkbox', id='location')
+        span
+          !=img_tag('images/location.svg', 'location')

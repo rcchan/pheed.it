@@ -58,7 +58,7 @@ bg-gradient(c1, c2)
 
 .greyed
   color #CCC
-  font-size smaller
+  font-size .8em
 
 body
   min-width 330px
@@ -247,10 +247,10 @@ body
   color rgb(51, 204, 255)
   /*border-bottom 2px solid #CCC*/
 
-  input, textarea
+  input.title, textarea.message, input.pheedto
     opacity .6
   
-  div, span
+  > div, > span
     margin 5px 0
 
   .title
@@ -297,6 +297,11 @@ body
     border 1px solid #CCC
     border-top none
     padding 3px 5px
+    
+  .pheedto
+    width 186px
+    height 32px
+    padding 0 3px
 
   label span
     margin 0 10px 0 5px
