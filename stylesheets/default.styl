@@ -132,9 +132,11 @@ body
     display inline-block
     vertical-align top
     margin 10px 20px 20px 20px
+    
+    > div
+      box-shadow 0 0 30px 0px #666
 
     .heading
-      position relative
       width 310px
       height 20px
       border-top-left-radius 15px
@@ -147,7 +149,7 @@ body
       font-weight bold
       //bg-gradient(rgb(177, 255, 153), rgb(138, 255, 102))
       background url(images/container-heading-bg.png) repeat
-      box-shadow 0 5px 10px #666
+      
 
     .footing
       width 310px
@@ -158,10 +160,12 @@ body
       background url(images/post-bg.png) repeat
 
 .post
+  position relative
   width 320px
   padding 5px 10px 10px 0
   background url(images/post-bg.png) repeat
-  border-bottom 2px solid #CCC
+  box-shadow 0 8px 15px -8px #666 inset
+  //margin-bottom 5px
 
   &:last-child
     border-bottom none
@@ -246,6 +250,7 @@ body
   padding 5px 15px
   color rgb(51, 204, 255)
   /*border-bottom 2px solid #CCC*/
+  box-shadow 0 8px 15px -8px #666 inset
 
   input.title, textarea.message, input.pheedto
     opacity .6
@@ -308,7 +313,7 @@ body
 
   .pheedit
     width 100px
-    height 36px
+    height 45px
     position relative
 
     input
@@ -317,6 +322,7 @@ body
       left 0
       width 100px
       border none
+      box-shadow 0 3px 15px -3px #666
 
     span
       position relative
