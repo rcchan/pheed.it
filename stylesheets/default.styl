@@ -1,3 +1,5 @@
+shadow-color = rgba(102, 102, 102, .6)
+
 @font-face
   font-family "Gotham Rounded"
   src url(/GothamRnd-Medium.otf)
@@ -70,7 +72,7 @@ body
   bg-gradient(rgb(0,150,255), rgb(50,54,255))
   margin-bottom 10px
   padding 0 40px
-  box-shadow 0 5px 20px 5px #666
+  box-shadow 0 5px 20px 5px shadow-color
 
   #topbar
     max-width 1050px
@@ -134,7 +136,7 @@ body
     margin 10px 20px 20px 20px
     
     > div
-      box-shadow 0 0 30px 0px #666
+      box-shadow 0 0 30px 0px shadow-color
 
     .heading
       width 310px
@@ -164,7 +166,7 @@ body
   width 320px
   padding 5px 10px 10px 0
   background url(images/post-bg.png) repeat
-  box-shadow 0 8px 15px -8px #666 inset
+  box-shadow 0 8px 15px -8px shadow-color inset
   //margin-bottom 5px
 
   &:last-child
@@ -248,7 +250,7 @@ body
   padding 5px 15px
   color rgb(51, 204, 255)
   /*border-bottom 2px solid #CCC*/
-  box-shadow 0 8px 15px -8px #666 inset
+  box-shadow 0 8px 15px -8px shadow-color inset
 
   input.title, textarea.message, input.pheedto
     opacity .6
@@ -320,7 +322,7 @@ body
       left 0
       width 100px
       border none
-      box-shadow 0 3px 15px -3px #666
+      box-shadow 0 3px 15px -3px shadow-color
 
     span
       position relative
