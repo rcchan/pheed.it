@@ -136,7 +136,16 @@ $(window).load(
 
     $('#poster').submit(
       function() {
+        if ($(this).find('.title').hasClass('greyed')){
+          $(this).find('.title').focus();
+          return false;
+        }
+        if ($(this).find('.message').hasClass('greyed') && !($(this).find('#file').val() && $(this).find('.publisher .button.selected').text() != 'text')){
+          $(this).find('.message').focus();
+          return false;
+        }
         $(this).find('#datatype').val($(this).find('.publisher .button.selected').text())
+        if (!$(this).find('#file').val()) $(this).find('#datatype').val('text');
         $(this).ajaxSubmit(
           {
             error: function(xhr) {
