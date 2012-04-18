@@ -122,6 +122,17 @@ $(window).load(
         );*/
       }
     );
+    
+    $('#file').change(
+      function(){
+        var f = $(this).val();
+        if (f){
+          f = f.substring(f.lastIndexOf('\\')+1);
+          f = f.substring(f.lastIndexOf('/')+1);
+          $(this).siblings('.addfile').text(f);
+        } else $(this).siblings('.addfile').text('Add file...');
+      }
+    );
 
     $('#poster').submit(
       function() {
