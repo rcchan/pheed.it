@@ -307,7 +307,7 @@ body
       height 30px
       margin 5px 0
       line-height 30px
-      bg-gradient(rgb(98, 196, 98), rgb(81, 163, 81))
+      bg-gradient(hsl(120, 45, 68), hsl(120, 34, 58))
       border-bottom-color: rgba(0, 0, 0, 0.246094);
       box-shadow rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.046875) 0px 1px 2px 0px;
       border-bottom-color: rgba(0, 0, 0, 0.246094);
@@ -328,6 +328,9 @@ body
       border-top-width: 1px;
       color: rgb(255, 255, 255);
       text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 0px;
+      
+      &.loaded
+        bg-gradient(hsl(120, 45, 58), hsl(120, 34, 48))
       
   .message
     display block

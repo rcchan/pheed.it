@@ -123,6 +123,28 @@ $(window).load(
       }
     );
     
+    if ($('#file')){
+      $(document).bind('dragover',
+        function(){
+          $('.addfile').addClass('loaded');
+        }
+      );
+    }
+    
+    if ($('#file')){
+      $(document).bind('dragleave',
+        function(){
+          if (!$('#file').val()) $('.addfile').removeClass('loaded');
+        }
+      );
+    }
+    
+    $(document).bind('drop',
+      function(){
+        return false;
+      }
+    );
+    
     $('#file').change(
       function(){
         var f = $(this).val();
