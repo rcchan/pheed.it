@@ -99,7 +99,6 @@ $(window).load(
 
         if ($(this).text() == 'text') $(this).siblings('.upload').slideUp();
         else $(this).siblings('.upload').slideDown();
-
       }
     );
 
@@ -127,6 +126,7 @@ $(window).load(
       $(document).bind('dragover',
         function(){
           $('.addfile').addClass('loaded');
+          return false;
         }
       );
     }
@@ -141,7 +141,16 @@ $(window).load(
     
     $(document).bind('drop',
       function(){
+        if (!$('#file').val()) $('.addfile').removeClass('loaded');
         return false;
+      }
+    );
+    
+    $('#file').bind('dragover',
+      function(e){
+        $('.addfile').addClass('loaded');
+        e.stopPropagation();
+        return true;
       }
     );
     
