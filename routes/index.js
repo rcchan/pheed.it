@@ -41,9 +41,9 @@ exports.post = {
       var types = {
         photo: /\.(jpg|png|tif|gif|svg)$/i,
         audio: /\.(wav|mp3|ogg)$/i,
-        video: /\.(m4v,flv)$/i
+        video: /\.(m4v|flv|mp4)$/i
       };
-      if (!req.files.file.name.match(types[req.body.datatype])) return res.end('Invalid type');
+      if (!req.files.file.name.match(types[req.body.datatype])) return res.end('{"response": "Invalid type"}');
       
       fs.rename(req.files.file.path, __dirname + '/../public/upload/' + p._id,
         function(){
