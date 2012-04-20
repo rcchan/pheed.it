@@ -99,6 +99,10 @@ $(window).load(
 
         if ($(this).text() == 'text') $(this).siblings('.upload').slideUp();
         else $(this).siblings('.upload').slideDown();
+        
+        var e = $(this).siblings('.upload').find('#file');
+        var e = $(e).clone(true, true).replaceAll(e);
+        $(e).change();        
       }
     );
 
