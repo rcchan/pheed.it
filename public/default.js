@@ -187,8 +187,8 @@ $(window).load(
               alert('Error: ' + xhr.status);
             },
             success: function(r) {
-              //TODO: We will fill this in later
-              if (r.response == null) document.location.reload();
+              if (r && r.response === null) document.location.reload();
+              else alert(r.response);
             }
           }
         )
