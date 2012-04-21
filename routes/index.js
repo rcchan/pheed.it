@@ -75,7 +75,8 @@ exports.post = {
             res.end();
             return;
         }
-        res.writeHead(200, req.param('mime'));
+        res.contentType(req.param('mime'));
+        res.writeHead(200);
         //res.send();
         var fileStream = fs.createReadStream(filename);
         fileStream.pipe(res);
