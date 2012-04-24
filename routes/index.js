@@ -63,9 +63,6 @@ exports.post = {
       res.end("Invalid!");
       return;
     }
-    //res.contentType(req.param('mime'));
-    //console.log(req.param('mime'));
-    //res.sendfile(path.normalize(__dirname + '/../public/upload/' + req.param('id')));
     var filename = path.normalize(__dirname + '/../public/upload/' + req.param('id'));
     path.exists(filename, function(exists) {
         if(!exists) {
@@ -77,7 +74,6 @@ exports.post = {
         }
         res.contentType(req.param('mime'));
         res.writeHead(200);
-        //res.send();
         var fileStream = fs.createReadStream(filename);
         fileStream.pipe(res);
 
