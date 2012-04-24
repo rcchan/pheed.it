@@ -21,6 +21,7 @@ dnode = require('dnode');
 nQuery = require('nodeQuery');
 jQuery = require('jquery');
 path = require('path');
+mime = require('mime');
 
 // Configuration
 
