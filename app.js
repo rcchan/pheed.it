@@ -23,6 +23,8 @@ jQuery = require('jquery');
 path = require('path');
 mime = require('mime');
 
+mime.load(__dirname + '/mime.types');
+
 // Configuration
 
 app.configure(function(){
