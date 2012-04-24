@@ -16,7 +16,7 @@ div(class='post')
           -//iframe(width="256", height="200", src="http://player.vimeo.com/video/39213338?color=ffffff", frameborder="0", allowfullscreen)
       -if (post.data && post.data.datatype == 'file')
         div(class='image')
-          !=link_to(img_tag('/images/download.png', 'Download file', {class: 'download'}), '/post/attachment/' + post._id + '?mime=' + 'application/octet-stream'/*post.data.contenttype*/)
+          !=link_to(img_tag('/images/download.png', 'Download file', {class: 'download'}), '/post/attachment/' + post._id + '?mime=' + post.data.contenttype + '&d=1')
       div(class='selectable')
         !=htmlentities(post.message)
   - else
