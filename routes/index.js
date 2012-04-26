@@ -73,13 +73,10 @@ exports.post = {
             return;
         }
         if (req.param('d')){
-          res.contentType('application/octet-stream');
           res.download(filename, 'download.' + mime.extension(req.param('mime')));
         } else {
           res.contentType(req.param('mime'));
-          res.writeHead(200);
-          var fileStream = fs.createReadStream(filename);
-          fileStream.pipe(res);
+          res.sendfile(filename);
         }
     })
   }
