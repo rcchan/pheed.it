@@ -28,7 +28,7 @@ $(window).load(
             $(e).append(r);
             //$(e).find('*').disableSelection();
             //$(e).find('.selectable').enableSelection().parents().enableSelection();
-            $(':empty').not('.selectable').disableSelection();
+            $(':empty').not('.selectable, input, textarea').disableSelection();
             $(e).find(".jp-jplayer").each(
               function(){
                 $(this).attr('id', 'jquery_jplayer_' + EMBED_INDEX);
