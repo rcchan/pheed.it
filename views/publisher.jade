@@ -14,10 +14,17 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
       div(class='button') event
       input(type='hidden',id='datatype',name='datatype')
       div(class='upload')
-        -//div
-        -//  input(class='embed greyed', value='Enter embed URL')
-        div(class='addfile') Add files...
-        input(type='file',id='file',name='file')
+        div(class='embedtype')
+          label
+            input(type='radio', name='embedtype', checked='checked', value='file')
+            span Attach File
+          label
+            input(type='radio', name='embedtype', value='url')
+            span Embed URL
+        input(class='embed greyed', name='embed_url', value='Enter embed URL')
+        div(class='file')
+          div(class='addfile') Add files...
+          input(type='file',id='file',name='file')
       textarea(name='message', class='message greyed') Enter your text here
     div(class='lr')
       span(class='bold') pheed.to

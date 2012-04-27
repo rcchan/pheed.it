@@ -126,6 +126,18 @@ $(window).load(
       }
     );
     
+    $('.embedtype input[type=radio][name=embedtype]').change(
+      function(){
+        if ($(this).val() == 'file'){
+          $('.upload .embed').slideUp();
+          $('.upload .file').slideDown();
+        } else {
+          $('.upload .embed').slideDown();
+          $('.upload .file').slideUp();
+        }
+      }
+    );
+    
     if ($('#file')){
       $(document).bind('dragover',
         function(){
@@ -181,6 +193,7 @@ $(window).load(
         }
         $(this).find('#datatype').val($(this).find('.publisher .button.selected').text())
         if (!$(this).find('#file').val()) $(this).find('#datatype').val('text');
+        if ($('.embedtype input[type=radio][name=embedtype]:checked').val() == 'url') $(this).find('#datatype').val('link');
         $(this).ajaxSubmit(
           {
             error: function(xhr) {
