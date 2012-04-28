@@ -35,7 +35,15 @@ exports.post = {
     p.title = req.body.title || '[No title]';
     p.message = req.body.message || '';
     p.private = req.body.private || false;
-    if (jQuery.isEmptyObject(req.files.file)) save();
+    if (jQuery.isEmptyObject(req.files.file)){
+      if (req.body.embed_url){
+        p.data = {
+          datatype: 'link',
+          contenttype: req.body.embed_url
+        }
+      }
+      save();
+    }
     else {
     
       var types = {
