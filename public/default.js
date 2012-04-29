@@ -193,7 +193,12 @@ $(window).load(
         }
         $(this).find('#datatype').val($(this).find('.publisher .button.selected').text())
         if (!$(this).find('#file').val()) $(this).find('#datatype').val('text');
-        if ($('.embedtype input[type=radio][name=embedtype]:checked').val() == 'url') $(this).find('#datatype').val('link');
+        
+        if (
+          $(this).find('.publisher .button.selected').text() == 'video' && 
+          $('.embedtype input[type=radio][name=embedtype]:checked').val() == 'url'
+        ) $(this).find('#datatype').val('link');
+        
         $(this).ajaxSubmit(
           {
             error: function(xhr) {
