@@ -97,6 +97,13 @@ $(window).load(
         $(this).siblings('.publisher .button').removeClass('selected');
         $(this).addClass('selected');
 
+        if ($(this).text() == 'video'){
+          $(this).siblings('.upload').find('.embedtype').slideDown();  
+        } else {
+          $('.embedtype input[type=radio][name=embedtype][value=file]').click();
+          $(this).siblings('.upload').find('.embedtype').slideUp();
+        }
+        
         if ($(this).text() == 'text') $(this).siblings('.upload').slideUp();
         else $(this).siblings('.upload').slideDown();
         
