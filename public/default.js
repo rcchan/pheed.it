@@ -104,6 +104,12 @@ $(window).load(
           $(this).siblings('.upload').find('.embedtype').slideUp();
         }
         
+        if ($(this).text() == 'event'){
+          $(this).siblings('.eventinfo').slideDown();
+        } else {
+          $(this).siblings('.eventinfo').slideUp();
+        }
+        
         if ($(this).text() == 'text') $(this).siblings('.upload').slideUp();
         else $(this).siblings('.upload').slideDown();
         
