@@ -1,20 +1,20 @@
 form(id='poster',enctype='multipart/form-data',action='/post',method='post')
-  div(class='publisher')
+  .publisher
     div
       input(name='title',class='title greyed',value='Title your post here')
-    div(class='lr')
+    .lr
       span(class='bold') Link Text
       span 40
     div
-      div(class='button selected') text
-      div(class='button') photo
-      div(class='button') audio
-      div(class='button') video
-      div(class='button') file
-      div(class='button') event
+      .button.selected text
+      .button photo
+      .button audio
+      .button video
+      .button file
+      .button event
       input(type='hidden',id='datatype',name='datatype')
-      div(class='upload')
-        div(class='embedtype')
+      .upload
+        .embedtype
           label
             input(type='radio', name='embedtype', checked='checked', value='file')
             span Attach File
@@ -22,10 +22,10 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
             input(type='radio', name='embedtype', value='url')
             span Embed URL
         input(class='embed greyed', name='embed_url', value='Enter embed URL')
-        div(class='file')
-          div(class='addfile') Add files...
+        .file
+          .addfile Add files...
           input(type='file',id='file',name='file')
-      div(class='eventinfo')
+      .eventinfo
         div
           label
             span Location
@@ -39,16 +39,16 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
             span Time
             input(type='time')
       textarea(name='message', class='message greyed') Enter your text here
-    div(class='lr')
+    .lr
       span(class='bold') pheed.to
       span 400
-    div(class='lr')
+    .lr
       div
         input(name='pheedto',class='pheedto greyed',value='user, pheeder, email, cell')
-      div(class='pheedit')
+      .pheedit
         input(type='image',src='images/pheedit.svg')
         span pheed.it
-    div(class='lr')
+    .lr
       label
         input(type='checkbox', id='private')
         span private message
