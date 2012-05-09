@@ -1,29 +1,22 @@
-.controls
+.controls(style='position: relative')
   div
-    .like
-      !=img_tag('images/controls/like.png', 'Like')
-      span 0
-    .dislike
-      !=img_tag('images/controls/dislike.png', 'Dislike')
-      span 0
+    .control.like(title='Like')
+      .counter 0
+    .control.dislike(title='Dislike')
+      .counter 0
   div
-    .comment
-      !=img_tag('images/controls/comment.png', 'Comment')
-      span 0
-    .pheedto
-      !=img_tag('images/controls/pheedto.png', 'Pheed to')
-      span 0
+    .control.comment(title='Comment')
+      .counter 0
+    .control.pheedto(title='Pheed to')
+      .counter 0
   div
-    .favorite
-      !=img_tag('images/controls/favorite.png', 'Favorite')
-      span 0
-    .repheed
-      !=img_tag('images/controls/repheed.png', 'Re-pheed')
-      span 0
+    .control.favorite(title='Favorite')
+      .counter 0
+    .control.repheed(title='Re-pheed')
+      .counter 0
   div
-    .facebook
-      !=img_tag('images/controls/facebook.png', 'Facebook')
-      span 0
-    .twitter
-      !=img_tag('images/controls/twitter.png', 'Twitter')
-      span 0
+    .control.facebook(title='Facebook')
+      .counter 0
+    .control.twitter(title='Twitter')
+      .counter 0
+  !=img_tag('/images/controls.png', 'controls', {style: 'width: 100%; height: 100%; position: absolute; top: 0; left: 0;'})

@@ -224,30 +224,38 @@ body
         max-width 100%
 
 .controls
-  display inline-block
   vertical-align top
-  padding 0 5px
-  font-size 0
+  //padding 0 5px
+  //font-size 0
+  /*width 64px
+  height 140px*/
+  margin 3px
+  float left
+  //background url(/images/controls.png) no-repeat 5px 3px
 
   div
-    padding 3px 0
+    //padding 3px 0
 
-    div
+    div.control
       display inline-block
-      width 25px
+      width 30px
+      height: 35px
+      position relative
       text-align center
-
-      img
-        display block
-        max-width 25px
-        max-height 25px
-        margin auto
-
-      span
+        
+      div.counter
+        position absolute
+        width 100%
+        bottom 0
         color rgb(51, 204, 255)
         font-family "Gotham Rounded"
         font-size 8px
         font-weight 400
+        
+    .facebook, .twitter
+      img
+        max-width 20px
+        max-height 20px
 
 .publisher
   /*height 508px*/
