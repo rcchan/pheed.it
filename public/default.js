@@ -25,6 +25,23 @@ $(window).load(
       }
     );
     
+    $(document).on('click', '.controls .twitter',
+      function(e){
+        $(document.body).append(
+          ($(document.createElement('iframe'))
+            .attr('src', 'https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://pheed.it/post/' + $(this).data('id'))
+            .attr('scrollable', 'no')
+            .css('border', 'none')
+            .width(400)
+            .height(100)
+            .css('position', 'absolute')
+            .css('top', e.pageY)
+            .css('left', e.pageX)
+          )
+        )
+      }
+    );
+  
     var EMBED_INDEX = 0
     $('.posts').each(
       function(i ,e){
