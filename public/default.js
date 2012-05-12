@@ -19,6 +19,12 @@ $(':empty').not('.selectable').disableSelection();
 
 $(window).load(
   function(){
+    $(document).on('click', '.controls .facebook',
+      function(e){
+        window.open('http://www.facebook.com/sharer.php?u=http://pheed.it/post/' + $(this).data('id'));
+      }
+    );
+    
     var EMBED_INDEX = 0
     $('.posts').each(
       function(i ,e){
@@ -28,6 +34,7 @@ $(window).load(
             $(e).append(r);
             //$(e).find('*').disableSelection();
             //$(e).find('.selectable').enableSelection().parents().enableSelection();
+
             $(':empty').not('.selectable, input, textarea').disableSelection();
             $(e).find(".jp-jplayer").each(
               function(){
