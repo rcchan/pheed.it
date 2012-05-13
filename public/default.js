@@ -21,7 +21,7 @@ $(window).load(
   function(){
     $(document).on('click', '.controls .facebook',
       function(e){
-        window.open('http://www.facebook.com/sharer.php?u=http://pheed.it/post/' + $(this).data('id'));
+        window.open('http://www.facebook.com/sharer.php?u=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'));
       }
     );
     
