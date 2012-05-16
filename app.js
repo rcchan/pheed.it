@@ -56,7 +56,8 @@ dnode(nQuery.middleware).listen(app);
 // Routes
 
 app.get('/', routes.index);
-app.get('/post/:max', routes.post.get);
+app.get('/post', routes.post.get);
+app.get('/post/:type', routes.post.get);
 app.post('/post', routes.post.post);
 app.get('/post/attachment/:id', routes.post.attachment);
 

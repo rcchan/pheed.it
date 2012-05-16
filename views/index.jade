@@ -1,7 +1,7 @@
 div(id='content')
   !=partial('container', {title: 'my pheed', content: partial('publisher') + partial('posts')})
   !=partial('container', {title: 'pheed.to inbox', content: partial('posts', {max: 3})})
-  !=partial('container', {title: 'starred', content: partial('posts', {max: 3})})
+  !=partial('container', {title: 'starred', content: partial('posts', {max: 3, url:'/starred'})})
   !=partial('container', {title: 'pheatured pheeds', content: partial('posts')})
   !=partial('container', {title: 'pheatured phood', content: partial('posts')})
   !=partial('container', {title: 'most interactions', content: partial('posts')})

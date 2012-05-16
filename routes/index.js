@@ -11,6 +11,12 @@ exports.post = {
   // GET posts
   get: function(req, res){
     var embed_index = 0;
+    var query = {};
+    switch(req.param('type')){
+      case 'starred':
+        query = { likes : { $elemMatch : { liketype : 'favorite' } } };
+        break;
+    }
     Post.find(query).limit(50).desc('time').exec(
       function(err, docs){
         res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});

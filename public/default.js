@@ -46,7 +46,7 @@ $(window).load(
     var EMBED_INDEX = 0
     $('.posts').each(
       function(i ,e){
-        $.get('/post/' + $(e).data('max') || 1,
+        $.get('/post' + $(e).data('url') || '',
           function(r){
             $(':empty').not('.selectable').enableSelection();
             $(e).append(r);
