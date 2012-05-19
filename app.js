@@ -68,14 +68,13 @@ mongoose.connect('mongodb://localhost/pheedit');
 
 var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
 var LikeSchema = new Schema({
-  item_id: ObjectId,
   liketype: {type: String, enum: ['like', 'dislike', 'favorite'], required: true, index: true},
   user: {type: Number, min: 1, required: true, index: true}
 });
 LikeSchema.index({liketype: 1, user: 1}, {unique: true, sparse: true});
 
 var PostSchema = new Schema({
-  item_id: ObjectId,
+  _id: ObjectId,
   author: {type: Number, min: 1, required: true, index: true},
   recipient: {
     type: [Number],
