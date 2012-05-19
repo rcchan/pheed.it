@@ -1,5 +1,5 @@
 // Constants
-CDN_HOST = '192.168.12.5';
+CDN_HOST = (function(h){a=document.createElement('a');a.href=h;return a.hostname})(document.location.href);
 
 function defaultText(e, text){
   $(e).focus(
