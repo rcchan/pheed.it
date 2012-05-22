@@ -218,6 +218,18 @@ $(window).load(
         } else $(this).siblings('.addfile').text('Add file...');
       }
     );
+    
+    $('.publisher .eventinfo .location').keyup(
+      function(){
+        var l = $(this).val();
+        /*if (l) $.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + l + '&sensor=false',
+          function(){
+            $(this).parentsUntil('.publisher').find('.eventinfo img.map').attr('src', '
+          }
+        );*/
+        if (l) $(this).parentsUntil('.publisher').find('.eventinfo img.map').attr('src', 'http://maps.googleapis.com/maps/api/staticmap?center=' + l + '&zoom=13&size=300x300&maptype=hybrid&sensor=false')
+      }
+    );
 
     $('#poster').submit(
       function() {
