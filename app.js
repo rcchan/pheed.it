@@ -67,14 +67,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pheedit');
 
 var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
-var LikeSchema = new Schema({
-  liketype: {type: String, enum: ['like', 'dislike', 'favorite'], required: true, index: true},
-  user: {type: Number, min: 1, required: true, index: true}
-});
-LikeSchema.index({liketype: 1, user: 1}, {unique: true, sparse: true});
 
 var PostSchema = new Schema({
-  _id: ObjectId,
   author: {type: Number, min: 1, required: true, index: true},
   recipient: {
     type: [Number],
@@ -103,7 +97,9 @@ var PostSchema = new Schema({
       latitude: {type: Number, required: true}
     }
   },
-  likes: {type: [LikeSchema], index: true}
+  likes: {type: [Number], index: true},
+  dislikes: {type: [Number], index: true},
+  favorites: {type: [Number], index: true}
 });
 PostSchema.index({location: '2d'});
 Post = mongoose.model('Post', PostSchema);
