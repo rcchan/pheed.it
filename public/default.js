@@ -20,13 +20,13 @@ $(':empty').not('.selectable').disableSelection();
 $(window).load(
   function(){
     $(document).on('click', '.controls .facebook',
-      function(e){
+      function(){
         window.open('http://www.facebook.com/sharer.php?u=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'));
       }
     );
     
     $(document).on('click', '.controls .twitter',
-      function(e){
+      function(){
         /*$(document.body).append(
           ($(document.createElement('iframe'))
             .attr('src', 'https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'))
@@ -40,6 +40,12 @@ $(window).load(
           )
         )*/
         window.open('https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'));
+      }
+    );
+    
+    $(document).on('click', '.controls .like',
+      function(){
+        $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/like')
       }
     );
   

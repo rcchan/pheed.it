@@ -60,6 +60,7 @@ app.get('/post', routes.post.get);
 app.get('/post/:type', routes.post.get);
 app.post('/post', routes.post.post);
 app.get('/post/attachment/:id', routes.post.attachment);
+app.get('/post/:id/like', routes.post.like);
 
 //Database
 
