@@ -93,5 +93,20 @@ exports.post = {
           res.sendfile(filename);
         }
     })
+  },
+  
+  like: function(req, res){
+    if (!req.param('id')){
+      res.writeHead(400);
+      res.end('Bad Request');
+      return;
+    }
+    Post.findOne({_id: req.param('id')}).exec(function(e,d){console.log(d)});
+    var post = Post.update({_id: req.param('id')}, { $push: { likes: {liketype: 'like', user: 1}}}).exec(
+      function(err, docs){
+        console.log(err);
+      }
+    );
+    res.end();
   }
 };
