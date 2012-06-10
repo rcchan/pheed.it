@@ -14,11 +14,12 @@ exports.post = {
     var query = {};
     switch(req.param('type')){
       case 'starred':
-        query = { likes : { $elemMatch : { liketype : 'favorite' } } };
+        query = { favorites : 1 };
         break;
     }
-    Post.find(query).limit(50).desc('time').exec(
+    Post.find(query).exec(
       function(err, docs){
+        console.log(docs);
         res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
       }
     );
