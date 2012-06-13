@@ -261,8 +261,8 @@ $(window).load(
               alert('Error: ' + xhr.status);
             },
             success: function(r) {
-              if (r && r.response === null) document.location.reload();
-              else alert(r.response);
+              if (r === null) document.location.reload();
+              else alert(JSON.stringify(r));
             }
           }
         )

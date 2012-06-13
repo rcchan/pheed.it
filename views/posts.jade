@@ -1,6 +1,3 @@
 div(class='posts', data-url=(typeof url != 'undefined' ? url : ''))
-  //- for (var i =0; i < (typeof num == 'undefined' ? 1 : num); i++)
-  //  !=partial('post', {titleimage: 'images/huff.png', titletext: 'This is the sample title text of a post - It can span two lines!', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut sapien mi, lacinia imperdiet diam. Morbi sagittis tempus nulla faucibus condimentum. Quisque at urna non dui placerat consequat. Donec laoreet dignissim diam, at molestie urna pulvinar sed. Vivamus egestas, ipsum a egestas egestas, felis dolor congue ligula, quis commodo erat tellus mattis dolor. Mauris interdum est sed enim tincidunt venenatis. Phasellus ipsum augue, auctor quis luctus vitae, posuere in leo. Sed semper ligula sed libero feugiat id cursus mauris sagittis.'})
-  //- console.log(posts.length)
   - for(p in (typeof posts != 'undefined' ? posts : []))
     !=partial('post', {post: posts[p], embed_index: embed_index})
