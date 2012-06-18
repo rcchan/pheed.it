@@ -130,7 +130,7 @@ exports.post = {
     p.save(
       function(r, o){
         debugger
-        res.send('');
+        res.send('Your post has been published');
       }
     );
   }
