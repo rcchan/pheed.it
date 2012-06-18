@@ -54,6 +54,11 @@ $(window).load(
         $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/favorite')
       }
     );
+    $(document).on('click', '.controls .dislike',
+      function(){
+        $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/dislike')
+      }
+    );
   
     var EMBED_INDEX = 0
     $('.posts').each(

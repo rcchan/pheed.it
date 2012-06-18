@@ -104,6 +104,9 @@ exports.post = {
       case 'favorite':
         arg = {$push: {favorites: 1}};
         break
+      case 'dislike':
+        arg = {$push: {dislikes: 1}};
+        break
       default:
         res.writeHead(400);
         res.end('Bad Request');
