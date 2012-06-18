@@ -16,7 +16,7 @@ var app = module.exports = express.createServer();
 var helpers = require('express-helpers');
 helpers.all(app);
 
-fs = require('fs');
+fs = require('fs.extra');
 dnode = require('dnode');
 nQuery = require('nodeQuery');
 jQuery = require('jquery');
