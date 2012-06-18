@@ -118,5 +118,20 @@ exports.post = {
       }
     );
     res.end();
+  },
+  
+  sms: function(req, res){
+    p = new Post();
+    p.author = req.body.From.match(/\d/g).join('');
+    
+    p.title = req.body.Body.match(/.{0,50}\w/) || '[No title]';
+    p.message = req.body.Body || '';
+    p.private = req.body.private || false;
+    p.save(
+      function(r, o){
+        debugger
+        res.send('');
+      }
+    );
   }
 };
