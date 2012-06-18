@@ -48,6 +48,12 @@ $(window).load(
         $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/like')
       }
     );
+    
+   $(document).on('click', '.controls .favorite',
+      function(){
+        $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/favorite')
+      }
+    );
   
     var EMBED_INDEX = 0
     $('.posts').each(
