@@ -59,7 +59,7 @@ exports.post = {
       };
       p.save(
         function(r, o){
-          fs.rename(req.files.file.path, __dirname + '/../public/upload/' + o._id);
+          fs.move(req.files.file.path, __dirname + '/../public/upload/' + o._id, function(a,b,c,d,e){debugger});
           res.json(r);
         }
       );
