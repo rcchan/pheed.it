@@ -17,7 +17,7 @@ exports.post = {
         query = { favorites : 1 };
         break;
     }
-    Post.find(query).exec(
+    Post.find(query).desc('time').exec(
       function(err, docs){
         res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
       }
