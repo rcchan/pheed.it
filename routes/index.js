@@ -19,7 +19,6 @@ exports.post = {
     }
     Post.find(query).exec(
       function(err, docs){
-        console.log(docs);
         res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
       }
     );
@@ -97,7 +96,20 @@ exports.post = {
       return;
     }
     Post.findOne({_id: req.param('id')}).exec(function(e,d){console.log(d)});
-    var post = Post.update({_id: req.param('id')}, { $push: { likes: {liketype: 'like', user: 1}}}).exec(
+    var arg;
+    switch (req.params['action']){
+      case 'like':
+        arg = {$push: {likes: 1}};
+        break;
+      case 'favorite':
+        arg = {$push: {favorites: 1}};
+        break
+      default:
+        res.writeHead(400);
+        res.end('Bad Request');
+        return;
+    }
+    var post = Post.update({_id: req.param('id')}, arg).exec(
       function(err, docs){
         console.log(err);
       }
