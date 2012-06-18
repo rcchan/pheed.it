@@ -1,9 +1,11 @@
 .controls(style='position: relative')
   div
     .control.like(title='Like')
-      .counter 0
+      .counter
+        != post.likes.length
     .control.dislike(title='Dislike')
-      .counter 0
+      .counter
+        != post.dislikes.length
   div
     .control.comment(title='Comment')
       .counter 0
@@ -11,7 +13,8 @@
       .counter 0
   div
     .control.favorite(title='Favorite')
-      .counter 0
+      .counter
+        != post.favorites.length
     .control.repheed(title='Re-pheed')
       .counter 0
   div
