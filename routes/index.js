@@ -39,7 +39,11 @@ exports.post = {
           contenttype: req.body.embed_url
         }
       }
-      save();
+      p.save(
+        function(r, o){
+          res.json(r);
+        }
+      );
     }
     else {
     
