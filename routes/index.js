@@ -16,6 +16,14 @@ exports.post = {
       case 'starred':
         query = { favorites : 1 };
         break;
+      case 'featured':
+      case 'phood':
+      case 'interactions':
+      case 'likes':
+      case 'comments':
+      case 'rephed':
+        query = {_id: false}
+        break;
     }
     Post.find(query).desc('time').exec(
       function(err, docs){
