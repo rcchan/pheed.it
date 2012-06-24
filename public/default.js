@@ -133,6 +133,8 @@ $(window).load(
     defaultText('.publisher .message', 'Enter your text here');
     defaultText('.publisher .pheedto', 'user, pheeder, email, cell');
     defaultText('.publisher .embed', 'Enter embed URL');
+    
+    $('.publisher input[type=date]').datepicker();
 
     $('.publisher .button').click(
       function(){
