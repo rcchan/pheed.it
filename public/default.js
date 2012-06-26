@@ -135,6 +135,7 @@ $(window).load(
     defaultText('.publisher .embed', 'Enter embed URL');
 
     $('.publisher input[type=date]').datepicker();
+    $('.publisher input[type=time]').timepicker({});
 
     $('.publisher .button').click(
       function(){
