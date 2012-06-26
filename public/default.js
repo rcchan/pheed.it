@@ -24,7 +24,7 @@ $(window).load(
         window.open('http://www.facebook.com/sharer.php?u=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'));
       }
     );
-    
+
     $(document).on('click', '.controls .twitter',
       function(){
         /*$(document.body).append(
@@ -42,13 +42,13 @@ $(window).load(
         window.open('https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'));
       }
     );
-    
+
     $(document).on('click', '.controls .like',
       function(){
         $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/like')
       }
     );
-    
+
    $(document).on('click', '.controls .favorite',
       function(){
         $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/favorite')
@@ -59,7 +59,7 @@ $(window).load(
         $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/dislike')
       }
     );
-  
+
     var EMBED_INDEX = 0
     $('.posts').each(
       function(i ,e){
@@ -98,7 +98,7 @@ $(window).load(
                   default:
                     alert(type);
                 }
-                
+
                 var player = $(this).jPlayer(
                   {
                     cssSelectorAncestor: '#jp_container_' + EMBED_INDEX,
@@ -113,14 +113,14 @@ $(window).load(
                     supplied: ext
                   }
                 );
-                
+
               $(this).dblclick(
                 function(){
                   if($(player).data('jPlayer').options.fullScreen) $(player).data('jPlayer').restoreScreen();
                   else $(player).data('jPlayer').fullScreen();
                 }
               );
-                
+
                 EMBED_INDEX++;
               }
             );
@@ -133,7 +133,7 @@ $(window).load(
     defaultText('.publisher .message', 'Enter your text here');
     defaultText('.publisher .pheedto', 'user, pheeder, email, cell');
     defaultText('.publisher .embed', 'Enter embed URL');
-    
+
     $('.publisher input[type=date]').datepicker();
 
     $('.publisher .button').click(
@@ -142,24 +142,24 @@ $(window).load(
         $(this).addClass('selected');
 
         if ($(this).text() == 'video'){
-          $(this).siblings('.upload').find('.embedtype').slideDown();  
+          $(this).siblings('.upload').find('.embedtype').slideDown();
         } else {
           $('.embedtype input[type=radio][name=embedtype][value=file]').click();
           $(this).siblings('.upload').find('.embedtype').slideUp();
         }
-        
+
         if ($(this).text() == 'event'){
           $(this).siblings('.eventinfo').slideDown();
         } else {
           $(this).siblings('.eventinfo').slideUp();
         }
-        
+
         if ($(this).text() == 'text') $(this).siblings('.upload').slideUp();
         else $(this).siblings('.upload').slideDown();
-        
+
         var e = $(this).siblings('.upload').find('#file');
         var e = $(e).clone(true, true).replaceAll(e);
-        $(e).change();        
+        $(e).change();
       }
     );
 
@@ -182,7 +182,7 @@ $(window).load(
         );*/
       }
     );
-    
+
     $('.embedtype input[type=radio][name=embedtype]').change(
       function(){
         if ($(this).val() == 'file'){
@@ -194,7 +194,7 @@ $(window).load(
         }
       }
     );
-    
+
     if ($('#file')){
       $(document).bind('dragover',
         function(){
@@ -203,7 +203,7 @@ $(window).load(
         }
       );
     }
-    
+
     if ($('#file')){
       $(document).bind('dragleave',
         function(){
@@ -211,14 +211,14 @@ $(window).load(
         }
       );
     }
-    
+
     $(document).bind('drop',
       function(){
         if (!$('#file').val()) $('.addfile').removeClass('loaded');
         return false;
       }
     );
-    
+
     $('#file').bind('dragover',
       function(e){
         $('.addfile').addClass('loaded');
@@ -226,7 +226,7 @@ $(window).load(
         return true;
       }
     );
-    
+
     $('#file').change(
       function(){
         var f = $(this).val();
@@ -237,7 +237,7 @@ $(window).load(
         } else $(this).siblings('.addfile').text('Add file...');
       }
     );
-    
+
     $('.publisher .eventinfo .location').keyup(
       function(){
         var l = $(this).val();
@@ -262,12 +262,12 @@ $(window).load(
         }
         $(this).find('#datatype').val($(this).find('.publisher .button.selected').text())
         if (!$(this).find('#file').val()) $(this).find('#datatype').val('text');
-        
+
         if (
-          $(this).find('.publisher .button.selected').text() == 'video' && 
+          $(this).find('.publisher .button.selected').text() == 'video' &&
           $('.embedtype input[type=radio][name=embedtype]:checked').val() == 'url'
         ) $(this).find('#datatype').val('link');
-        
+
         $(this).ajaxSubmit(
           {
             error: function(xhr) {
