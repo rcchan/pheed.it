@@ -13,11 +13,11 @@ html
     !=js_tag('/jquery.form.js')
     !=js_tag('/jplayer/jquery.jplayer.js')
     !=js_tag('/jquery-ui-timepicker-addon.js')
-    
+
     !=js_tag('/default.js')
   body
     .topbar
-      div(id='topbar')
+      div(id='topbar', style='z-index: 2')
         span(class='logo')
           !=img_tag('images/logo_p.svg', '', {class:'logo_p'}) + 'hee' + img_tag('images/logo_d.svg', '', {class:'logo_d'}) + '.it'
         span(class='buttons')
