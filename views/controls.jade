@@ -1,24 +1,13 @@
 .controls(style='position: relative')
   div
-    .control.like(title='Like')
-      .counter
-        != post.likes.length
-    .control.dislike(title='Dislike')
-      .counter
-        != post.dislikes.length
+    .control.like(title=post.likes.length)
+    .control.dislike(title=post.dislikes.length)
   div
     .control.comment(title='Comment')
-      .counter 0
     .control.pheedto(title='Pheed to')
-      .counter 0
   div
     .control.favorite(title='Favorite')
-      .counter
-        != post.favorites.length
     .control.repheed(title='Re-pheed')
-      .counter 0
   div
-    .control.facebook(title='Facebook')
-      .counter 0
-    .control.twitter(title='Twitter')
-      .counter 0
+    .control.facebook
+    .control.twitter
