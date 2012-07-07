@@ -152,9 +152,10 @@ body
     display inline-block
     vertical-align top
     margin 10px 20px 20px 20px
+    text-align left
 
     > div
-      box-shadow 0 0 30px 0px shadow-color
+      box-shadow 0 0 10px 0px shadow-color
 
     .heading
       width 310px
@@ -207,7 +208,7 @@ body
       width 50px
       height 50px
       vertical-align middle
-      padding 5px
+      padding 5px 10px 10px 10px
 
       img
         max-width 50px
@@ -218,7 +219,8 @@ body
       vertical-align middle
       font-size 18px
       text-align left
-      width 260px
+      margin-right 10px
+      max-width 240px
 
   .text
     display inline-block
@@ -240,6 +242,8 @@ body
 
       img
         max-width 100%
+        box-shadow 0 0 5px 0 shadow-color
+        border-radius 3px
         /*max-height 168px*/
 
       .embeddedVideo
@@ -247,7 +251,7 @@ body
 
 .controls
   vertical-align top
-  margin 3px
+  margin 0 5px 3px 5px
   float left
   background url(/images/controls.png) no-repeat
 
@@ -284,6 +288,9 @@ body
   box-shadow 0 8px 15px -8px shadow-color inset
   font-family "museo"
 
+  /*.message, .eventinfo, .file
+    border-left 1px solid #CCC
+    border-right 1px solid #CCC*/
 
   input.title, textarea.message, input.pheedto
     opacity .6
@@ -296,7 +303,8 @@ body
     width 286px
     font-size 20px
     padding 3px 5px
-    border-radius 10px
+    border-radius 5px
+    font-weight bold
 
   .button
     display inline-block
@@ -312,8 +320,12 @@ body
     margin-bottom 0
     text-align center
 
-    &:last-child
-      width 53px
+    &:first-child
+      border-top-left-radius 5px
+
+    &:nth-child(6)
+      width 50px
+      border-top-right-radius 5px
       //border-right 1px solid #CCC
 
     &.selected,&:hover
@@ -351,9 +363,10 @@ body
         position absolute
         top 0
         left 0
-        width 100%
+        width 90%
         height 30px
-        margin 5px 0
+        margin 5px auto
+        text-align center
         line-height 30px
         bg-gradient(hsl(120, 45, 68), hsl(120, 34, 58))
         border-bottom-color: rgba(0, 0, 0, 0.246094);
@@ -400,7 +413,7 @@ body
     display block
     width 288px
     height 196px
-    border 1px solid #CCC
+    border-bottom 1px solid #CCC
     border-top none
     padding 3px 5px
     border-bottom-left-radius 10px
@@ -410,7 +423,7 @@ body
     width 186px
     height 32px
     padding 0 3px
-    border-radius 10px
+    border-radius 5px
 
   label span
     margin 0 10px 0 5px
@@ -419,6 +432,7 @@ body
     width 100px
     height 45px
     position relative
+    text-align center
 
     input
       position absolute
