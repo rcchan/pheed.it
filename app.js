@@ -58,6 +58,7 @@ dnode(nQuery.middleware).listen(app);
 app.get('/', routes.index);
 app.get('/post', routes.post.get);
 app.get('/post/:type', routes.post.get);
+app.get('/post/:type/:format', routes.post.rss);
 app.post('/post', routes.post.post);
 app.get('/post/attachment/:id', routes.post.attachment);
 app.post('/post/sms', routes.post.sms);

@@ -12,7 +12,11 @@ exports.post = {
   get: function(req, res){
     var embed_index = 0;
     var query = {};
+    var format = req.param('format');
     switch(req.param('type')){
+      case 'rss':
+        format = 'rss';
+        break;
       case 'starred':
         query = { favorites : 1 };
         break;
@@ -27,7 +31,12 @@ exports.post = {
     }
     Post.find(query).desc('time').exec(
       function(err, docs){
-        res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
+        switch(format){
+          case 'rss':
+            res.partial('rss.ejs', {posts: docs});
+            break;
+          default: res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
+        }
       }
     );
   },
