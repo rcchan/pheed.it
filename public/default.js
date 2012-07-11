@@ -59,6 +59,8 @@ $(window).load(
         $.get('/post/' + $(this).parentsUntil('.post').parent().data('id') + '/dislike')
       }
     );
+    
+    $('.container .content').slimScroll({ height: '750px' });
 
     var EMBED_INDEX = 0
     $('.posts').each(
