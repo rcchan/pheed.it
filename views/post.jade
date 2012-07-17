@@ -17,7 +17,7 @@
         .image
           !=link_to(img_tag('/images/download.png', 'Download file', {class: 'download'}), '/post/attachment/' + post._id + '?mime=' + post.data.contenttype + '&d=1')
       -if (post.data && post.data.datatype == 'link')
-        .image
+        div
           -var m
           -if (m = post.data.contenttype.match(/^https?:\/\/([A-Za-z0-9]+\.)*youtube\.com\/.+\?((&.*)*&)?v=([^&]+)/))
             iframe(class='embeddedVideo', src='http://www.youtube.com/embed/' + m[4] + '?wmode=opaque', allowfullscreen)
