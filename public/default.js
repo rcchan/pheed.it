@@ -141,26 +141,26 @@ $(window).load(
 
     $('.publisher .button').click(
       function(){
-        $(this).siblings('.publisher .button').removeClass('selected');
+        $(this).siblings().removeClass('selected');
         $(this).addClass('selected');
 
         if ($(this).text() == 'video'){
-          $(this).siblings('.upload').find('.embedtype').slideDown();
+          $(this).parents('.publishertype').find('.upload .embedtype').slideDown();
         } else {
           $('.embedtype input[type=radio][name=embedtype][value=file]').click();
-          $(this).siblings('.upload').find('.embedtype').slideUp();
+          $(this).parents('.publishertype').find('.upload .embedtype').slideUp();
         }
 
         if ($(this).text() == 'event'){
-          $(this).siblings('.eventinfo').slideDown();
+          $(this).parents('.publishertype').find('.eventinfo').slideDown();
         } else {
-          $(this).siblings('.eventinfo').slideUp();
+          $(this).parents('.publishertype').find('.eventinfo').slideUp();
         }
 
-        if ($(this).text() == 'text') $(this).siblings('.upload').slideUp();
-        else $(this).siblings('.upload').slideDown();
+        if ($(this).text() == 'text') $(this).parents('.publishertype').find('.upload').slideUp();
+        else $(this).parents('.publishertype').find('.upload').slideDown();
 
-        var e = $(this).siblings('.upload').find('#file');
+        var e = $(this).parents('.publishertype').find('.upload').find('#file');
         var e = $(e).clone(true, true).replaceAll(e);
         $(e).change();
       }

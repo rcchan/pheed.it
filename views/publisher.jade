@@ -2,45 +2,45 @@ form(id='poster',enctype='multipart/form-data',action='/post',method='post')
   .publisher
     div
       input(name='title',class='title greyed',value='Title your post here')
-    .lr
-      span(class='bold') Link Text
-      span 40
-    div
-      .button.selected text
-      .button photo
-      .button audio
-      .button video
-      .button file
-      .button event
+    div(class='publishertype')
+      .publish_buttons
+        .button.selected text
+        .button photo
+        .button audio
+        .button video
+        .button file
+        .button event
       input(type='hidden',id='datatype',name='datatype')
-      .upload
-        .embedtype
-          label
-            input(type='radio', name='embedtype', checked='checked', value='file')
-            span Attach File
-          label
-            input(type='radio', name='embedtype', value='url')
-            span Embed URL
-        input(class='embed greyed', name='embed_url', value='Enter embed URL')
-        .file
-          .addfile Add files...
-          input(type='file',id='file',name='file')
-      .eventinfo
-        div
-          label
-            span Date
-            input(type='date')
-        div
-          label
-            span Time
-            input(type='time')
-        div
-          label
-            span Location
-            input.location
-        div
-          img.map
-      textarea(name='message', class='message greyed') Enter your text here
+      .publisher_extras
+        .upload
+          .embedtype
+            label
+              input(type='radio', name='embedtype', checked='checked', value='file')
+              span Attach File
+            label
+              input(type='radio', name='embedtype', value='url')
+              span Embed URL
+          input(class='embed greyed', name='embed_url', value='Enter embed URL')
+          .file
+            .addfile Add files...
+            input(type='file',id='file',name='file')
+        .eventinfo
+          div
+            label
+              span Date
+              input(type='date')
+          div
+            label
+              span Time
+              input(type='time')
+          div
+            label
+              span Location
+              input.location
+          div
+            img.map
+    .message
+      textarea(name='message', class='greyed') Enter your text here
     .lr
       span(class='bold') pheed.to
       span(class='underline') link text

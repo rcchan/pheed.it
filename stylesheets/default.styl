@@ -305,119 +305,132 @@ body
     padding 3px 5px
     border-radius 5px
     font-weight bold
-
-  .button
-    display inline-block
-    width 50px
-    color white
-    font-family "museo"
-    font-size 14px
-    padding 5px 0px
-    //background rgb(51, 204, 255)
-    bg-gradient(rgb(30,180,255), rgb(80,84,255))
-    //border 1px solid #CCC
-    //border-right none
+    
+  .publishertype
+    background rgba(255,255,255,.8)
     margin-bottom 0
-    text-align center
 
-    &:first-child
-      border-top-left-radius 5px
-
-    &:nth-child(6)
+    .publish_buttons .button
+      display inline-block
       width 50px
-      border-top-right-radius 5px
-      //border-right 1px solid #CCC
+      color white
+      font-family "museo"
+      font-size 14px
+      padding 5px 0px
+      //background rgb(51, 204, 255)
+      bg-gradient(rgb(30,180,255), rgb(80,84,255))
+      //border 1px solid #CCC
+      //border-right none
+      margin-bottom 0
+      text-align center
 
-    &.selected,&:hover
-      //background rgb(41, 171, 226)
-      bg-gradient(rgb(0,150,255), rgb(50,54,255))
-      cursor pointer
+      &:first-child
+        border-top-left-radius 5px
 
-  .upload
-    display none
-    width 296px
-    margin 0
+      &:nth-child(6)
+        width 50px
+        border-top-right-radius 5px
+        //border-right 1px solid #CCC
 
-    .embedtype
-      display none
-      margin 5px 0
+      &.selected,&:hover
+        //background rgb(41, 171, 226)
+        bg-gradient(rgb(0,150,255), rgb(50,54,255))
+        cursor pointer
 
-    .embed
-      display none
-      width 290px
-      height 30px
-      padding 0 3px
-      margin 3px 0
+    .publisher_extras
+      border-left 1px solid #CCC
+      border-right 1px solid #CCC
+      
+      .upload
+        display none
+        width 296px
+        margin 0
 
-    .file
-      position relative
-      height 42px
+        .embedtype
+          display none
+          margin 5px 0
 
-      input
-        position absolute
-        opacity 0
-        width 286px
-        padding 5px
+        .embed
+          display none
+          width 290px
+          height 30px
+          padding 0 3px
+          margin 3px 0
 
-      .addfile
-        position absolute
-        top 0
-        left 0
-        width 90%
-        height 30px
-        margin 5px auto
-        text-align center
-        line-height 30px
-        bg-gradient(hsl(120, 45, 68), hsl(120, 34, 58))
-        border-bottom-color: rgba(0, 0, 0, 0.246094);
-        box-shadow rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.046875) 0px 1px 2px 0px;
-        border-bottom-color: rgba(0, 0, 0, 0.246094);
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-bottom-style: solid;
-        border-bottom-width: 1px;
-        border-left-color: rgba(0, 0, 0, 0.0976563);
-        border-left-style: solid;
-        border-left-width: 1px;
-        border-right-color: rgba(0, 0, 0, 0.0976563);
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-top-color: rgba(0, 0, 0, 0.0976563);
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        border-top-style: solid;
-        border-top-width: 1px;
-        color: rgb(255, 255, 255);
-        text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 0px;
+        .file
+          position relative
+          height 42px
 
-        &.loaded
-          bg-gradient(hsl(120, 45, 58), hsl(120, 34, 48))
+          input
+            position absolute
+            top 0
+            left 0
+            opacity 0
+            width 286px
 
-  .eventinfo
-    display none
-    text-align left
+          .addfile
+            top 0
+            left 0
+            width 90%
+            height 30px
+            margin 5px auto
+            text-align center
+            line-height 30px
+            bg-gradient(hsl(120, 45, 68), hsl(120, 34, 58))
+            border-bottom-color: rgba(0, 0, 0, 0.246094);
+            box-shadow rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.046875) 0px 1px 2px 0px;
+            border-bottom-color: rgba(0, 0, 0, 0.246094);
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-left-color: rgba(0, 0, 0, 0.0976563);
+            border-left-style: solid;
+            border-left-width: 1px;
+            border-right-color: rgba(0, 0, 0, 0.0976563);
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-top-color: rgba(0, 0, 0, 0.0976563);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-top-style: solid;
+            border-top-width: 1px;
+            color: rgb(255, 255, 255);
+            text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 0px;
 
-    > div
-      margin 5px 0
+            &.loaded
+              bg-gradient(hsl(120, 45, 58), hsl(120, 34, 48))
 
-      > label
-        > span
-          display inline-block
-          width 60px
-          text-align left
+      .eventinfo
+        display none
+        text-align left
+        margin-bottom 0
 
-        > input
-          width 221px
+        > div
+          margin 5px 0
+
+          > label
+            > span
+              display inline-block
+              width 60px
+              text-align left
+
+            > input
+              width 221px
 
   .message
-    display block
-    width 288px
-    height 196px
-    border-bottom 1px solid #CCC
-    border-top none
-    padding 3px 5px
-    border-bottom-left-radius 10px
-    border-bottom-right-radius 10px
+    margin-top 0
+    
+    textarea
+      display block
+      width 288px
+      height 196px
+      opacity .8
+      border-bottom 1px solid #CCC
+      border-top none
+      padding 3px 5px
+      border-bottom-left-radius 10px
+      border-bottom-right-radius 10px
 
   .pheedto
     width 186px
