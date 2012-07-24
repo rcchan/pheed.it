@@ -8,6 +8,7 @@ CDN_HOST = '192.168.12.5';
 
 var stylus = require('stylus');
 var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt');
 
 var express = require('express')
   , routes = require('./routes');
@@ -116,14 +117,11 @@ htmlentities = function(str) {
 }
 
 passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
+  function(username, password, done){
+    User.findOne({ username: username }, function(err, user){
       if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Unknown user' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Invalid password' });
+      if (!user || !bcrypt.compareSync(password, user.password)){
+        return done(null, false);
       }
       return done(null, user);
     });
