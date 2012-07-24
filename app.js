@@ -61,6 +61,13 @@ dnode(nQuery.middleware).listen(app);
 // Routes
 
 app.get('/', routes.index);
+
+app.post('/login', passport.authenticate('local'), {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: 'Invalid username or password'
+});
+  
 app.get('/post', routes.post.get);
 app.get('/post/:type', routes.post.get);
 app.get('/post/:type/:format', routes.post.rss);
