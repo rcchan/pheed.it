@@ -7,6 +7,10 @@ exports.index = function(req, res){
   res.render('index', { title: 'pheed.it' });
 };
 
+exports.login = function(req, res){
+  res.render('login.ejs', {layout: 'layout.jade'});
+}
+
 exports.post = {
   // GET posts
   get: function(req, res){

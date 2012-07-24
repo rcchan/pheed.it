@@ -62,6 +62,7 @@ dnode(nQuery.middleware).listen(app);
 
 app.get('/', routes.index);
 
+app.get('/login', routes.login);
 app.post('/login', passport.authenticate('local'), {
   successRedirect: '/',
   failureRedirect: '/login',
