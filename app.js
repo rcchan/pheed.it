@@ -58,25 +58,6 @@ app.configure('production', function(){
 
 dnode(nQuery.middleware).listen(app);
 
-// Routes
-
-app.get('/', routes.index);
-
-app.get('/login', routes.login);
-app.post('/login', passport.authenticate('local'), {
-  successRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: 'Invalid username or password'
-});
-  
-app.get('/post', routes.post.get);
-app.get('/post/:type', routes.post.get);
-app.get('/post/:type/:format', routes.post.rss);
-app.post('/post', routes.post.post);
-app.get('/post/attachment/:id', routes.post.attachment);
-app.post('/post/sms', routes.post.sms);
-app.get('/post/:id/:action', routes.post.like);
-
 //Database
 
 var mongoose = require('mongoose');
@@ -158,6 +139,26 @@ passport.deserializeUser(function(id, done) {
     done(err, user);
   });
 });
+
+// Routes
+
+app.get('/', routes.index);
+
+
+app.get('/login', routes.login);
+app.post('/login', passport.authenticate('local'), {
+  successRedirect: '/',
+  failureRedirect: '/login',
+  failureFlash: 'Invalid username or password'
+});
+  
+app.get('/post', routes.post.get);
+app.get('/post/:type', routes.post.get);
+app.get('/post/:type/:format', routes.post.rss);
+app.post('/post', routes.post.post);
+app.get('/post/attachment/:id', routes.post.attachment);
+app.post('/post/sms', routes.post.sms);
+app.get('/post/:id/:action', routes.post.like);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
