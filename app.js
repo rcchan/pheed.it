@@ -151,11 +151,11 @@ app.get('/createuser', function(req,res){
 });
 
 app.get('/login', routes.login);
-app.post('/login', passport.authenticate('local'), {
+app.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login',
   failureFlash: 'Invalid username or password'
-});
+}));
   
 app.get('/post', routes.post.get);
 app.get('/post/:type', routes.post.get);
