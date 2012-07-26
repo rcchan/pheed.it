@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'pheed.it' });
+  res.render('index', { title: 'pheed.it', user: req.user });
 };
 
 exports.login = function(req, res){
