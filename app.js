@@ -55,8 +55,6 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-//app.use(express.bodyParser());
-
 dnode(nQuery.middleware).listen(app);
 
 //Database
@@ -129,7 +127,7 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user['_id']);
 });
 
 passport.deserializeUser(function(id, done) {
