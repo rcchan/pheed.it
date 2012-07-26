@@ -11,6 +11,11 @@ exports.login = function(req, res){
   res.render('login.ejs', {layout: 'layout.jade'});
 }
 
+exports.logout = function(req, res){
+  req.logout();
+  res.redirect('/');
+}
+
 exports.post = {
   // GET posts
   get: function(req, res){

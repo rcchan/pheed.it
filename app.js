@@ -154,6 +154,8 @@ app.post('/login', passport.authenticate('local', {
   failureRedirect: '/login',
   failureFlash: 'Invalid username or password'
 }));
+
+app.get('/logout', routes.logout);
   
 app.get('/post', routes.post.get);
 app.get('/post/:type', routes.post.get);
