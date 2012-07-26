@@ -142,6 +142,13 @@ passport.deserializeUser(function(id, done) {
 
 app.get('/', routes.index);
 
+app.get('/createuser', function(req,res){
+  bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash("pass", salt, function(err, hash) {
+          (new User({username:'ryan', password: hash})).save(function(){res.send('User created'); res.end()});
+      });
+  });
+});
 
 app.get('/login', routes.login);
 app.post('/login', passport.authenticate('local'), {
