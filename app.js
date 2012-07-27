@@ -58,56 +58,12 @@ app.configure('production', function(){
 dnode(nQuery.middleware).listen(app);
 
 //Database
-
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pheedit');
 
-var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
+Post = require('./models/post.js');
+User = require('./models/user.js');
 
-var PostSchema = new Schema({
-  author: {type: Number, min: 1, required: true, index: true},
-  recipient: {
-    type: [Number],
-    validate: function(v){
-      if (!v || !(v instanceof Array)) return false;
-      for (var i = 0; i < v.length; i++) if (!(v[i] instanceof Number) || v[i] < 1) return false;
-      return true;
-    },
-    index: true
-  },
-  time: {type: Date, default: Date.now, required: true, index: true},
-  title: {type: String, required: true, index: true},
-  message: {type: String, required: true, index: true},
-  data: {
-    type: {
-      datatype: {type: String, enum: ['text', 'photo', 'audio', 'video'], required: true, index: true},
-      contenttype: {type:String, required: true, index: true}
-    },
-    required: true,
-    index: true
-  },
-  private: {type: Boolean, default: false, required: true, index: true},
-  location: {
-    type: {
-      longitude: {type: Number, required: true},
-      latitude: {type: Number, required: true}
-    }
-  },
-  likes: {type: [Number], index: true},
-  dislikes: {type: [Number], index: true},
-  favorites: {type: [Number], index: true}
-});
-PostSchema.index({location: '2d'});
-Post = mongoose.model('Post', PostSchema);
-
-var UserSchema = new Schema({
-  username: {type: String, index: true, required: true},
-  password: {type: String, required: true},
-  first_name: String,
-  last_name: String,
-  email: String
-});
-User = mongoose.model('User', UserSchema);
 // Helpers
 
 htmlentities = function(str) {
