@@ -4,7 +4,7 @@
 
 var routes = {
   index: function(req, res){
-    res.render('index', { title: 'pheed.it', user: req.user });
+    res.render('index', { title: 'pheed.it' });
   },
 
   login: require('./login'),
