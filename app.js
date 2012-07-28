@@ -74,12 +74,14 @@ app.dynamicHelpers({
   },
   form_csrf: function(req){
     return '<input type="hidden" name="_csrf" value="' + req.session._csrf + '" />';
+  },
+  htmlentities: function(){
+    return function(str){
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    };
   }
 });
 
-htmlentities = function(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
 
 passport.use(new LocalStrategy(
   function(username, password, done){
@@ -104,7 +106,6 @@ passport.deserializeUser(function(id, done) {
 });
 
 // Routes
-
 routes.init();
 
 app.listen(3000);
