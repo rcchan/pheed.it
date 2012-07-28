@@ -6,16 +6,17 @@ CDN_HOST = '192.168.12.5';
  * Module dependencies.
  */
 
-var stylus = require('stylus');
-var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
-var bcrypt = require('bcrypt');
+stylus = require('stylus');
+passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
+bcrypt = require('bcrypt');
+connect = require('connect');
 
-var express = require('express')
+express = require('express')
   , routes = require('./routes');
 
-var app = module.exports = express.createServer();
+app = module.exports = express.createServer();
 
-var helpers = require('express-helpers');
+helpers = require('express-helpers');
 helpers.all(app);
 
 fs = require('fs.extra');
@@ -59,7 +60,7 @@ app.configure('production', function(){
 dnode(nQuery.middleware).listen(app);
 
 //Database
-var mongoose = require('mongoose');
+mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pheedit');
 
 Post = require('./models/post.js');
@@ -104,32 +105,7 @@ passport.deserializeUser(function(id, done) {
 
 // Routes
 
-app.get('/', routes.index);
-
-app.get('/createuser', function(req,res){
-  bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash("pass", salt, function(err, hash) {
-          (new User({username:'ryan', password: hash})).save(function(){res.send('User created'); res.end()});
-      });
-  });
-});
-
-app.get('/login', routes.login);
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login',
-  failureFlash: 'Invalid username or password'
-}));
-
-app.get('/logout', routes.logout);
-  
-app.get('/post', routes.post.get);
-app.get('/post/:type', routes.post.get);
-app.get('/post/:type/:format', routes.post.rss);
-app.post('/post', routes.post.post);
-app.get('/post/attachment/:id', routes.post.attachment);
-app.post('/post/sms', routes.post.sms);
-app.get('/post/:id/:action', routes.post.like);
+routes.init();
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
