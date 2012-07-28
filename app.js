@@ -63,8 +63,8 @@ dnode(nQuery.middleware).listen(app);
 mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pheedit');
 
-Post = require('./models/post.js');
-User = require('./models/user.js');
+Post = require('./models/post');
+User = require('./models/user');
 
 // Helpers
 
@@ -83,6 +83,7 @@ app.dynamicHelpers({
 });
 
 
+// User Authentication
 passport.use(new LocalStrategy(
   function(username, password, done){
     User.findOne({ username: username }, function(err, user){
