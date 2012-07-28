@@ -36,6 +36,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.session({ secret: 'h.bw}an}P(d-(TfP6<Ax.0jL4Nx=g<%~hz$<C)4<35ye-k{xE^+i5@U~QlZ)9j8' }));
+  app.use(connect.csrf());
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
@@ -65,6 +66,15 @@ Post = require('./models/post.js');
 User = require('./models/user.js');
 
 // Helpers
+
+app.dynamicHelpers({
+  csrf_token: function(req){
+    return req.session._csrf;
+  },
+  form_csrf: function(req){
+    return '<input type="hidden" name="_csrf" value="' + req.session._csrf + '" />';
+  }
+});
 
 htmlentities = function(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
