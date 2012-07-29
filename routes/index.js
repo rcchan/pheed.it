@@ -32,6 +32,8 @@ exports.init = function(){
 
   app.get('/login', routes.login.get);
   app.post('/login', routes.login.post);
+  app.get('/login/facebook', passport.authenticate('facebook'));
+  app.get('/login/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
 
   app.get('/logout', routes.logout);
   

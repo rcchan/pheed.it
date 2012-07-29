@@ -7,7 +7,7 @@ CDN_HOST = '192.168.12.5';
  */
 
 stylus = require('stylus');
-passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
+passport = require('passport'), LocalStrategy = require('passport-local').Strategy, FacebookStrategy = require('passport-facebook').Strategy;;
 bcrypt = require('bcrypt');
 connect = require('connect');
 
@@ -97,6 +97,21 @@ passport.use(new LocalStrategy(
       }
       return done(null, user);
     });
+  }
+));
+
+passport.use(new FacebookStrategy({
+    passReqToCallback: true,
+    clientID: 402292099826850,
+    clientSecret: '4d668e86af73bddf7e96bb6c05cf1ee8',
+    callbackURL: "http://pheed.it/login/facebook/callback"
+  },
+  function(req, accessToken, refreshToken, profile, done){
+    if (req.user){
+      req.user.fbid = profile.id;
+      req.user.save();
+      done(null, req.user);
+    } else done('You must be logged in to link your accounts');
   }
 ));
 
