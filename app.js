@@ -113,5 +113,5 @@ passport.deserializeUser(function(id, done) {
 // Routes
 routes.init();
 
-app.listen(3000);
+app.listen(3100);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
