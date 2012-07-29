@@ -30,9 +30,19 @@ html
           li philters
           li pheeders
           li to phollow
-        ul(class='tabs',style='float: right')
-          li
-            !=typeof user != 'undefined' && user._id ? user.username : '<a href="/login">Log in</a>'
+        ul.tabs.pull-right
+          li.dropdown
+            -if (typeof user == 'undefined' || !user._id)
+              !=link_to('Log in', '/login', {class: 'dropdown-toggle'})
+            -else
+              a.dropdown-toggle(data-toggle='dropdown')
+                !=user.username
+              ul.dropdown-menu
+                li
+                  !=link_to('Profile', '#')
+                li
+                  !=link_to('Log out', '/logout')
+                
       //-div(style='background-image: url(/images/post-bg.png); opacity: .2;position:absolute;top:0;left:0;width:100%;height:40px; z-index: 1')
     div(id='content')
       !=body
