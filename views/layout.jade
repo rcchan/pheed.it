@@ -19,13 +19,13 @@ html
 
     !=js_tag('/default.js')
   body
-    .topbar
-      div(id='topbar', style='z-index: 2')
-        span(class='logo')
+    .topbar.navbar.navbar-fixed-top
+      .navbar-inner(id='topbar', style='z-index: 2')
+        !=link_to(' ','/', {class: 'logo'})
         span(class='buttons')
           !=img_tag('images/add.svg', 'add', {class:'button'})
           !=img_tag('images/i.svg', 'add', {class:'button'})
-        ul(class='tabs')
+        ul.tabs
           li.selected my pheed
           li philters
           li pheeders

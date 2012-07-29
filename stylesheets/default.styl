@@ -99,11 +99,18 @@ body
     color white
     font-family "Gotham Rounded"
     font-weight bold
+    background transparent
+    box-shadow none
 
     > *
       display inline-block
       height 100%
       vertical-align middle
+      
+    a
+      color inherit
+      &:hover
+        text-decoration inherit
 
     .logo
       margin-right 15px
@@ -124,11 +131,12 @@ body
       font-size 16px
       font-weight 400
       white-space nowrap
+      margin 0
 
       > *
         white-space normal
 
-      li
+      > li
         display inline-block
         padding 10px 10px 0 10px
         height 30px
@@ -281,185 +289,188 @@ body
         max-height 20px
 
 .publisher
-  /*height 508px*/
-  background url(images/publisher-bg.png) repeat
-  padding 5px 15px
-  color rgb(153, 102, 51)
-  /*border-bottom 2px solid #CCC*/
-  box-shadow 0 8px 15px -8px shadow-color inset
-  font-family "museo"
+  margin inherit
+  
+  > div
+    /*height 508px*/
+    background url(images/publisher-bg.png) repeat
+    padding 5px 15px
+    color rgb(153, 102, 51)
+    /*border-bottom 2px solid #CCC*/
+    box-shadow 0 8px 15px -8px shadow-color inset
+    font-family "museo"
 
-  /*.message, .eventinfo, .file
-    border-left 1px solid #CCC
-    border-right 1px solid #CCC*/
+    /*.message, .eventinfo, .file
+      border-left 1px solid #CCC
+      border-right 1px solid #CCC*/
 
-  input.title, textarea.message, input.pheedto
-    opacity .6
-    font-family "Garamond"
+    input.title, textarea.message, input.pheedto
+      opacity .6
+      font-family "Garamond"
 
-  > div, > span
-    margin 5px 0
+    > div, > span
+      margin 5px 0
 
-  .title
-    width 286px
-    font-size 20px
-    padding 3px 5px
-    border-radius 5px
-    font-weight bold
-    
-  .publishertype
-    background rgba(255,255,255,.8)
-    margin-bottom 0
-
-    .publish_buttons .button
-      display inline-block
-      width 50px
-      color white
-      font-family "museo"
-      font-size 14px
-      padding 5px 0px
-      //background rgb(51, 204, 255)
-      bg-gradient(rgb(30,180,255), rgb(80,84,255))
-      //border 1px solid #CCC
-      //border-right none
+    .title
+      width 286px
+      font-size 20px
+      padding 3px 5px
+      border-radius 5px
+      font-weight bold
+      
+    .publishertype
+      background rgba(255,255,255,.8)
       margin-bottom 0
+
+      .publish_buttons .button
+        display inline-block
+        width 50px
+        color white
+        font-family "museo"
+        font-size 14px
+        padding 5px 0px
+        //background rgb(51, 204, 255)
+        bg-gradient(rgb(30,180,255), rgb(80,84,255))
+        //border 1px solid #CCC
+        //border-right none
+        margin-bottom 0
+        text-align center
+
+        &:first-child
+          border-top-left-radius 5px
+
+        &:nth-child(6)
+          width 50px
+          border-top-right-radius 5px
+          //border-right 1px solid #CCC
+
+        &.selected,&:hover
+          //background rgb(41, 171, 226)
+          bg-gradient(rgb(0,150,255), rgb(50,54,255))
+          cursor pointer
+
+      .publisher_extras
+        border-left 1px solid #CCC
+        border-right 1px solid #CCC
+        
+        .upload
+          display none
+          width 296px
+          margin 0
+
+          .embedtype
+            display none
+            margin 5px 0
+
+          .embed
+            display none
+            width 290px
+            height 30px
+            padding 0 3px
+            margin 3px 0
+
+          .file
+            position relative
+            height 42px
+
+            input
+              position absolute
+              top 0
+              left 0
+              opacity 0
+              width 286px
+
+            .addfile
+              top 0
+              left 0
+              width 90%
+              height 30px
+              margin 5px auto
+              text-align center
+              line-height 30px
+              bg-gradient(hsl(120, 45, 68), hsl(120, 34, 58))
+              border-bottom-color: rgba(0, 0, 0, 0.246094);
+              box-shadow rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.046875) 0px 1px 2px 0px;
+              border-bottom-color: rgba(0, 0, 0, 0.246094);
+              border-bottom-left-radius: 4px;
+              border-bottom-right-radius: 4px;
+              border-bottom-style: solid;
+              border-bottom-width: 1px;
+              border-left-color: rgba(0, 0, 0, 0.0976563);
+              border-left-style: solid;
+              border-left-width: 1px;
+              border-right-color: rgba(0, 0, 0, 0.0976563);
+              border-right-style: solid;
+              border-right-width: 1px;
+              border-top-color: rgba(0, 0, 0, 0.0976563);
+              border-top-left-radius: 4px;
+              border-top-right-radius: 4px;
+              border-top-style: solid;
+              border-top-width: 1px;
+              color: rgb(255, 255, 255);
+              text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 0px;
+
+              &.loaded
+                bg-gradient(hsl(120, 45, 58), hsl(120, 34, 48))
+
+        .eventinfo
+          display none
+          text-align left
+          margin-bottom 0
+
+          > div
+            margin 5px 0
+
+            > label
+              > span
+                display inline-block
+                width 60px
+                text-align left
+
+              > input
+                width 221px
+
+    .message
+      margin-top 0
+      
+      textarea
+        display block
+        width 288px
+        height 196px
+        opacity .8
+        border-bottom 1px solid #CCC
+        border-top none
+        padding 3px 5px
+        border-bottom-left-radius 10px
+        border-bottom-right-radius 10px
+
+    .pheedto
+      width 186px
+      height 32px
+      padding 0 3px
+      border-radius 5px
+
+    label span
+      margin 0 10px 0 5px
+
+    .pheedit
+      width 100px
+      height 45px
+      position relative
       text-align center
 
-      &:first-child
-        border-top-left-radius 5px
+      input
+        position absolute
+        top 0
+        left 0
+        width 100px
+        border none
+        box-shadow 0 3px 15px -3px shadow-color
 
-      &:nth-child(6)
-        width 50px
-        border-top-right-radius 5px
-        //border-right 1px solid #CCC
-
-      &.selected,&:hover
-        //background rgb(41, 171, 226)
-        bg-gradient(rgb(0,150,255), rgb(50,54,255))
+      span
+        position relative
+        color white
+        font-size 20px
+        font-weight bold
+        line-height 36px
         cursor pointer
-
-    .publisher_extras
-      border-left 1px solid #CCC
-      border-right 1px solid #CCC
-      
-      .upload
-        display none
-        width 296px
-        margin 0
-
-        .embedtype
-          display none
-          margin 5px 0
-
-        .embed
-          display none
-          width 290px
-          height 30px
-          padding 0 3px
-          margin 3px 0
-
-        .file
-          position relative
-          height 42px
-
-          input
-            position absolute
-            top 0
-            left 0
-            opacity 0
-            width 286px
-
-          .addfile
-            top 0
-            left 0
-            width 90%
-            height 30px
-            margin 5px auto
-            text-align center
-            line-height 30px
-            bg-gradient(hsl(120, 45, 68), hsl(120, 34, 58))
-            border-bottom-color: rgba(0, 0, 0, 0.246094);
-            box-shadow rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.046875) 0px 1px 2px 0px;
-            border-bottom-color: rgba(0, 0, 0, 0.246094);
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
-            border-bottom-style: solid;
-            border-bottom-width: 1px;
-            border-left-color: rgba(0, 0, 0, 0.0976563);
-            border-left-style: solid;
-            border-left-width: 1px;
-            border-right-color: rgba(0, 0, 0, 0.0976563);
-            border-right-style: solid;
-            border-right-width: 1px;
-            border-top-color: rgba(0, 0, 0, 0.0976563);
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
-            border-top-style: solid;
-            border-top-width: 1px;
-            color: rgb(255, 255, 255);
-            text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 0px;
-
-            &.loaded
-              bg-gradient(hsl(120, 45, 58), hsl(120, 34, 48))
-
-      .eventinfo
-        display none
-        text-align left
-        margin-bottom 0
-
-        > div
-          margin 5px 0
-
-          > label
-            > span
-              display inline-block
-              width 60px
-              text-align left
-
-            > input
-              width 221px
-
-  .message
-    margin-top 0
-    
-    textarea
-      display block
-      width 288px
-      height 196px
-      opacity .8
-      border-bottom 1px solid #CCC
-      border-top none
-      padding 3px 5px
-      border-bottom-left-radius 10px
-      border-bottom-right-radius 10px
-
-  .pheedto
-    width 186px
-    height 32px
-    padding 0 3px
-    border-radius 5px
-
-  label span
-    margin 0 10px 0 5px
-
-  .pheedit
-    width 100px
-    height 45px
-    position relative
-    text-align center
-
-    input
-      position absolute
-      top 0
-      left 0
-      width 100px
-      border none
-      box-shadow 0 3px 15px -3px shadow-color
-
-    span
-      position relative
-      color white
-      font-size 20px
-      font-weight bold
-      line-height 36px
-      cursor pointer
