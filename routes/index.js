@@ -13,6 +13,8 @@ var routes = {
     req.logout();
     res.redirect('/');
   },
+  
+  profile: require('./profile'),
 
   post: require('./post')
 };
@@ -32,6 +34,8 @@ exports.init = function(){
   app.post('/login', routes.login.post);
 
   app.get('/logout', routes.logout);
+  
+  app.get('/profile', routes.profile.get);
 
   app.get('/post', routes.post.get);
   app.get('/post/:type', routes.post.get);

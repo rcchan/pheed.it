@@ -1,0 +1,8 @@
+.well
+  .div Username: 
+    !=user.username
+  .div Facebook:
+    -if (user.fbid)
+      !=user.fbid
+    -else
+      !=link_to(img_tag('/images/fb-connect.png'), '/login/facebook')
