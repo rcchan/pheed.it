@@ -20,13 +20,19 @@ module.exports = {
         query = {_id: false}
         break;
       default:
-        if (req.param('type').match(/[0-9a-f]/)) query = {_id: req.param('type')};
+        if (req.param('type') && req.param('type').match(/[0-9a-f]/)){
+          query = {_id: req.param('type')};
+          format = 'single';
+        }
     }
     Post.find(query).desc('time').exec(
       function(err, docs){
         switch(format){
           case 'rss':
             res.partial('rss.ejs', {posts: docs});
+            break;
+          case 'single':
+            res.render('post', {title: docs[0].title, post: docs[0], embed_index: embed_index++ + '_' + new Date().getTime()});
             break;
           default: res.partial('posts', {posts: docs, embed_index: embed_index++ + '_' + new Date().getTime()});
         }

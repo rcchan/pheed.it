@@ -1,7 +1,8 @@
 !!!
 html
   head
-    title pheed.it
+    title
+      != title || pheed.it
     link(rel='stylesheet', href='/bootstrap.css')
     link(rel='stylesheet', href='/default.css')
     link(rel='stylesheet', href='/jplayer/skin/blue.monday/jplayer.blue.monday.css')
@@ -23,8 +24,8 @@ html
       .navbar-inner#topbar
         !=link_to(' ','/', {class: 'logo'})
         span(class='buttons')
-          !=img_tag('images/add.svg', 'add', {class:'button'})
-          !=img_tag('images/i.svg', 'add', {class:'button'})
+          !=img_tag('/images/add.svg', 'add', {class:'button'})
+          !=img_tag('/images/i.svg', 'add', {class:'button'})
         ul.tabs
           li.selected my pheed
           li philters
