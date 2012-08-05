@@ -1,18 +1,6 @@
 // Constants
 CDN_HOST = (function(h){a=document.createElement('a');a.href=h;return a.hostname})(document.location.href);
 
-function defaultText(e, text){
-  $(e).focus(
-      function(){
-        if ($(this).val() == text) $(this).val('').removeClass('greyed');
-      }
-    ).blur(
-      function(){
-        if (!$(this).val()) $(this).val(text).addClass('greyed');
-      }
-    );
-}
-
 $(':empty').not('.selectable').disableSelection();
 //$('*').disableSelection();
 //$('.selectable').enableSelection().parents().enableSelection();
@@ -130,11 +118,6 @@ $(window).load(
         );
       }
     );
-
-    defaultText('.publisher .title', 'Title your post here');
-    defaultText('.publisher .message', 'Enter your text here');
-    defaultText('.publisher .pheedto', 'user, pheeder, email, cell');
-    defaultText('.publisher .embed', 'Enter embed URL');
 
     $('.publisher input[type=date]').datepicker();
     $('.publisher input[type=time]').timepicker({});
