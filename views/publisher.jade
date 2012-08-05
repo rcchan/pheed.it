@@ -1,7 +1,6 @@
 form.publisher(,enctype='multipart/form-data',action='/post',method='post')
   div
-    div
-      input(name='title',class='title greyed',value='Title your post here')
+    input(name='title',class='title',placeholder='Title your post here')
     div(class='publishertype')
       .publish_buttons
         .button.selected text
@@ -20,7 +19,7 @@ form.publisher(,enctype='multipart/form-data',action='/post',method='post')
             label
               input(type='radio', name='embedtype', value='url')
               span Embed URL
-          input(class='embed greyed', name='embed_url', value='Enter embed URL')
+          input(class='embed', name='embed_url', placeholder='Enter embed URL')
           .file
             .addfile Add files...
             input(type='file',id='file',name='file')
@@ -39,14 +38,12 @@ form.publisher(,enctype='multipart/form-data',action='/post',method='post')
               input.location
           div
             img.map
-    .message
-      textarea(name='message', class='greyed') Enter your text here
+    textarea.message(name='message', placeholder='Enter your text here')
     .lr
       span(class='bold') pheed.to
       span(class='underline') link text
-    .lr
-      div
-        input(name='pheedto',class='pheedto greyed',value='user, pheeder, email, cell')
+    div
+      input(name='pheedto',class='pheedto',placeholder='user, pheeder, email, cell')
       .pheedit
         input(type='image',src='images/pheedit.svg')
         span pheed.it

@@ -1,0 +1,61 @@
+.post
+  position relative
+  overflow hidden
+  box-shadow 0 8px 15px -8px shadow-color inset
+  padding-bottom 15px
+  padding-top 8px
+  word-break break-word
+  font-family "Garamond"
+
+  &:last-child
+    border-bottom none
+
+  .title
+    white-space nowrap
+    font-weight bold
+
+    *
+      white-space normal
+
+    .image
+      display inline-block
+      vertical-align middle
+      padding 5px 10px 10px 10px
+
+      img
+        max-width 50px
+        max-height 50px
+
+    .titletext
+      display inline-block
+      vertical-align middle
+      font-size 18px
+      text-align left
+      margin-right 10px
+      max-width 240px
+
+  .text
+    display inline-block
+    width 245px
+    vertical-align top
+    text-align left
+    font-size 14px
+    margin 0 3px
+
+    &.attachment
+      .download
+        width 160px
+
+    .image
+      text-align center
+      /*border 2px solid rgb(41, 171, 226)*/
+      margin 5px 0 10px 0
+
+      img
+        max-width 100%
+        box-shadow 0 0 5px 0 shadow-color
+        border-radius 3px
+        /*max-height 168px*/
+
+      .embeddedVideo
+        max-width 100%

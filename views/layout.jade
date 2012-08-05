@@ -19,8 +19,8 @@ html
 
     !=js_tag('/default.js')
   body
-    .topbar.navbar.navbar-fixed-top
-      .navbar-inner(id='topbar', style='z-index: 2')
+    .topbar.navbar.navbar-fixed-top(style='z-index: 2;')
+      .navbar-inner#topbar
         !=link_to(' ','/', {class: 'logo'})
         span(class='buttons')
           !=img_tag('images/add.svg', 'add', {class:'button'})
@@ -43,6 +43,6 @@ html
                 li
                   !=link_to('Log out', '/logout')
                 
-      //-div(style='background-image: url(/images/post-bg.png); opacity: .2;position:absolute;top:0;left:0;width:100%;height:40px; z-index: 1')
+    div(style='background-image: url(/images/post-bg.png); opacity: 1;position:absolute;top:0;left:0;width:100%;height:40px; z-index: 1')
     div(id='content')
       !=body

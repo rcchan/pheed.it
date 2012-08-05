@@ -1,0 +1,72 @@
+.topbar
+  position fixed
+  top 0
+  left 0
+  width 100%
+  bg-gradient(rgba(0,150,255,.8), rgba(50,54,255,.8))
+  margin-bottom 10px
+  box-shadow 0 0 20px 5px shadow-color
+  z-index 100
+
+  #topbar
+    max-width 1050px
+    height 100%
+    margin auto
+    color white
+    font-family "Gotham Rounded"
+    font-weight bold
+    background transparent
+    box-shadow none
+
+    > *
+      display inline-block
+      height 100%
+      vertical-align middle
+      
+    a
+      color inherit
+      &:hover
+        text-decoration inherit
+
+    .logo
+      margin-right 15px
+      position relative
+      top -3px
+      background url(/images/logo.png)
+      width 110px
+      height 32px
+
+    .buttons
+      margin 0 4px
+
+      img
+        vertical-align middle
+        margin 0 4px
+
+    .tabs
+      font-size 16px
+      font-weight 400
+      white-space nowrap
+      margin 0
+      height 40px
+
+      > *
+        white-space normal
+
+      > li
+        display inline-block
+        padding 10px 10px 0 10px
+        height 40px
+        vertical-align top
+        cursor pointer
+
+        &:hover
+          bg-gradient(rgba(30,180,255,.8), rgba(80,84,255,.8))
+          
+          .dropdown-menu
+            display block
+        .dropdown-menu
+          top 95% 
+          
+        &.selected
+          background rgba(0,0,0,.14)

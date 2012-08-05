@@ -1,0 +1,147 @@
+.publisher
+  margin inherit
+  overflow hidden
+
+  > div
+    background url(images/publisher-bg.png) repeat
+    color rgb(153, 102, 51)
+    box-shadow 0 8px 15px -8px shadow-color inset
+    font-family "museo"
+    padding 0 20px
+    overflow hidden
+    
+    input.title, .message, input.pheedto
+      background-color rgba(255,255,255,.6)
+      font-family "Garamond"
+      color black
+    
+    .title, .message
+      display block
+      width 100%
+      
+    .title
+      font-size 18px
+      border-radius 5px
+      font-weight bold
+      margin 15px 0 8px 0
+      padding 3px 5px
+
+    .publishertype
+      margin-bottom 0
+      text-align center
+      
+      .publish_buttons
+        display inline-block
+        
+        .button
+          display inline-block
+          min-width 40px
+          color white
+          font-family "museo"
+          font-size 14px
+          bg-gradient(rgb(30,180,255), rgb(80,84,255))
+          padding 0 7px
+          margin-bottom 0
+          &:first-child
+            border-top-left-radius 5px
+          &:nth-child(6)
+            border-top-right-radius 5px
+          &.selected,&:hover
+            bg-gradient(rgb(0,150,255), rgb(50,54,255))
+            cursor pointer
+            
+      .publisher_extras
+        border-left 1px solid #CCC
+        border-right 1px solid #CCC
+
+        .upload
+          display none
+          margin 0
+          .embedtype
+            display none
+          .embed
+            display none
+            height 30px
+          .file
+            position relative
+            height 42px
+            input
+              position absolute
+              top 0
+              left 0
+              opacity 0
+            .addfile
+              top 0
+              left 0
+              height 30px
+              text-align center
+              line-height 30px
+              bg-gradient(hsl(120, 45, 68), hsl(120, 34, 58))
+              border-bottom-color: rgba(0, 0, 0, 0.246094);
+              box-shadow rgba(255, 255, 255, 0.199219) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.046875) 0px 1px 2px 0px;
+              border-bottom-color: rgba(0, 0, 0, 0.246094);
+              border-bottom-left-radius: 4px;
+              border-bottom-right-radius: 4px;
+              border-bottom-style: solid;
+              border-bottom-width: 1px;
+              border-left-color: rgba(0, 0, 0, 0.0976563);
+              border-left-style: solid;
+              border-left-width: 1px;
+              border-right-color: rgba(0, 0, 0, 0.0976563);
+              border-right-style: solid;
+              border-right-width: 1px;
+              border-top-color: rgba(0, 0, 0, 0.0976563);
+              border-top-left-radius: 4px;
+              border-top-right-radius: 4px;
+              border-top-style: solid;
+              border-top-width: 1px;
+              color: rgb(255, 255, 255);
+              text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 0px;
+              &.loaded
+                bg-gradient(hsl(120, 45, 58), hsl(120, 34, 48))
+        .eventinfo
+          display none
+          margin-bottom 0
+          > div
+            > label
+              > span
+                display inline-block
+                text-align left
+
+    textarea
+      height 196px
+      font-size 14px
+      border-bottom 1px solid #CCC
+      border-top none
+      border-bottom-left-radius 10px
+      border-bottom-right-radius 10px
+      
+    .pheedto
+      height 32px
+      border-radius 5px
+      padding 0 5px
+    
+    .pheedit
+      display inline-block
+      position relative
+      text-align center
+      height 100%
+      width auto
+      padding 0 6px
+      line-height 36px
+      
+      input
+        position absolute
+        top 0
+        left 0
+        border none
+        box-shadow 0 3px 15px -3px shadow-color
+        width 100%
+        
+      span
+        position relative
+        color white
+        font-size 16px
+        font-weight bold
+        line-height 36px
+        cursor pointer
