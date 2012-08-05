@@ -19,6 +19,8 @@ module.exports = {
       case 'rephed':
         query = {_id: false}
         break;
+      default:
+        if (req.param('type').match(/[0-9a-f]/)) query = {_id: req.param('type')};
     }
     Post.find(query).desc('time').exec(
       function(err, docs){
