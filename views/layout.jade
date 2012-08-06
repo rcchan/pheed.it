@@ -2,7 +2,7 @@
 html
   head
     title
-      != title || pheed.it
+      != typeof title == 'undefined' ? 'pheed.it' : title
     link(rel='stylesheet', href='/bootstrap.css')
     link(rel='stylesheet', href='/default.css')
     link(rel='stylesheet', href='/jplayer/skin/blue.monday/jplayer.blue.monday.css')
