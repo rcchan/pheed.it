@@ -48,7 +48,10 @@ $(window).load(
       }
     );
     
-    $('.container .content').slimScroll({ height: '750px' });
+    $('.container').each(function(i,e){
+      $(e).find('.content').slimScroll({height: '100%'});
+      $(e).resizable({handles: 's', alsoResize: $(e).find('.slimScrollDiv').height($(e).data('height'))})
+    });
 
     var EMBED_INDEX = 0
     $('.posts').each(
