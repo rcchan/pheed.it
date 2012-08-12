@@ -1,4 +1,5 @@
 form.publisher(,enctype='multipart/form-data',action='/post',method='post')
+  != form_csrf
   div
     input(name='title',class='title',placeholder='Title your post here')
     div(class='publishertype')
