@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
+var Interaction = require('./interaction');
 
 var PostSchema = new Schema({
   author: {type: Number, min: 1, required: true, index: true},
@@ -30,9 +31,9 @@ var PostSchema = new Schema({
       latitude: {type: Number, required: true}
     }
   },
-  likes: {type: [Number], index: true},
-  dislikes: {type: [Number], index: true},
-  favorites: {type: [Number], index: true}
+  likes: {type: [Interaction], index: true},
+  dislikes: {type: [Interaction], index: true},
+  favorites: {type: [Interaction], index: true}
 });
 PostSchema.index({location: '2d'});
 module.exports = mongoose.model('Post', PostSchema);
