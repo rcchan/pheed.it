@@ -19,7 +19,8 @@ var PostSchema = new Schema({
   data: {
     type: {
       datatype: {type: String, enum: ['text', 'photo', 'audio', 'video'], required: true, index: true},
-      contenttype: {type:String, required: true, index: true}
+      contenttype: {type:String, index: true},
+      data: Schema.Types.Mixed
     },
     required: true,
     index: true
