@@ -154,7 +154,7 @@ $(window).load(
 
     $('.publisher .pheedit').click(
       function(){
-        $('#poster').submit();
+        $(this).parents('.publisher').submit();
         /*var b = $(this).parents('.publisher');
         $.post('/post',
           {
@@ -239,21 +239,29 @@ $(window).load(
       }
     );
 
-    $('#poster').submit(
+    $('.publisher').submit(
       function() {
-        if ($(this).find('.title').hasClass('greyed')){
+        if (!$(this).find('.title').val()){
           $(this).find('.title').focus();
           return false;
         }
-        if ($(this).find('.message').hasClass('greyed') && !($(this).find('#file').val() && $(this).find('.publisher .button.selected').text() != 'text')){
+        if (
+          !$(this).find('.message').val() &&
+          !($(this).find('#file').val() && $(this).find('.button.selected').text() != 'text') &&
+          !(
+            $(this).find('input[name=embedtype]:checked').val() == 'url' &&
+            $(this).find('input[name=embed_url]').val() &&
+            $(this).find('.button.selected').text() == 'video'
+          )
+        ){
           $(this).find('.message').focus();
           return false;
         }
-        $(this).find('#datatype').val($(this).find('.publisher .button.selected').text())
+        $(this).find('#datatype').val($(this).find('.button.selected').text())
         if (!$(this).find('#file').val()) $(this).find('#datatype').val('text');
 
         if (
-          $(this).find('.publisher .button.selected').text() == 'video' &&
+          $(this).find('.button.selected').text() == 'video' &&
           $('.embedtype input[type=radio][name=embedtype]:checked').val() == 'url'
         ) $(this).find('#datatype').val('link');
 
