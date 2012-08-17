@@ -74,6 +74,11 @@ User = require('./models/user');
 
 // Helpers
 
+getProp = function(obj, prop){
+  var props = prop.split('.');
+  return obj ? obj[prop] || getProp(obj[props[0]], props.slice(1).join('.')) : undefined;
+}
+
 app.dynamicHelpers({
   csrf_token: function(req){
     return req.session._csrf;
