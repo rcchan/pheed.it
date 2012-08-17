@@ -64,6 +64,7 @@ dnode(nQuery.middleware).listen(app);
 mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pheedit');
 
+Interaction = require('./models/interaction');
 Post = require('./models/post');
 User = require('./models/user');
 

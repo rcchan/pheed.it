@@ -116,13 +116,13 @@ module.exports = {
     var arg;
     switch (req.params['action']){
       case 'like':
-        arg = {$push: {likes: new Interaction({user: 1})}};
+        arg = {$push: {likes: {user: 1}}};
         break;
       case 'favorite':
-        arg = {$push: {favorites: new Interaction({user: 1})}};
+        arg = {$push: {favorites: {user: 1}}};
         break
       case 'dislike':
-        arg = {$push: {dislikes: new Interaction({user: 1})}};
+        arg = {$push: {dislikes: {user: 1}}};
         break
       default:
         res.writeHead(400);

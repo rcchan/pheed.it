@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
-var Interaction = require('./interaction');
 
 var PostSchema = new Schema({
   author: {type: Number, min: 1, required: true, index: true},
