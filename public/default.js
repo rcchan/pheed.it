@@ -290,6 +290,10 @@ $(window).load(
         return false;
       }
     );
+    
+    $(document.body).tooltip({
+      selector: '.controls .control'
+    });
     /*
 
     // If we ever want to pre-upload the image
