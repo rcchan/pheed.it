@@ -38,6 +38,7 @@ exports.init = function(){
   app.get('/logout', routes.logout);
   
   app.get('/profile', routes.profile.get);
+  app.post('/profile/homepage/:pheed', routes.profile.homepage);
 
   app.get('/post', routes.post.get);
   app.get('/post/:type', routes.post.get);

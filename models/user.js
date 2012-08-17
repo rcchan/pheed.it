@@ -7,6 +7,7 @@ var UserSchema = new Schema({
   first_name: String,
   last_name: String,
   email: String,
-  fbid: String
+  fbid: String,
+  homepage: Schema.Types.Mixed
 });
 module.exports = mongoose.model('User', UserSchema);

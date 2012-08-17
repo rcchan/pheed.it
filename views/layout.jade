@@ -3,6 +3,7 @@ html
   head
     title
       != typeof title == 'undefined' ? 'pheed.it' : title
+    meta(name='_csrf', content=csrf_token)
     link(rel='stylesheet', href='/bootstrap.css')
     link(rel='stylesheet', href='/default.css')
     link(rel='stylesheet', href='/jplayer/skin/blue.monday/jplayer.blue.monday.css')

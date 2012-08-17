@@ -50,7 +50,18 @@ $(window).load(
     
     $('.container').each(function(i,e){
       $(e).find('.content').slimScroll({height: '100%'});
-      $(e).resizable({handles: 's', alsoResize: $(e).find('.slimScrollDiv').height($(e).data('height'))})
+      $(e).resizable({
+        handles: 's',
+        alsoResize: $(e).find('.slimScrollDiv').height($(e).data('height')),
+        stop: function(){
+          $.post('/profile/homepage/' + $(this).data('name'), {
+            _csrf: $('meta[name=_csrf]').attr('content'),
+            properties: {
+              size: $(this).find('.content').height()
+            }
+          })
+        }
+      })
     });
 
     var EMBED_INDEX = 0
