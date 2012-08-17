@@ -46,37 +46,43 @@ body
   margin-top 50px
   max-width 1110px
 
-  .container
+  .column
     display inline-block
     vertical-align top
     margin 10px 20px 20px 20px
-    text-align left
     width 330px
-
-    > div:not(.ui-resizable-handle)
-      box-shadow 0 0 10px 0px shadow-color
-
-    .heading
-      border-top-left-radius 10px
-      border-top-right-radius 10px
-      padding 7px 10px 13px 10px
-      color white
+  
+    > .container
+      display inline-block
+      vertical-align top
+      margin 10px 20px 20px 20px
       text-align left
-      font-family "helvetica neue",arial,helvetica,freesans,"liberation sans","numbus sans l",sans-serif
-      font-size 24px
-      font-weight bold
-      //bg-gradient(rgb(177, 255, 153), rgb(138, 255, 102))
-      background url(images/container-heading-bg.png) repeat
+      width 330px
 
-    .content
-      background url("images/post-bg.png") repeat
+      > div:not(.ui-resizable-handle)
+        box-shadow 0 0 10px 0px shadow-color
 
-    .footing
-      height 0
-      border-bottom-left-radius 10px
-      border-bottom-right-radius 10px
-      padding 10px
-      background url(images/post-bg.png) repeat
+      .heading
+        border-top-left-radius 10px
+        border-top-right-radius 10px
+        padding 7px 10px 13px 10px
+        color white
+        text-align left
+        font-family "helvetica neue",arial,helvetica,freesans,"liberation sans","numbus sans l",sans-serif
+        font-size 24px
+        font-weight bold
+        //bg-gradient(rgb(177, 255, 153), rgb(138, 255, 102))
+        background url(images/container-heading-bg.png) repeat
+
+      .content
+        background url("images/post-bg.png") repeat
+
+      .footing
+        height 0
+        border-bottom-left-radius 10px
+        border-bottom-right-radius 10px
+        padding 10px
+        background url(images/post-bg.png) repeat
 
 // Bootstrap Overrides
 
