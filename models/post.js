@@ -33,7 +33,8 @@ var PostSchema = new Schema({
   },
   likes: {type: [Interaction], index: true},
   dislikes: {type: [Interaction], index: true},
-  favorites: {type: [Interaction], index: true}
+  favorites: {type: [Interaction], index: true},
+  comments: [Comment]
 });
 PostSchema.index({location: '2d'});
 module.exports = mongoose.model('Post', PostSchema);

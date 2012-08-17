@@ -60,11 +60,15 @@ app.configure('production', function(){
 
 dnode(nQuery.middleware).listen(app);
 
-//Database
+// Database
 mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/pheedit');
 
+// Schemas
 Interaction = require('./models/interaction');
+Comment = require('./models/comment');
+
+// Models
 Post = require('./models/post');
 User = require('./models/user');
 
