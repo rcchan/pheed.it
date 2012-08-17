@@ -47,20 +47,21 @@ module.exports = {
     p.title = req.body.title || '[No title]';
     p.message = req.body.message || '';
     p.private = req.body.private || false;
-    if (jQuery.isEmptyObject(req.files.file)){
+
+    if (jQuery.isEmptyObject(req.files.file) || !req.files.file.size){
       if (req.body.embed_url){
         p.data = {
           datatype: 'link',
-          contenttype: req.body.embed_url
+          data: req.body.embed_url
         }
+        p.message = req.body.embed_url + '\n' + p.message
       }
       p.save(
         function(r, o){
           res.json(r);
         }
       );
-    }
-    else {
+    } else {
 
       var types = {
         photo: /\.(jpg|png|tif|gif|svg)$/i,
