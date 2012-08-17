@@ -9,7 +9,7 @@ module.exports = {
         format = 'rss';
         break;
       case 'starred':
-        query = { favorites : 1 };
+        query = { favorites : {$ne: []} };
         break;
       case 'featured':
       case 'phood':
