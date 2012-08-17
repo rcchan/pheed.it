@@ -11,10 +11,9 @@ module.exports = {
       req.user.homepage[pheed] = req.user.homepage[pheed] || {};
       jQuery.extend(req.user.homepage[pheed], properties)
       req.user.markModified('homepage.' + pheed);
-      req.user.save(function(e,r){
-        console.log(r.homepage);
-      });
+      req.user.save();
+      res.send(200);
     }
-    res.send();
+    res.send(400);
   }
 }
