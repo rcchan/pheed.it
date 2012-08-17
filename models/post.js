@@ -15,7 +15,7 @@ var PostSchema = new Schema({
   },
   time: {type: Date, default: Date.now, required: true, index: true},
   title: {type: String, required: true, index: true},
-  message: {type: String, required: true, index: true},
+  message: {type: String, index: true},
   data: {
     type: {
       datatype: {type: String, enum: ['text', 'photo', 'audio', 'video'], required: true, index: true},

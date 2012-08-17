@@ -75,7 +75,7 @@ module.exports = {
       };
       p.save(
         function(r, o){
-          fs.move(req.files.file.path, __dirname + '/../public/upload/' + o._id, function(a,b,c,d,e){debugger});
+          fs.move(req.files.file.path, __dirname + '/../public/upload/' + o._id);
           res.json(r);
         }
       );
