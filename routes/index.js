@@ -1,10 +1,10 @@
-/*
- * GET home page.
- */
-
 var routes = {
   index: function(req, res){
     res.render('index', { title: 'pheed.it' });
+  },
+  
+  splash: function(req, res){
+    res.render('splash');
   },
 
   login: require('./login'),
@@ -21,6 +21,8 @@ var routes = {
 
 exports.init = function(){
   app.get('/', routes.index);
+  
+  app.get('/splash', routes.splash);
 
   app.get('/createuser', function(req,res){
     bcrypt.genSalt(10, function(err, salt) {
