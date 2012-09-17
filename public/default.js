@@ -49,7 +49,7 @@ $(window).load(
     );
     
     $('.container').each(function(i,e){
-      $(e).find('.content').slimScroll({height: '100%'});
+      $(e).find('.content:not(.publisher_content)').slimScroll({height: '100%'});
       $(e).resizable({
         handles: 's',
         alsoResize: $(e).find('.slimScrollDiv').height($(e).data('height')),

@@ -1,5 +1,5 @@
 .column
-  !=partial('container', {name: 'mypheed', title: 'my pheed', content: partial('publisher') + partial('posts'), height: getProp(user, 'homepage.mypheed.size') || 750})
+  !=partial('container', {name: 'mypheed', title: 'my pheed', publisher: true, content: partial('posts'), height: getProp(user, 'homepage.mypheed.size') || 750})
   !=partial('container', {name: 'featured_pheeds', title: 'pheatured pheeds', content: partial('posts', {url:'/featured'}), height: getProp(user, 'homepage.featured_pheeds.size') || 750})
   !=partial('container', {name: 'likes', title: 'most liked', content: partial('posts', {url:'/likes'}), height: getProp(user, 'homepage.likes.size') || 750})
 .column

@@ -1,6 +1,9 @@
 .container(data-name=name, data-height=typeof height == 'undefined' ? 300 : height)
   .heading
     !=title
+  -if (typeof publisher != 'undefined' && publisher)
+    .content.publisher_content
+      != partial('publisher')
   .content
     !=content
   .footing
