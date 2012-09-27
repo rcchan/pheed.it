@@ -1,0 +1,23 @@
+.topbar.navbar.navbar-fixed-top(style='z-index: 2;')
+  .navbar-inner#topbar
+    !=link_to(' ','/', {class: 'logo'})
+    span(class='buttons')
+      !=img_tag('/images/add.svg', 'add', {class:'button'})
+      !=img_tag('/images/i.svg', 'add', {class:'button'})
+    ul.tabs
+      li.selected my pheed
+      li philters
+      li pheeders
+      li to phollow
+    ul.tabs.pull-right
+      li.dropdown
+        -if (typeof user == 'undefined' || !user._id)
+          !=link_to('Log in', '/login', {class: 'dropdown-toggle'})
+        -else
+          a.dropdown-toggle(data-toggle='dropdown')
+            !=user.username
+          ul.dropdown-menu
+            li
+              !=link_to('Profile', '/profile')
+            li
+              !=link_to('Log out', '/logout')
