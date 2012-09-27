@@ -1,9 +1,11 @@
 img(src='/images/splash.png', class='splash_bg')
 .splashpage
   img(src='/images/pheedit_logo.png', class='splash_logo')
-  div
-    input(placeholder='username')
-    span.button.signup sign up
-  div
-    input(placeholder='password')
-    span.button.signin sign in
+  form(method='POST', action='/login')
+    !=form_csrf
+    div
+      input(placeholder='username', name='username')
+      span.button.signup sign up
+    div
+      input(placeholder='password', name='password', type='password')
+      button.button.signin(type='submit') sign in
