@@ -1,6 +1,7 @@
 var routes = {
   index: function(req, res){
-    res.render('index', { title: 'pheed.it' });
+    if (req.user) res.render('index', { title: 'pheed.it' });
+    else res.redirect('/splash');
   },
   
   splash: function(req, res){
