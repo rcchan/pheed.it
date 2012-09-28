@@ -12,7 +12,7 @@
     ul.tabs.pull-right
       li.dropdown
         -if (typeof user == 'undefined' || !user._id)
-          !=link_to('Log in', '/login', {class: 'dropdown-toggle'})
+          !=link_to('Log in', '/splash', {class: 'dropdown-toggle'})
         -else
           a.dropdown-toggle(data-toggle='dropdown')
             !=user.username
