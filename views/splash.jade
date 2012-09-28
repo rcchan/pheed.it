@@ -1,3 +1,6 @@
+script(type='text/javascript')
+  pheedit.splash.init();
+  
 img(src='/images/splash.png', class='splash_bg')
 .splashpage
   img(src='/images/pheedit_logo.png', class='splash_logo')
@@ -5,7 +8,7 @@ img(src='/images/splash.png', class='splash_bg')
     !=form_csrf
     div
       input(placeholder='username', name='username')
-      span.button.signup sign up
+      button.button.signup sign up
     div
       input(placeholder='password', name='password', type='password')
       button.button.signin(type='submit') sign in

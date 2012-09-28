@@ -5,7 +5,7 @@ module.exports = {
   
   post: passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login',
+    failureRedirect: '/splash',
     failureFlash: 'Invalid username or password'
   })
 }

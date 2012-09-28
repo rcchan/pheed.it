@@ -7,6 +7,21 @@ var routes = {
   splash: function(req, res){
     res.render('splash');
   },
+  
+  sign_up: function(req,res){
+    if (!req.body['password'] || !req.body['username']) return res.json({success: false});
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(req.body['password'], salt, function(err, hash) {
+            (new User({username:req.body['username'], password: hash})).save(function(e, user){
+            /*  passport.authenticate('local', {}, function(req, res){
+                console.log("AUTH!");
+                res.json(e || user);
+              })*/
+              res.json(e || user);
+            });
+        });
+    });
+  },
 
   login: require('./login'),
 
@@ -25,13 +40,7 @@ exports.init = function(){
   
   app.get('/splash', routes.splash);
 
-  app.get('/createuser', function(req,res){
-    bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash("pass", salt, function(err, hash) {
-            (new User({username:'ryan', password: hash})).save(function(){res.send('User created'); res.end()});
-        });
-    });
-  });
+  app.post('/sign_up', routes.sign_up);
 
   app.get('/login', routes.login.get);
   app.post('/login', routes.login.post);
