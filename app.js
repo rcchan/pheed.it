@@ -14,6 +14,8 @@ connect = require('connect');
 express = require('express')
   , routes = require('./routes');
 
+connect_mongo = require('connect-mongo')(express);
+  
 app = module.exports = express.createServer();
 
 helpers = require('express-helpers');
@@ -38,7 +40,14 @@ app.configure(function(){
   app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(express.session({ secret: 'h.bw}an}P(d-(TfP6<Ax.0jL4Nx=g<%~hz$<C)4<35ye-k{xE^+i5@U~QlZ)9j8' }));
+  app.use(express.session({
+    secret: 'h.bw}an}P(d-(TfP6<Ax.0jL4Nx=g<%~hz$<C)4<35ye-k{xE^+i5@U~QlZ)9j8',
+    store: new connect_mongo({
+      db: 'pheedit',
+      auto_reconnect: true,
+      clear_interval: 600
+    })
+  }));
   app.use(connect.csrf());
   app.use(passport.initialize());
   app.use(passport.session());
