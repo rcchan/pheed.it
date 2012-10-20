@@ -3,3 +3,4 @@ pheedit.CDN_HOST = (function(h){a=document.createElement('a');a.href=h;return a.
 
 //= require_self
 //= require_tree .
+//= require fancybox

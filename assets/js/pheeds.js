@@ -129,6 +129,7 @@ pheedit.pheeds = {
               );
             }
           );
+          $('.post .image a').fancybox();
         }
       );
 
