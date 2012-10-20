@@ -65,7 +65,7 @@ pheedit.pheeds = {
       
       $('.post .image a').fancybox({type: 'image', wrapCSS: 'enlarged-image'});
       $(document).on('dblclick', '.enlarged-image', function(){
-        pheedit.fullscreen($(this).find('img'));
+        pheedit.toggle_fullscreen($(this).find('img'));
       });
 
       var EMBED_INDEX = 0
