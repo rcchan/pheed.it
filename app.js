@@ -35,6 +35,7 @@ var mincer  = require('mincer');
 mincer.environment = new mincer.Environment();
 mincer.environment.appendPath('assets/javascripts');
 mincer.environment.appendPath('assets/stylesheets');
+mincer.environment.appendPath('assets/images');
 
 // Configuration
 
@@ -58,10 +59,6 @@ app.configure(function(){
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
-  app.use(stylus.middleware({
-    src: __dirname + '/stylesheets',
-    dest: __dirname + '/public'
-  }));
   app.use(nQuery.middleware);
   app.use(express.static(__dirname + '/public'));
 });

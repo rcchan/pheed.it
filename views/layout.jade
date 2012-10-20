@@ -5,7 +5,7 @@ html
       != typeof title == 'undefined' ? 'pheed.it' : title
     meta(name='_csrf', content=csrf_token)
     link(rel='stylesheet', href='/bootstrap.css')
-    link(rel='stylesheet', href='/default.css')
+    link(rel='stylesheet', href='/assets/index.styl')
     link(rel='stylesheet', href='/jplayer/skin/blue.monday/jplayer.blue.monday.css')
     link(rel='stylesheet', href='/jquery-ui-1.8.21.custom.css')
     link(rel='stylesheet', href='/jquery-ui-timepicker-addon.css')
@@ -17,6 +17,6 @@ html
   body
     !=partial('_topbar')
                 
-    div(style='background-image: url(/images/post-bg.png); opacity: 1;position:absolute;top:0;left:0;width:100%;height:40px; z-index: 1')
+    div(style='background-image: url(/assets/post-bg.png); opacity: 1;position:absolute;top:0;left:0;width:100%;height:40px; z-index: 1')
     div(id='content')
       !=body

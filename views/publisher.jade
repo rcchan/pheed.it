@@ -46,7 +46,7 @@ form.publisher(action='/post',method='post')
     div
       input(name='pheedto',class='pheedto',placeholder='user, pheeder, email, cell', type='text')
       .pheedit
-        input(type='image',src='images/pheedit.svg')
+        input(type='image',src='/assets/pheedit.svg')
         span pheed.it
     .lr
       label
@@ -55,4 +55,4 @@ form.publisher(action='/post',method='post')
       label
         input(type='checkbox', id='location')
         span
-          !=img_tag('images/location.svg', 'location')
+          !=img_tag('/assets/location.svg', 'location')
