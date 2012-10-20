@@ -7,7 +7,7 @@ img(src='/images/splash.png', class='splash_bg')
   form(method='POST', action='/login')
     !=form_csrf
     div
-      input(placeholder='username', name='username')
+      input(placeholder='username', name='username', type='text')
       button.button.signup sign up
     div
       input(placeholder='password', name='password', type='password')

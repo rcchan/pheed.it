@@ -1,7 +1,7 @@
 form.publisher(action='/post',method='post')
   != form_csrf
   div
-    input(name='title',class='title',placeholder='Title your post here')
+    input(name='title',class='title',placeholder='Title your post here', type='text')
     div(class='publishertype')
       .publish_buttons
         .button.selected text
@@ -20,7 +20,7 @@ form.publisher(action='/post',method='post')
             label
               input(type='radio', name='embedtype', value='url')
               span Embed URL
-          input(class='embed', name='embed_url', placeholder='Enter embed URL')
+          input(class='embed', name='embed_url', placeholder='Enter embed URL', type='text')
           .file
             .addfile Add files...
             input(type='file',id='file',name='file')
@@ -44,7 +44,7 @@ form.publisher(action='/post',method='post')
       span(class='bold') pheed.to
       span(class='underline') link text
     div
-      input(name='pheedto',class='pheedto',placeholder='user, pheeder, email, cell')
+      input(name='pheedto',class='pheedto',placeholder='user, pheeder, email, cell', type='text')
       .pheedit
         input(type='image',src='images/pheedit.svg')
         span pheed.it
