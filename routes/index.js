@@ -32,7 +32,9 @@ var routes = {
   
   profile: require('./profile'),
 
-  post: require('./post')
+  post: require('./post'),
+  
+  pheeders: require('./pheeders')
 };
 
 exports.init = function(){
@@ -59,4 +61,6 @@ exports.init = function(){
   app.get('/post/attachment/:id', routes.post.attachment);
   app.post('/post/sms', routes.post.sms);
   app.get('/post/:id/:action', routes.post.like);
+  
+  app.get('/pheeders', routes.pheeders.get);
 }

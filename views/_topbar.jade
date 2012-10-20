@@ -5,9 +5,11 @@
       !=img_tag('/assets/add.svg', 'add', {class:'button'})
       !=img_tag('/assets/i.svg', 'add', {class:'button'})
     ul.tabs
-      li.selected my pheed
+      li.selected
+        !=link_to('my pheed', '/')
       li philters
-      li pheeders
+      li
+        !=link_to('pheeders', '/pheeders')
       li to phollow
     ul.tabs.pull-right
       li.dropdown
