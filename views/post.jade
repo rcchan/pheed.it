@@ -9,7 +9,7 @@
     .text.attachment
       -if (post.data && post.data.contenttype && post.data.datatype == 'photo')
         .image
-          !=link_to(img_tag('/post/attachment/' + post._id + '?mime=' + post.data.contenttype), '/post/attachment/' + post._id + '?mime=' + post.data.contenttype)
+          !=img_tag('/post/attachment/' + post._id + '?mime=' + post.data.contenttype)
       -if (post.data && post.data.contenttype && post.data.datatype == 'video')
         .image
           !=partial('player_video.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype})

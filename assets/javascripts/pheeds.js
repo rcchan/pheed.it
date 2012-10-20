@@ -62,6 +62,10 @@ pheedit.pheeds = {
           }
         })
       });
+      
+      $(document).on('click', '.post .image img', function(){
+        $.fancybox(this);
+      });
 
       var EMBED_INDEX = 0
       $('.posts').each(
@@ -129,10 +133,8 @@ pheedit.pheeds = {
               );
             }
           );
-          $('.post .image a').fancybox();
         }
       );
-
       $('.publisher input[type=date]').datepicker();
       $('.publisher input[type=time]').timepicker({});
 
