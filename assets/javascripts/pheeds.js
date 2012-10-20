@@ -63,7 +63,10 @@ pheedit.pheeds = {
         })
       });
       
-      $('.post .image a').fancybox({type: 'image'});
+      $('.post .image a').fancybox({type: 'image', wrapCSS: 'enlarged-image'});
+      $(document).on('dblclick', '.enlarged-image', function(){
+        pheedit.fullscreen($(this).find('img'));
+      });
 
       var EMBED_INDEX = 0
       $('.posts').each(
