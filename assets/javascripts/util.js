@@ -1,4 +1,5 @@
 pheedit = pheedit || {};
+/* using jquery.fullscreen plugin instead
 pheedit.fullscreen = function(elem){
   elem = $(elem)[0];
   if (elem.requestFullScreen) elem.requestFullScreen();
@@ -15,3 +16,4 @@ pheedit.cancel_fullscreen = function(){
 pheedit.toggle_fullscreen = function(elem){
   (document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen) ? pheedit.cancel_fullscreen() : pheedit.fullscreen(elem);
 }
+*/
