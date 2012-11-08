@@ -1,16 +1,16 @@
 script(type='text/javascript')
   pheedit.pheeds.init();
 .column
-  !=partial('container', {name: 'mypheed', title: 'my pheed', publisher: true, content: partial('posts'), height: getProp(user, 'homepage.mypheed.size') || 750})
-  !=partial('container', {name: 'featured_pheeds', title: 'pheatured pheeds', content: partial('posts', {url:'/featured'}), height: getProp(user, 'homepage.featured_pheeds.size') || 750})
+  !=partial('container', {name: 'mypheed', title: 'my feed', publisher: true, content: partial('posts'), height: getProp(user, 'homepage.mypheed.size') || 750})
+  !=partial('container', {name: 'featured_pheeds', title: 'pheatured feeds', content: partial('posts', {url:'/featured'}), height: getProp(user, 'homepage.featured_pheeds.size') || 750})
   !=partial('container', {name: 'likes', title: 'most liked', content: partial('posts', {url:'/likes'}), height: getProp(user, 'homepage.likes.size') || 750})
 .column
-  !=partial('container', {name: 'inbox', title: 'pheed.to inbox', content: partial('posts', {max: 3}), height: getProp(user, 'homepage.inbox.size') || 750})
-  !=partial('container', {name: 'featured_phood', title: 'pheatured phood', content: partial('posts', {url:'/phood'}), height: getProp(user, 'homepage.featured_phood.size') || 750})
+  !=partial('container', {name: 'inbox', title: 'feed.to inbox', content: partial('posts', {max: 3}), height: getProp(user, 'homepage.inbox.size') || 750})
+  !=partial('container', {name: 'featured_food', title: 'pheatured food', content: partial('posts', {url:'/phood'}), height: getProp(user, 'homepage.featured_phood.size') || 750})
   !=partial('container', {name: 'comments', title: 'most comments', content: partial('posts', {url:'/comments'}), height: getProp(user, 'homepage.comments.size') || 750})
 
 .column
   !=partial('container', {name: 'starred', title: 'starred', content: partial('posts', {max: 3, url:'/starred'}), height: getProp(user, 'homepage.starred.size') || 750})
   !=partial('container', {name: 'interactions', title: 'most interactions', content: partial('posts', {url:'/interactions'}), height: getProp(user, 'homepage.interactions.size') || 750})
-  !=partial('container', {name: 'rephed', title: 'most re-phed', content: partial('posts', {url:'/rephed'}), height: getProp(user, 'homepage.rephed.size') || 750})
+  !=partial('container', {name: 'rephed', title: 'most re-fed', content: partial('posts', {url:'/rephed'}), height: getProp(user, 'homepage.rephed.size') || 750})
 -//&#x25c4;

@@ -6,11 +6,11 @@
       !=img_tag('/assets/i.svg', 'add', {class:'button'})
     ul.tabs
       li.selected
-        !=link_to('my pheed', '/')
-      li philters
+        !=link_to('my feed', '/')
+      li filters
       li
-        !=link_to('pheeders', '/pheeders')
-      li to phollow
+        !=link_to('feeders', '/feeders')
+      li to follow
     ul.tabs.pull-right
       li.dropdown
         -if (typeof user == 'undefined' || !user._id)
