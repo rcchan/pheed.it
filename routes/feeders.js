@@ -1,5 +1,5 @@
 module.exports = {
   get: function(req, res){
-    res.render('pheeders');
+    res.render('feeders');
   }
 }

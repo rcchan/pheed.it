@@ -34,7 +34,7 @@ var routes = {
 
   post: require('./post'),
   
-  pheeders: require('./pheeders')
+  feeders: require('./feeders')
 };
 
 exports.init = function(){
@@ -62,5 +62,5 @@ exports.init = function(){
   app.post('/post/sms', routes.post.sms);
   app.get('/post/:id/:action', routes.post.like);
   
-  app.get('/pheeders', routes.pheeders.get);
+  app.get('/feeders', routes.feeders.get);
 }
