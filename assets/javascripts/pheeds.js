@@ -132,6 +132,19 @@ pheedit.pheeds = {
                   EMBED_INDEX++;
                 }
               );
+              $('.post .text .selectable').each(
+                function(i, e){
+                  if ($(e).prop('scrollHeight') > $(e).height()){
+                    $(e).next('.showmore').show().click(function(){
+                      $(e).switchClass('', 'showall', 800);
+                      $(this).hide().next('.showless').show().click(function(){
+                        $(e).switchClass('showall', '', 800);
+                        $(this).hide().prev('.showmore').show();
+                    });;
+                    });
+                  }
+                }
+              );
             }
           );
         }

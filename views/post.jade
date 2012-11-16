@@ -25,6 +25,9 @@
             iframe(class='embeddedVideo', src='http://player.vimeo.com/video/' + m[2], allowfullscreen)
       .selectable
         !=htmlentities(post.message)
+        
+      .showmore See more...
+      
   - else
     .text
       -if (post.data && post.data.datatype == 'audio')
@@ -34,3 +37,6 @@
       -else
         .selectable
           !=htmlentities(post.message)
+        
+      .showmore See more...
+      .showless See Less...

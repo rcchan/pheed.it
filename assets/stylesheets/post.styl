@@ -67,6 +67,18 @@
 
       .embeddedVideo
         max-width 100%
+        
+    .selectable
+      height 200px
+      overflow-y hidden
+      
+      &.showall
+        height auto
+      
+    .showmore, .showless
+      display none
+      text-align right
+      text-decoration underline
 
 .enlarged-image img
   &:full-screen
