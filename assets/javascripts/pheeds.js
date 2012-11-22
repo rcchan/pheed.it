@@ -134,6 +134,7 @@ pheedit.pheeds = {
               );
               $('.post .text .selectable').each(
                 function(i, e){
+                  $(e).html(pheedit.linkify($(e).text()));
                   if ($(e).prop('scrollHeight') > $(e).height()){
                     $(e).next('.showmore').show().click(function(){
                       $(e).switchClass('', 'showall', 800);
