@@ -1,6 +1,6 @@
 var routes = {
   index: function(req, res){
-    if (req.user) res.render('index', { title: 'pheed.it', selected: 'home' });
+    if (req.user) res.render('index', {selected: 'home' });
     else res.redirect('/splash');
   },
   
