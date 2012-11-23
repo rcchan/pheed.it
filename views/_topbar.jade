@@ -5,12 +5,12 @@
       !=img_tag('/assets/add.svg', 'add', {class:'button'})
       !=img_tag('/assets/i.svg', 'add', {class:'button'})
     ul.tabs
-      li(class= typeof selected != 'undefined' && selected == 'home' && 'selected')
+      li(class= selected == 'home' && 'selected')
         !=link_to('my feed', '/')
-      li(class= typeof selected != 'undefined' && selected == 'filters' && 'selected') filters
-      li(class= typeof selected != 'undefined' && selected == 'feeders' && 'selected')
+      li(class= selected == 'filters' && 'selected') filters
+      li(class= selected == 'feeders' && 'selected')
         !=link_to('feeders', '/feeders')
-      li(class= typeof selected != 'undefined' && selected == 'follow' && 'selected') to follow
+      li(class= selected == 'follow' && 'selected') to follow
     ul.tabs.pull-right
       li.dropdown
         -if (typeof user == 'undefined' || !user._id)
