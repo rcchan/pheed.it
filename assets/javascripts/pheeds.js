@@ -8,7 +8,7 @@ pheedit.pheeds = {
       
       $(document).on('click', '.controls .facebook',
         function(){
-          window.open('http://www.facebook.com/sharer.php?u=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'));
+          window.open('http://www.facebook.com/sharer.php?u=http://shareall.co/post/' + $(this).parentsUntil('.post').parent().data('id'));
         }
       );
 
@@ -26,7 +26,7 @@ pheedit.pheeds = {
               .css('left', e.pageX)
             )
           )*/
-          window.open('https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'));
+          window.open('https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://shareall.co/post/' + $(this).parentsUntil('.post').parent().data('id'));
         }
       );
 
