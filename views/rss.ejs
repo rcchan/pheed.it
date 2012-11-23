@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-        <title>pheed.it</title>
+        <title>shareall.co</title>
         <description>Pheed.it, the best social networking site ever.</description>
-        <link>http://10.3.0.1:3000</link>
+        <link>http://shareall.co</link>
         <% for(post in (typeof posts != 'undefined' ? posts : [])){ p = posts[post] %>
           <item>
                   <title><%- p.title %></title>
                   <description><%- p.message %></description>
-                  <link>http://10.3.0.1:3000/post/<%- p.id %></link>
+                  <link>http://shareall.co/post/<%- p.id %></link>
                   <guid><%- p.id %></guid>
                   <pubDate><%- p.time %></pubDate>
           </item>
