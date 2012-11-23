@@ -16,7 +16,7 @@ pheedit.pheeds = {
         function(){
           /*$(document.body).append(
             ($(document.createElement('iframe'))
-              .attr('src', 'https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://pheed.it/post/' + $(this).parentsUntil('.post').parent().data('id'))
+              .attr('src', 'https://twitter.com/intent/tweet?related=andrewantar&hashtags=pheedit&url=http://shareall.co/post/' + $(this).parentsUntil('.post').parent().data('id'))
               .attr('scrollable', 'no')
               .css('border', 'none')
               .width(400)
