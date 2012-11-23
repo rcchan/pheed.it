@@ -127,7 +127,7 @@ passport.use(new FacebookStrategy({
     passReqToCallback: true,
     clientID: 402292099826850,
     clientSecret: '4d668e86af73bddf7e96bb6c05cf1ee8',
-    callbackURL: "http://pheed.it/login/facebook/callback"
+    callbackURL: "http://shareall.co/login/facebook/callback"
   },
   function(req, accessToken, refreshToken, profile, done){
     if (req.user){
