@@ -267,6 +267,8 @@ pheedit.pheeds = {
         }
       );
 
+      $('.publisher .pheedto').tokenInput("/users/search", {theme: 'facebook'});
+      
       $('.publisher').submit(
         function() {
           if (!$(this).find('.title').val()){
