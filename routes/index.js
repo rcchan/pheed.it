@@ -30,6 +30,8 @@ var routes = {
     res.redirect('/');
   },
   
+  users: require('./users'),
+  
   profile: require('./profile'),
 
   post: require('./post'),
@@ -50,6 +52,8 @@ exports.init = function(){
   app.get('/login/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
 
   app.get('/logout', routes.logout);
+  
+  app.get('/users/search', routes.users.search);
   
   app.get('/profile', routes.profile.get);
   app.post('/profile/homepage/:pheed', routes.profile.homepage);
