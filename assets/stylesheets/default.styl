@@ -81,25 +81,28 @@ body
         font-weight 300
         //bg-gradient(rgb(177, 255, 153), rgb(138, 255, 102))
         background url(/assets/container-heading-bg.png) repeat
+        text-shadow 0 1px 1px shadow-color = rgba(102, 102, 102, .6)
 
       .content
         //box-shadow 0 8px 15px -8px shadow-color inset
         box-shadow 0 3px 8px -3px shadow-color inset, 0 -3px 8px -3px shadow-color inset
         background url(/assets/post-bg.png) repeat
-        box-shadow 0 8px 15px -8px shadow-color inset
+        
+        .posts
+          background url(/assets/post-bg.png) repeat
 
       .footing
         box-shadow 0 0 10px 0px shadow-color, 0 1px 1px 0px rgba(255,255,255,.7) inset, 0 -1px 1px 0px shadow-color inset
         height 0
         border-bottom-left-radius 10px
         border-bottom-right-radius 10px
-        padding 10px
+        padding 15px
         //background url(/assets/post-bg.png) repeat
         background url(/assets/container-heading-bg.png) repeat
         margin-bottom -5px
         
       &.ui-resizable .ui-resizable-handle
-        height 20px
+        height 30px
         background url(/assets/scroll_handle.png) center no-repeat
 
 // Bootstrap Overrides
