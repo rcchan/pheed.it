@@ -41,18 +41,18 @@ form.publisher(action='/post',method='post')
             img.map
     textarea.message(name='message', placeholder='Enter your text here')
     .lr
-      span(class='bold') feed.to
+      span share with
       span(class='underline') link text
     div
       input(name='pheedto',class='pheedto',placeholder='user, pheeder, email, cell', type='text')
       .pheedit
         input(type='image',src='/assets/pheedit.svg')
-        span feed.it
-    .lr
-      label
+        span share
+    div
+      label.private
         input(type='checkbox', id='private')
         span private message
-      label
+      label.location
         input(type='checkbox', id='location')
         span
-          !=img_tag('/assets/location.svg', 'location')
+          !=img_tag('/assets/location.png', 'location')
