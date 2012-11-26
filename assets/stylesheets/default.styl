@@ -59,14 +59,21 @@ body
       margin 10px 20px 20px 20px
       text-align left
       width 330px
-
-      > div:not(.ui-resizable-handle)
-        box-shadow 0 0 10px 0px shadow-color
+      
+      .slimScrollDiv, .publisher
+        box-shadow 5px 0 10px -5px rgba(102, 102, 102, .4), -5px 0 10px -5px rgba(102, 102, 102, .4)
+        
+      .publisher
+        box-shadow 5px 0 10px -5px rgba(102, 102, 102, .4), -5px 0 10px -5px rgba(102, 102, 102, .4)
+        
+        > div
+          box-shadow 0 0 2px 1px shadow-color inset
 
       .heading
+        box-shadow 0 0 10px 0px shadow-color, 0 1px 1px 0px rgba(255,255,255,.5) inset, 0 -1px 1px 0px rgba(102, 102, 102, .3) inset
         border-top-left-radius 10px
         border-top-right-radius 10px
-        padding 7px 10px 13px 10px
+        padding 8px 10px 14px 10px
         color white
         text-align left
         font-family "helvetica neue",arial,helvetica,freesans,"liberation sans","numbus sans l",sans-serif
@@ -76,10 +83,13 @@ body
         background url(/assets/container-heading-bg.png) repeat
 
       .content
+        //box-shadow 0 8px 15px -8px shadow-color inset
+        box-shadow 0 3px 8px -3px shadow-color inset, 0 -3px 8px -3px shadow-color inset
         background url(/assets/post-bg.png) repeat
         box-shadow 0 8px 15px -8px shadow-color inset
 
       .footing
+        box-shadow 0 0 10px 0px shadow-color, 0 1px 1px 0px rgba(255,255,255,.7) inset, 0 -1px 1px 0px shadow-color inset
         height 0
         border-bottom-left-radius 10px
         border-bottom-right-radius 10px
