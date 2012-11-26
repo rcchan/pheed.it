@@ -35,18 +35,21 @@ shadow-color = rgba(102, 102, 102, .4)
       
       .publish_buttons
         display inline-block
+        text-shadow 0 1px 1px rgba(0, 0, 0, .6)
         
         .button
           display inline-block
-          min-width 40px
+          min-width 41px
           color white
           font-family "museo"
           font-size 14px
           bg-gradient(rgb(30,180,255), rgb(80,84,255))
           padding 0 7px
           margin-bottom 0
+          box-shadow 0 0 3px 1px shadow-color
           &:first-child
             border-top-left-radius 5px
+            width 42px
           &:nth-child(6)
             border-top-right-radius 5px
           &.selected,&:hover
