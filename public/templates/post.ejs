@@ -1,0 +1,59 @@
+<div class="post" data-id="<%= post._id %>">
+  <div class="title">
+    <div class="image">
+      <%== img_tag('/assets/empty_user.png') %>
+    </div>
+    <div class="titletext selectable">
+      <%= post.title %>
+    </div>
+  </div>
+  <%== view('controls') %>
+  <% if (typeof post.data != 'undefined' && post.data.datatype != 'audio'){ %>
+    <div class="text attachment">
+      <% if (post.data && post.data.contenttype && post.data.datatype == 'photo'){ %>
+        <div class="image">
+          <%== link_to(img_tag('/post/attachment/' + post._id + '?mime=' + post.data.contenttype), '/post/attachment/' + post._id + '?mime=' + post.data.contenttype) %>
+        </div>
+      <% } else if (post.data && post.data.contenttype && post.data.datatype == 'video'){ %>
+        <div class="image">
+          <%== view('player_video.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype}) %>
+        </div>
+      <% } else if (post.data && post.data.contenttype && post.data.datatype == 'file'){ %>
+        <div class="image">
+          <%== link_to(img_tag('/images/download.png', 'Download file', {class: 'download'}), '/post/attachment/' + post._id + '?mime=' + post.data.contenttype + '&d=1') %>
+        </div>
+      <% } if (post.data && post.data.datatype == 'link') { %>
+        <div>
+          <%
+          var m
+          if (m = post.data.data.match(/^https?:\/\/([A-Za-z0-9]+\.)*youtube\.com\/.+\?((&.*)*&)?v=([^&]+)/)){
+          %>
+            <iframe class="embeddedVideo" src="http://www.youtube.com/embed/<%= m[4] %>?wmode=opaque" allowfullscreen></iframe>
+          <% } else if (m = post.data.data.match(/^https?:\/\/([A-Za-z0-9]+\.)*vimeo\.com\/([\d]+)/)) { %>
+            <iframe class='embeddedVideo' src="http://player.vimeo.com/video/<%= m[2] %>" allowfullscreen></iframe>
+          <% } %>
+        </div>
+      <% } %>
+      <div class="selectable">
+        <%= post.message %>
+      </div>
+        
+      <div class="showmore"> See more...</div>
+    </div>
+  <% } else { %>
+    <div class="text">
+      <% if (post.data && post.data.datatype == 'audio'){ %>
+        <div class="audio">
+          <%== view('player_audio.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype}) %>
+          <%= post.message %>
+        </div>
+      <% } else { %>
+        <div class="selectable">
+          <%= post.message %>
+        </div>
+      <% } %>  
+      <div class="showmore"> See more...</div>
+      <div class="showless"> See Less...</div>
+    </div>
+  <% } %>
+</div> 
