@@ -122,19 +122,33 @@ pheedit.pheeds = {
                     }
                   );
 
-                $(this).dblclick(
-                  function(){
-                    if($(player).data('jPlayer').options.fullScreen) $(player).data('jPlayer').restoreScreen();
-                    else $(player).data('jPlayer').fullScreen();
-                  }
-                );
+                  $(this).dblclick(
+                    function(){
+                      if($(player).data('jPlayer').options.fullScreen) $(player).data('jPlayer').restoreScreen();
+                      else $(player).data('jPlayer').fullScreen();
+                    }
+                  );
 
                   EMBED_INDEX++;
                 }
               );
-              $('.post .text .selectable').each(
+              $(e).find('.post .text .selectable').each(
                 function(i, e){
-                  $(e).html(pheedit.linkify($(e).text()));
+                  $(e).html(pheedit.linkify($(e).text(), {callback: function(text, href){
+                    if (href && href.match(/^https?:\/\/([^\/].)*soundcloud\.com\//)){
+                      $.getJSON('https://soundcloud.com/oembed?callback=?', {
+                        url: href,
+                        format:'js',
+                        maxheight: 250,
+                        show_comments: false
+                      }, function(r){
+                        if (r.html){console.log(r.html);
+                          $(e).addClass('attachment').removeClass('selectable').prepend($(document.createElement('div')).html(r.html));
+                        }return true;
+                      })
+                    }
+                    return href ? '<a href="' + href + '">' + text + '</a>' : text;
+                  }}));
                   if ($(e).prop('scrollHeight') > $(e).height()){
                     $(e).next('.showmore').show().click(function(){
                       $(e).switchClass('', 'showall', 800);
