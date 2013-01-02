@@ -4,6 +4,7 @@ html
     title
       != typeof title == 'undefined' ? 'shareall.co' : title
     meta(name='_csrf', content=csrf_token)
+    link(rel='alternate', type='application/rss+xml', title='shareall.co feed', href='/post/rss')
     link(rel='stylesheet', href='/bootstrap.css')
     link(rel='stylesheet', href='/assets/index.styl')
     link(rel='stylesheet', href='/jplayer/skin/blue.monday/jplayer.blue.monday.css')
