@@ -1,9 +1,9 @@
 script(type='text/javascript')
   pheedit.splash.init();
   
-img(src='/assets/splash.png', class='splash_bg')
+img(src='/assets/shareallsplash.png', class='splash_bg')
 .splashpage
-  img(src='/assets/shareall_logo.png', class='splash_logo')
+  span.splash_logo
   form(method='POST', action='/login')
     !=form_csrf
     div
