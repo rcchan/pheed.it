@@ -52,7 +52,7 @@ module.exports = {
     p.private = req.body.private || false;
     p.recipient = req.body.pheedto && req.body.pheedto.split(',') || [];
 
-    if (jQuery.isEmptyObject(req.files.file) || !req.files.file.size){
+    if (!req.files || jQuery.isEmptyObject(req.files.file) || !req.files.file.size){
       if (req.body.embed_url){
         p.data = {
           datatype: 'link',
@@ -62,7 +62,7 @@ module.exports = {
       }
       p.save(
         function(r, o){
-          res.json(r);
+          r ? res.json({success: false, data: r}) : res.json({success: true, data: o});
         }
       );
     } else {
@@ -72,7 +72,7 @@ module.exports = {
         audio: /\.(wav|mp3|ogg)$/i,
         video: /\.(m4v|flv|mp4)$/i
       };
-      if (!req.files.file.name.match(types[req.body.datatype])) return res.end('{"response": "Invalid type"}');
+      if (!req.files.file.name.match(types[req.body.datatype])) return res.json({success:false, data: {response: 'Invalid type'}});
       p.data = {
         datatype: req.body.datatype,
         contenttype: req.files.file.type
@@ -80,7 +80,7 @@ module.exports = {
       p.save(
         function(r, o){
           fs.move(req.files.file.path, __dirname + '/../public/upload/' + o._id);
-          res.json(r);
+          r ? res.json({success: false, data: r}) : res.json({success: true, data: o});
         }
       );
     }

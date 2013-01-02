@@ -1,5 +1,6 @@
 var pheedit = pheedit || {};
 pheedit.pheeds = {
+  EMBED_INDEX: 0,
   init: function(){
     $(window).load(function(){
       //$(':empty').not('.selectable').disableSelection();
@@ -68,7 +69,6 @@ pheedit.pheeds = {
         $(this).find('img').toggleFullScreen();
       });
 
-      var EMBED_INDEX = 0
       $('.posts').each(
         function(i ,e){
           $.get('/post' + $(e).data('url') || '',
@@ -79,85 +79,9 @@ pheedit.pheeds = {
               //$(e).find('.selectable').enableSelection().parents().enableSelection();
 
               $(':empty').not('.selectable, input, textarea').disableSelection();
-              $(e).find(".jp-jplayer").each(
-                function(){
-                  $(this).attr('id', 'jquery_jplayer_' + EMBED_INDEX);
-                  $(this).next('.jp-audio').add($(this).parents('.jp-video')).attr('id', 'jp_container_' + EMBED_INDEX);
-                  var type = $(this).data('type');
-                  var ext = '';
-                  switch(type){
-                    case 'audio/ogg':
-                      ext = 'oga';
-                      break;
-                    case 'audio/mp3':
-                    case 'audio/mpeg3':
-                    case 'audio/x-mpeg-3':
-                      ext = 'mp3';
-                      break;
-                    case 'audio/m4a':
-                    case 'audio/mp4':
-                    case 'audio/mp4a-latm':
-                      ext = 'm4a';
-                      break;
-                    case 'video/mp4':
-                    case 'video/m4v':
-                      ext = 'm4v';
-                      break;
-                    default:
-                      alert(type);
-                  }
-
-                  var player = $(this).jPlayer(
-                    {
-                      cssSelectorAncestor: '#jp_container_' + EMBED_INDEX,
-                      ready: function () {
-                        var media = {};
-                        //media[ext] = '/post/attachment/' + $(this).data('post_id') + '?mime=' + type;
-                        media[ext] = '//' + CDN_HOST + '/' + $(this).data('post_id');
-                        $(this).jPlayer("setMedia", media);
-                      },
-                      size: $(this).next('.jp-audio').size()?{}:{width: '260px', height: '146px'},
-                      swfPath: "/jplayer",
-                      supplied: ext
-                    }
-                  );
-
-                  $(this).dblclick(
-                    function(){
-                      if($(player).data('jPlayer').options.fullScreen) $(player).data('jPlayer').restoreScreen();
-                      else $(player).data('jPlayer').fullScreen();
-                    }
-                  );
-
-                  EMBED_INDEX++;
-                }
-              );
-              $(e).find('.post .text .selectable').each(
+              $(e).find('.post').each(
                 function(i, e){
-                  $(e).html(pheedit.linkify($(e).text(), {callback: function(text, href){
-                    if (href && href.match(/^https?:\/\/([^\/].)*soundcloud\.com\//)){
-                      $.getJSON('https://soundcloud.com/oembed?callback=?', {
-                        url: href,
-                        format:'js',
-                        maxheight: 250,
-                        show_comments: false
-                      }, function(r){
-                        if (r.html){
-                          $(e).addClass('attachment').removeClass('selectable').prepend($(document.createElement('div')).html(r.html));
-                        }return true;
-                      })
-                    }
-                    return href ? '<a href="' + href + '">' + text + '</a>' : text;
-                  }}));
-                  if ($(e).prop('scrollHeight') > $(e).height()){
-                    $(e).next('.showmore').show().click(function(){
-                      $(e).switchClass('', 'showall', 800);
-                      $(this).hide().next('.showless').show().click(function(){
-                        $(e).switchClass('showall', '', 800);
-                        $(this).hide().prev('.showmore').show();
-                    });;
-                    });
-                  }
+                  pheedit.pheeds.init_post(e);
                 }
               );
             }
@@ -169,5 +93,90 @@ pheedit.pheeds = {
         selector: '.controls .control'
       });
     });
+  },
+  init_post: function(e){
+    $(e).find(".jp-jplayer").each(
+      function(i, e){ pheedit.pheeds.init_player.call(e); }
+    );
+    $(e).find('.text .selectable').each(
+      function(i, e){
+        $(e).html(pheedit.linkify($(e).text(), {callback: function(text, href){
+        if (href && href.match(/^https?:\/\/([^\/].)*soundcloud\.com\//)){
+          $.getJSON('https://soundcloud.com/oembed?callback=?', {
+            url: href,
+            format:'js',
+            maxheight: 250,
+            show_comments: false
+          }, function(r){
+            if (r.html){
+              $(e).addClass('attachment').removeClass('selectable').prepend($(document.createElement('div')).html(r.html));
+            }return true;
+          })
+        }
+        return href ? '<a href="' + href + '">' + text + '</a>' : text;
+      }}));
+      }
+    );
+    if ($(e).prop('scrollHeight') > $(e).height()){
+      $(e).next('.showmore').show().click(function(){
+        $(e).switchClass('', 'showall', 800);
+        $(this).hide().next('.showless').show().click(function(){
+          $(e).switchClass('showall', '', 800);
+          $(this).hide().prev('.showmore').show();
+        });;
+      });
+    }
+    return e;
+  },
+  init_player: function(){
+    $(this).attr('id', 'jquery_jplayer_' + pheedit.pheeds.EMBED_INDEX);
+    $(this).next('.jp-audio').add($(this).parents('.jp-video')).attr('id', 'jp_container_' + pheedit.pheeds.EMBED_INDEX);
+    var type = $(this).data('type');
+    var ext = '';
+    switch(type){
+      case 'audio/ogg':
+        ext = 'oga';
+        break;
+      case 'audio/mp3':
+      case 'audio/mpeg3':
+      case 'audio/x-mpeg-3':
+        ext = 'mp3';
+        break;
+      case 'audio/m4a':
+      case 'audio/mp4':
+      case 'audio/mp4a-latm':
+        ext = 'm4a';
+        break;
+      case 'video/mp4':
+      case 'video/m4v':
+        ext = 'm4v';
+        break;
+      default:
+        alert(type);
+    }
+
+    var player = $(this).jPlayer(
+      {
+        cssSelectorAncestor: '#jp_container_' + pheedit.pheeds.EMBED_INDEX,
+        ready: function () {
+          var media = {};
+          //media[ext] = '/post/attachment/' + $(this).data('post_id') + '?mime=' + type;
+          media[ext] = '//' + pheedit.CDN_HOST + '/' + $(this).data('post_id');
+          $(this).jPlayer("setMedia", media);
+        },
+        size: $(this).next('.jp-audio').size()?{}:{width: '260px', height: '146px'},
+        swfPath: "/jplayer",
+        supplied: ext
+      }
+    );
+
+    $(this).dblclick(
+      function(){
+        if($(player).data('jPlayer').options.fullScreen) $(player).data('jPlayer').restoreScreen();
+        else $(player).data('jPlayer').fullScreen();
+      }
+    );
+
+    pheedit.pheeds.EMBED_INDEX++;
   }
 }

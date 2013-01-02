@@ -7,7 +7,7 @@
       <%= post.title %>
     </div>
   </div>
-  <%== view('controls') %>
+  <%== view('//templates/controls') %>
   <% if (typeof post.data != 'undefined' && post.data.datatype != 'audio'){ %>
     <div class="text attachment">
       <% if (post.data && post.data.contenttype && post.data.datatype == 'photo'){ %>
@@ -16,7 +16,7 @@
         </div>
       <% } else if (post.data && post.data.contenttype && post.data.datatype == 'video'){ %>
         <div class="image">
-          <%== view('player_video.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype}) %>
+          <%== view('//templates/player_video.ejs', {post_id: post._id, type: post.data.contenttype}) %>
         </div>
       <% } else if (post.data && post.data.contenttype && post.data.datatype == 'file'){ %>
         <div class="image">
@@ -44,7 +44,7 @@
     <div class="text">
       <% if (post.data && post.data.datatype == 'audio'){ %>
         <div class="audio">
-          <%== view('player_audio.ejs', {player_id: embed_index, post_id: post._id, type: post.data.contenttype}) %>
+          <%== view('//templates/player_audio.ejs', {post_id: post._id, type: post.data.contenttype}) %>
           <%= post.message %>
         </div>
       <% } else { %>

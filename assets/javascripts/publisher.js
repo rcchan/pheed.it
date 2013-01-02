@@ -163,10 +163,17 @@ pheedit.publisher = {
               $('.publisher .pheedit > input').prop('disabled', null);
               alert('Error: ' + xhr.status);
             },
-            success: function(r) {
-              if (r === null) document.location.reload();
-              else alert(JSON.stringify(r));
-            }
+            success: (function(r) {
+              if (r.success){
+                $.View('//templates/post.ejs', {post: r.data}, express, (function(r){
+                  var el = $(r).prependTo($(this).parent().parent().find('.posts').last());
+                  pheedit.pheeds.init_post(el);
+                  $(this)[0].reset();
+                  $('.publisher .pheedit > input').prop('disabled', null);
+                }).bind(this));
+              }
+              else alert(JSON.stringify(r.data));
+            }).bind(this)
           }
         )
         return false;
