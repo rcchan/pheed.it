@@ -142,7 +142,7 @@ pheedit.pheeds = {
                         maxheight: 250,
                         show_comments: false
                       }, function(r){
-                        if (r.html){console.log(r.html);
+                        if (r.html){
                           $(e).addClass('attachment').removeClass('selectable').prepend($(document.createElement('div')).html(r.html));
                         }return true;
                       })
