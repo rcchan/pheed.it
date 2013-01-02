@@ -283,6 +283,16 @@ pheedit.pheeds = {
 
       $('.publisher .pheedto').tokenInput("/users/search", {theme: 'facebook'});
       
+      $('.publisher .location input[type=checkbox]').change(
+        function(){
+          if ($(this).prop('checked')){
+            $.getJSON('http://freegeoip.net/json/', null, $.proxy(function(r){
+              $(this).siblings('.location_data').text(r.city + ", " + r.region_code);
+            }, this));
+          } else $(this).siblings('.location_data').text('');
+        }
+      );
+      
       $('.publisher').submit(
         function() {
           if (!$(this).find('.title').val()){
