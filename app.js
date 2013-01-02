@@ -13,12 +13,15 @@ connect = require('connect');
 
 express = require('express')
   , routes = require('./routes');
+  
+expose = require('express-expose');
 
 connect_mongo = require('connect-mongo')(express);
   
 app = module.exports = express.createServer();
 
 helpers = require('express-helpers');
+app.expose(helpers);
 helpers.all(app);
 
 fs = require('fs.extra');

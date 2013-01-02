@@ -12,6 +12,17 @@ html
     link(rel='stylesheet', href='/jquery-ui-timepicker-addon.css')
     !=js_tag('//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     !=js_tag('//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js')
+    script
+      var express = {};
+        with({single_tag_for: function(){
+          return express.single_tag_for.apply(this, arguments)
+        }, //function (_tag, html_options) { return tag(_tag, html_options, '/>')
+        tag: function(){
+          return express.tag.apply(this, arguments)
+        }
+      }){
+        !{javascript}
+      }
     !=js_tag('/assets/index')
     !=js_tag('/jplayer/jquery.jplayer.js')
 

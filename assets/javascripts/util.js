@@ -17,3 +17,7 @@ pheedit.toggle_fullscreen = function(elem){
   (document.fullscreen || document.webkitIsFullScreen || document.mozFullScreen) ? pheedit.cancel_fullscreen() : pheedit.fullscreen(elem);
 }
 */
+
+htmlentities = function(str){
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+};
