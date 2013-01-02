@@ -1,8 +1,8 @@
 module.exports = {
   search: function(req, res){
-    User.find({username: new RegExp(req.param('q'))}, {_id: 0, username: 1}).exec(
+    User.find({username: new RegExp(req.param('q'))}, {username: 1}).exec(
       function (err, docs){
-        res.json(docs.map(function(e){ return {id: e.username, name: e.username}; }));
+        res.json(docs.map(function(e){ return {id: e._id, name: e.username}; }));
       }
     );
   }

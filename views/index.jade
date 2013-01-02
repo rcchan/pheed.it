@@ -5,7 +5,7 @@ script(type='text/javascript')
   !=partial('container', {name: 'featured_pheeds', title: 'featured feeds', content: partial('posts', {url:'/featured'}), height: getProp(user, 'homepage.featured_pheeds.size') || 750})
   !=partial('container', {name: 'likes', title: 'most liked', content: partial('posts', {url:'/likes'}), height: getProp(user, 'homepage.likes.size') || 750})
 .column
-  !=partial('container', {name: 'inbox', title: 'inbox', content: partial('posts', {max: 3}), height: getProp(user, 'homepage.inbox.size') || 750})
+  !=partial('container', {name: 'inbox', title: 'inbox', content: partial('posts', {url: '/inbox'}), height: getProp(user, 'homepage.inbox.size') || 750})
   !=partial('container', {name: 'featured_food', title: 'featured posts', content: partial('posts', {url:'/phood'}), height: getProp(user, 'homepage.featured_phood.size') || 750})
   !=partial('container', {name: 'comments', title: 'most comments', content: partial('posts', {url:'/comments'}), height: getProp(user, 'homepage.comments.size') || 750})
 

@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
 
 var PostSchema = new Schema({
-  author: {type: Number, min: 1, required: true, index: true},
+  author: {type: ObjectId, required: true, index: true},
   recipient: {
-    type: [Number],
+    type: [ObjectId],
     validate: function(v){
       if (!v || !(v instanceof Array)) return false;
-      for (var i = 0; i < v.length; i++) if (!(v[i] instanceof Number) || v[i] < 1) return false;
+      //for (var i = 0; i < v.length; i++) if (!(v[i] instanceof ObjectId)) return false;
       return true;
     },
     index: true

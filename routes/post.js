@@ -17,7 +17,10 @@ module.exports = {
       case 'likes':
       case 'comments':
       case 'rephed':
-        query = {_id: false}
+        query = {_id: false};
+        break;
+      case 'inbox':
+        query = { recipient : req.user._id };
         break;
       default:
         if (req.param('type') && req.param('type').match(/[0-9a-f]/)){
@@ -43,10 +46,11 @@ module.exports = {
   // POST new posts
   post: function(req, res){
     p = new Post();
-    p.author = 1;
+    p.author = req.user._id;
     p.title = req.body.title || '[No title]';
     p.message = req.body.message || '';
     p.private = req.body.private || false;
+    p.recipient = req.body.pheedto && req.body.pheedto.split(',') || [];
 
     if (jQuery.isEmptyObject(req.files.file) || !req.files.file.size){
       if (req.body.embed_url){
