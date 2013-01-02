@@ -1,5 +1,4 @@
 //= require_self
-//= require underscore.min.js
 //= require_directory .
 //= require_directory fancybox
 
