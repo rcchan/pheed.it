@@ -295,6 +295,7 @@ pheedit.pheeds = {
       
       $('.publisher').submit(
         function() {
+          $('.publisher .pheedit > input').prop('disabled', 'disabled');
           if (!$(this).find('.title').val()){
             $(this).find('.title').focus();
             return false;
@@ -322,6 +323,7 @@ pheedit.pheeds = {
           $(this).ajaxSubmit(
             {
               error: function(xhr) {
+                $('.publisher .pheedit > input').prop('disabled', null);
                 alert('Error: ' + xhr.status);
               },
               success: function(r) {
