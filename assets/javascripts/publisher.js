@@ -1,8 +1,7 @@
 var pheedit = pheedit || {};
 pheedit.publisher = {
   init: function(){
-    $('.publisher input[type=date]').datepicker();
-    $('.publisher input[type=time]').timepicker({});
+    if (!Modernizr.inputtypes.date) $('.publisher input[type=date]').datepicker();
 
     $('.publisher .button').click(
       function(){
