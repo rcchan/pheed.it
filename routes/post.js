@@ -26,6 +26,8 @@ module.exports = {
         if (req.param('type') && req.param('type').match(/[0-9a-f]/)){
           query = {_id: req.param('type')};
           format = 'single';
+        } else {
+          query = { $or: [{ recipient : req.user._id}, { author : req.user._id }] };
         }
     }
     Post.find(query).desc('time').exec(
