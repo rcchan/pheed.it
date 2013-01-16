@@ -25,6 +25,9 @@ html
       }
     !=js_tag('/assets/index')
     !=js_tag('/jplayer/jquery.jplayer.js')
+    script
+      pheedit = pheedit || {};
+      pheedit.user = '#{user ? user._id : undefined}';
 
   body
     !=partial('_topbar', {selected: typeof selected != 'undefined' && selected})
