@@ -101,31 +101,32 @@ pheedit.pheeds = {
     $(e).find('.text .selectable').each(
       function(i, e){
         $(e).html(pheedit.linkify($(e).text(), {callback: function(text, href){
-        if (href && href.match(/^https?:\/\/([^\/].)*soundcloud\.com\//)){
-          $.getJSON('https://soundcloud.com/oembed?callback=?', {
-            url: href,
-            format:'js',
-            maxheight: 250,
-            show_comments: false
-          }, function(r){
-            if (r.html){
-              $(e).addClass('attachment').removeClass('selectable').prepend($(document.createElement('div')).html(r.html));
-            }return true;
-          })
+          if (href && href.match(/^https?:\/\/([^\/].)*soundcloud\.com\//)){
+            $.getJSON('https://soundcloud.com/oembed?callback=?', {
+              url: href,
+              format:'js',
+              maxheight: 250,
+              show_comments: false
+            }, function(r){
+              if (r.html){
+                $(e).addClass('attachment').removeClass('selectable').prepend($(document.createElement('div')).html(r.html));
+              }return true;
+            })
+          }
+          return href ? '<a href="' + href + '">' + text + '</a>' : text;
+        }}));
+      
+        if ($(e).prop('scrollHeight') > $(e).height()){
+          $(e).next('.showmore').show().click(function(){
+            $(e).switchClass('', 'showall', 800);
+            $(this).hide().next('.showless').show().click(function(){
+              $(e).switchClass('showall', '', 800);
+              $(this).hide().prev('.showmore').show();
+            });
+          });
         }
-        return href ? '<a href="' + href + '">' + text + '</a>' : text;
-      }}));
       }
     );
-    if ($(e).prop('scrollHeight') > $(e).height()){
-      $(e).next('.showmore').show().click(function(){
-        $(e).switchClass('', 'showall', 800);
-        $(this).hide().next('.showless').show().click(function(){
-          $(e).switchClass('showall', '', 800);
-          $(this).hide().prev('.showmore').show();
-        });;
-      });
-    }
     return e;
   },
   init_player: function(){
