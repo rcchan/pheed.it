@@ -106,7 +106,7 @@ pheedit.publisher = {
       }
     );
 
-    $('.publisher .eventinfo .location').keyup(
+    $('.publisher .eventinfo .eventlocation').keyup(
       function(){
         var l = $(this).val();
         /*if (l) $.get('http://maps.googleapis.com/maps/api/geocode/json?address=' + l + '&sensor=false',
