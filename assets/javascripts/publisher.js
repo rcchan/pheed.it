@@ -165,9 +165,13 @@ pheedit.publisher = {
             },
             success: (function(r) {
               if (r.success){
-                $.View('//templates/post.ejs', {post: r.data}, express, (function(r){
-                  var el = $(r).prependTo($(this).parent().parent().find('.posts').last());
-                  pheedit.pheeds.init_post(el);
+                $.View('//templates/post.ejs', {post: r.data}, express, (function(html){
+                  var $el = $(html);
+                  var $insert = $(this).parent().parent().find('.posts').last();
+                  if (r.data.recipient.indexOf(pheedit.user) > -1) $insert = $insert.add($('.container[data-name=inbox]').find('.posts').last());
+                  $insert.each(function(i, e){
+                    pheedit.pheeds.init_post($el.clone(true,true).hide().prependTo(e).animate({opacity: 'toggle', height: 'toggle'}, 800));
+                  });
                   $(this)[0].reset();
                   $('.publisher .pheedit > input').prop('disabled', null);
                 }).bind(this));
