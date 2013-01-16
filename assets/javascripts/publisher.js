@@ -102,7 +102,7 @@ pheedit.publisher = {
           f = f.substring(f.lastIndexOf('\\')+1);
           f = f.substring(f.lastIndexOf('/')+1);
           $(this).siblings('.addfile').text(f);
-        } else $(this).siblings('.addfile').text('Add file...');
+        } else $(this).siblings('.addfile').text('Attach file here or enter link below');
       }
     );
 
