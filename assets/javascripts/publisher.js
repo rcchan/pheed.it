@@ -8,6 +8,7 @@ pheedit.publisher = {
         $(this).siblings().removeClass('selected');
         $(this).addClass('selected');
 
+        pheedit.publisher.filebutton_label($(this).parentsUntil('.publisher').find('.addfile'), $(this).text());
         if ($(this).text() == 'video'){
           $(this).parents('.publishertype').find('.upload .embedtype').slideDown();
         } else {
@@ -101,7 +102,7 @@ pheedit.publisher = {
           f = f.substring(f.lastIndexOf('\\')+1);
           f = f.substring(f.lastIndexOf('/')+1);
           $(this).siblings('.addfile').text(f);
-        } else $(this).siblings('.addfile').text('Attach file here or enter link below');
+        } else pheedit.publisher.filebutton_label($(this).siblings('.addfile'), $(this).parentsUntil('.publisher').find('.publish_buttons .button.selected').text());
       }
     );
 
@@ -182,6 +183,22 @@ pheedit.publisher = {
         return false;
       }
     );
+  },
+  filebutton_label: function(e, s){debugger;
+    $(e).find('.caption').text((function(){
+      switch(s){
+        case 'video':
+          return 'm4v, mp4, flv';
+          break;
+        case 'audio':
+          return 'mp3, wav, ogg';
+          break;
+        case 'photo':
+          return 'jpg, png, gif, tif, svg';
+          break;
+        default: return '';
+      }
+    })());
   }
 };
 /*

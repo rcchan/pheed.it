@@ -102,8 +102,17 @@ shadow-color = rgba(102, 102, 102, .4)
               border-top-width: 1px;
               color: rgb(255, 255, 255);
               text-shadow: rgba(0, 0, 0, 0.246094) 0px -1px 0px;
+              
               &.loaded
                 bg-gradient(hsl(120, 45, 58), hsl(120, 34, 48))
+              
+              .caption
+                font-size 8px
+                &:before
+                  content "("
+                &:after
+                  content ")"
+              
         .eventinfo
           display none
           background rgba(255, 255, 255, 0.6)
